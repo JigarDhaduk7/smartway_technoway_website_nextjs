@@ -1,0 +1,355 @@
+:root {
+    --fonts-manrope: 'Manrope', sans-serif;
+
+    --font-light: 300;
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    --base-font-size: 1em;
+
+    --font-size-12: 12px;
+    --font-size-13: 13px;
+    --font-size-14: 14px;
+    --font-size-15: 15px;
+    --font-size-16: 16px;
+    --font-size-17: 17px;
+    --font-size-18: 18px;
+
+    --bs-border-color: #DFE7F5;
+    --bs-body-bg: #fff;
+    --white: #fff;
+
+    --bg-primary: #F4F7FB;
+    --bg-light-subtle: #F4F8F9;
+    --bg-secondary: #265CAA;
+
+    --text-white: #fff;
+    --text-primary: #1F2937;
+    --text-primary-subtle: #6B7280;
+    --text-secondary: #265CAA;
+
+    --text-secondary-subtle: #768EA4;
+    --text-danger: #B50000;
+    --text-danger-light: #E42525;
+    --text-danger-subtle: #EC5353;
+    --text-success: #105F3A;
+    --text-warning: #735109;
+    --text-warning-subtle: #F15921;
+    --text-info: #0059D8;
+    --text-orange: #BC3B0D;
+    --text-dusk: #464674;
+
+    --text-link: #265CAA;
+
+    --border-primary-subtle: #DCE8FF;
+
+    --scollbar-track: #e5e5e5;
+    --scollbar-thumb: #999999;
+
+    /* Buttons Primary : Starts; */
+
+    --btn-primary-bg: #265CAA;
+    --btn-primary-text: #FFFFFF;
+    --btn-primary-border: #265CAA;
+
+    --btn-primary-bg-hover: #265CAA;
+    --btn-primary-text-hover: #FFFFFF;
+    --btn-primary-border-hover: #265CAA;
+
+    --btn-primary-bg-focus: #265CAA;
+    --btn-primary-text-focus: #FFFFFF;
+    --btn-primary-border-focus: #265CAA;
+
+    --btn-primary-bg-active: #265CAA;
+    --btn-primary-text-active: #FFFFFF;
+    --btn-primary-border-active: #265CAA;
+
+    --btn-primary-bg-disabled: #768EA4;
+    --btn-primary-text-disabled: #E1EAF0;
+    --btn-primary-border-disabled: #768EA4;
+
+    /* Buttons Primary : End; */
+
+
+    /* Buttons Secondary : Starts; */
+
+    --btn-outline-primary-bg: #F4F7FB;
+    --btn-outline-primary-text: #1F2937;
+    --btn-outline-primary-border: #F4F7FB;
+
+    --btn-outline-primary-bg-hover: #ffffff;
+    --btn-outline-primary-text-hover: #265CAA;
+    --btn-outline-primary-border-hover: #265CAA;
+
+    --btn-outline-primary-bg-focus: #ffffff;
+    --btn-outline-primary-text-focus: #265CAA;
+    --btn-outline-primary-border-focus: #265CAA;
+
+    --btn-outline-primary-bg-active: #ffffff;
+    --btn-outline-primary-text-active: #265CAA;
+    --btn-outline-primary-border-active: #265CAA;
+
+    --btn-outline-primary-bg-disabled: #ffffff;
+    --btn-outline-primary-text-disabled: #9AAEBB;
+    --btn-outline-primary-border-disabled: #D0DBE5;
+
+    /* Buttons Secondary : End; */
+
+    /* Buttons Primary : Starts; */
+
+    --btn-secondary-bg: #FFFFFF;
+    --btn-secondary-text: #265CAA;
+    --btn-secondary-border: #FFFFFF;
+
+    --btn-secondary-bg-hover: #FFFFFF;
+    --btn-secondary-text-hover: #265CAA;
+    --btn-secondary-border-hover: #FFFFFF;
+
+    --btn-secondary-bg-focus: #FFFFFF;
+    --btn-secondary-text-focus: #265CAA;
+    --btn-secondary-border-focus: #FFFFFF;
+
+    --btn-secondary-bg-active: #FFFFFF;
+    --btn-secondary-text-active: #265CAA;
+    --btn-secondary-border-active: #FFFFFF;
+
+    --btn-secondary-bg-disabled: #768EA4;
+    --btn-secondary-text-disabled: #E1EAF0;
+    --btn-secondary-border-disabled: #768EA4;
+
+    /* Buttons Primary : End; */
+
+    /* Buttons Success : Starts; */
+
+    --btn-success-bg: #00A857;
+    --btn-success-text: #ffffff;
+    --btn-success-border: #00A857;
+
+    --btn-success-bg-hover: #105F3A;
+    --btn-success-text-hover: #ffffff;
+    --btn-success-border-hover: #105F3A;
+
+    --btn-success-bg-focus: #105F3A;
+    --btn-success-text-focus: #ffffff;
+    --btn-success-border-focus: #105F3A;
+
+    --btn-success-bg-active: #105F3A;
+    --btn-success-text-active: #ffffff;
+    --btn-success-border-active: #105F3A;
+
+    --btn-success-bg-disabled: #105F3A;
+    --btn-success-text-disabled: #F49A9A;
+    --btn-success-border-disabled: #105F3A;
+
+    /* Buttons Success : End; */
+
+    /* Buttons Danger : Starts; */
+
+    --btn-danger-bg: #E42525;
+    --btn-danger-text: #ffffff;
+    --btn-danger-border: #E42525;
+
+    --btn-danger-bg-hover: #B50000;
+    --btn-danger-text-hover: #ffffff;
+    --btn-danger-border-hover: #B50000;
+
+    --btn-danger-bg-focus: #B50000;
+    --btn-danger-text-focus: #ffffff;
+    --btn-danger-border-focus: #B50000;
+
+    --btn-danger-bg-active: #B50000;
+    --btn-danger-text-active: #ffffff;
+    --btn-danger-border-active: #B50000;
+
+    --btn-danger-bg-disabled: #B50000;
+    --btn-danger-text-disabled: #F49A9A;
+    --btn-danger-border-disabled: #B50000;
+
+    /* Buttons Danger : End; */
+
+
+    /* Buttons Danger : Starts; */
+
+    --btn-outline-danger-bg: #ffffff;
+    --btn-outline-danger-text: #E42525;
+    --btn-outline-danger-border: #F6B1B1;
+
+    --btn-outline-danger-bg-hover: #ffffff;
+    --btn-outline-danger-text-hover: #E42525;
+    --btn-outline-danger-border-hover: #EC5353;
+
+    --btn-outline-danger-bg-focus: #ffffff;
+    --btn-outline-danger-text-focus: #E42525;
+    --btn-outline-danger-border-focus: #EC5353;
+
+    --btn-outline-danger-bg-active: #ffffff;
+    --btn-outline-danger-text-active: #B50000;
+    --btn-outline-danger-border-active: #B50000;
+
+    --btn-outline-danger-bg-disabled: #ffffff;
+    --btn-outline-danger-text-disabled: #F49A9A;
+    --btn-outline-danger-border-disabled: #F49A9A;
+
+    /* Buttons Danger : End; */
+
+
+    /* Buttons Primary : Starts; */
+
+    --btn-link-text: #265CAA;
+    --btn-link-text-hover: #265CAA;
+    --btn-link-text-active: #265CAA;
+    --btn-link-text-disabled: #768EA4;
+
+
+    /* Buttons Primary : End; */
+
+
+    /* Form Control : Start; */
+
+    --form-control-bg: #ffffff;
+    --form-control-switch-bg: #EDF3F5;
+    --form-control-border: #B3C5D4;
+    --form-control-text: #1F364A;
+    --form-control-placeholder: #768EA4;
+
+    --form-control-bg-active: #0067ED;
+    --form-control-border-hover: #3889F5;
+    --form-control-border-focus: #3889F5;
+    --form-control-border-active: #0067ED;
+    --form-control-shadow-focus: #CDDFF6;
+
+    --form-control-bg-disabled: #F4F8F9;
+    --form-control-text-disabled: #768EA4;
+    --form-control-border-disabled: #D0DBE5;
+
+    /* Form Control : End; */
+
+
+    --card-bg: #fff;
+    --card-border: #DFE7F5;
+    --card-border-hover: #5298F5;
+    --card-shadow-hover: #071D2B;
+
+
+    --dropdown-bg: #FFFFFF;
+    --dropdown-hover-bg: #3889F5;
+    --dropdown-active-bg: #F4F8F9;
+    --dropdown-text: #1F364A;
+    --dropdown-text-hover: #ffffff;
+    --dropdown-border: #E1EAF0;
+    --dropdown-shadow: #071D2B;
+
+
+    /* Alert & Badge : Start; */
+
+    --ab-success: #015E33;
+    --ab-success-light: #00A857;
+    --ab-success-subtle: #DFF8EC;
+    --ab-success-border-subtle: #B8E7D0;
+
+    --ab-danger: #B50000;
+    --ab-danger-light: #E42525;
+    --ab-danger-subtle: #FFE9E9;
+    --ab-danger-border-subtle: #F9C8C8;
+
+    --ab-warning: #6E4E09;
+    --ab-warning-light: #FFB012;
+    --ab-warning-subtle: #FFF6E3;
+    --ab-warning-border-subtle: #FFE8C4;
+
+    --ab-info: #0059D8;
+    --ab-info-light: #0067ED;
+    --ab-info-subtle: #EEF5FF;
+    --ab-info-border-subtle: #CDDFF6;
+
+    --ab-orange: #8F300F;
+    --ab-orange-light: #F15921;
+    --ab-orange-subtle: #FFECE3;
+    --ab-orange-border-subtle: #FCDED3;
+
+    --ab-dusk: #464674;
+    --ab-dusk-light: #51517C;
+    --ab-dusk-subtle: #F2F2F5;
+    --ab-dusk-border-subtle: #E0E0E8;
+
+    /* Alert & Badge : End; */
+
+    --chips-light-bg: #EEF5FF;
+    --chips-light-text: #1F364A;
+    --chips-light-border: #EEF5FF;
+
+    --chips-outline-bg: #EDF3F5;
+    --chips-outline-text: #1F364A;
+    --chips-outline-border: #D0DBE5;
+
+    --chips-dark-bg: #1F364A;
+    --chips-dark-text: #ffffff;
+    --chips-dark-border: #1F364A;
+
+    --chips-green-bg: #00a857;
+    --chips-green-text: #ffffff;
+    --chips-green-border: #00a857;
+
+    --tooltip-primary: #1F364A;
+
+    --table-heding-bg: #edf3f5;
+    --table-bg: #ffffff;
+    --table-text: #1F364A;
+    --table-bg-hover: #F4F8F9;
+    --table-border: #d0dbe5c2;
+
+    --tabs-active-color: #0067ED;
+    --horizontal-tabs-text-color: #768EA4;
+    --horizontal-tabs-text-active-color: #1F364A;
+    --vertical-tabs-bg-color: #F4F8F9;
+    --vertical-tabs-text-color: #395267;
+    --vertical-tabs-text-active-color: #1F364A;
+
+    --progress-bg: #EDF3F5;
+    --progress-bar-bg: #3889F5;
+
+    --blue-gradient-bg-1: #031e3e;
+    --blue-gradient-bg-2: #071d2b;
+
+    /*Widget Card Icon BG Color Variant Start*/
+    --card-icon-bg-one: #0067ed;
+    --card-icon-bg-two: #e42525;
+    --card-icon-bg-three: #00a857;
+    --card-icon-bg-four: #5e63d3;
+    --card-icon-bg-five: #f15921;
+    --card-icon-bg-six: #0097A9;
+    --card-icon-bg-seven: #FFB012;
+    /*Widget Card Icon BG Color Variant End*/
+
+    /*Widget Card BG Color Variant Start*/
+    --card-bg-one: #edf2f9;
+    --card-bg-two: #fcf3f3;
+    --card-bg-three: #e6f6ee;
+    --card-bg-four: #f5f5fc;
+    --card-bg-five: #fff6f2;
+    --card-bg-six: #E7F4F6;
+    --card-bg-seven: #FFF9EC;
+
+    /*Widget Card Border Variant Start*/
+    --card-border-one: transparent;
+    --card-border-two: transparent;
+    --card-border-three: transparent;
+    --card-border-four: transparent;
+    --card-border-five: transparent;
+    --card-border-six: transparent;
+    --card-border-seven: transparent;
+    /*Widget Card Border Variant End*/
+
+    /*Widget Card Border Hover Variant Start*/
+    --card-border-hover-one: #0067ed;
+    --card-border-hover-two: #e42525;
+    --card-border-hover-three: #00a857;
+    --card-border-hover-four: #5e63d3;
+    --card-border-hover-five: #f15921;
+    --card-border-hover-six: #0097A9;
+    --card-border-hover-seven: #FFB012;
+    /*Widget Card Border Hover Variant End*/
+
+}

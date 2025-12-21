@@ -1,0 +1,37 @@
+//All Vendors Main CSS Start 
+@use "./vendors/bootstrap.min.css";
+@use "./vendors/fontawesome.css";
+//All Vendors Main CSS End
+
+//All Abstracts CSS Start
+@use "abstracts/variables";
+@use "abstracts/mixins";
+//All Abstracts CSS End
+
+//All Base CSS Start
+@use "base/fonts";
+@use "base/typography";
+//All Base CSS End
+
+
+//All Component CSS Start
+@use "components/accordion";
+@use "components/badge";
+@use "components/buttons";
+@use "components/cards";
+@use "components/form-control";
+@use "components/modal-offcanvas";
+@use "components/progress-bar";
+//All Component CSS End
+
+@use "base/global"
+
+// @use "./abstracts/variables";
+// @use "./abstracts/mixins";
+// @use "./base/_global";
+// @use "../..//components/Header/Header.scss";
+// @use "../..//components/Footer/Footer.scss";
+// @use "../..//components/HeroSection/HeroSection.scss";
+// @use "../..//components/ServiceCard/ServiceCard.scss";
+// @use "../..//components/ProjectCard/ProjectCard.scss";
+// @use "../..//components/BlogCard/BlogCard.scss";

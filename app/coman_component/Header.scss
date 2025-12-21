@@ -1,0 +1,141 @@
+@use "../../public/assets/scss/abstracts/mixins" as *;
+
+.header-nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  padding: 12px 0;
+
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.07);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+
+    .header-logo-wrap {
+      img {
+        max-width: 70px;
+      }
+    }
+  }
+
+}
+
+.header-logo-wrap {
+  width: 130px;
+  transition: all 0.3s;
+
+  img {
+    max-width: 110px;
+    transition: all 0.3s;
+  }
+}
+
+.nav-head-links-wrap {
+  .nav-links-list {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.nav-lst {
+  margin: 0 5px;
+}
+
+.nav-lst .nav-list-link {
+  position: relative;
+  display: block;
+  padding: 8px 25px;
+  text-transform: capitalize;
+  color: var(--text-primary);
+  font-weight: var(--font-medium);
+  border-radius: 0 20px 0 20px;
+  @include fluid-font(1);
+
+}
+
+.nav-lst .nav-list-link.active {
+  font-weight: var(--font-bold);
+  background-color: var(--bg-secondary);
+  color: var(--text-white);
+  border-radius: 20px 0 20px 0;
+}
+
+.nav-lst .nav-list-link:focus-visible {
+  // border-radius: 0 20px 0 20px;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--btn-primary-bg-focus) 30%, transparent) !important;
+}
+
+.mobile-hamburger {
+  width: 55px;
+  height: 44px;
+  margin-inline-start: 12px;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: 1px solid var(--btn-primary-border);
+  border-radius: 20px 0 20px 0;
+  display: none;
+  box-shadow: none;
+  transition: all 0.3s;
+}
+
+@media screen and (max-width: 991px) {
+  .nav-head-links-wrap {
+    // display: none;
+    height: 95vh;
+    position: fixed;
+    background: var(--white);
+    inset: 12px auto 12px -300px;
+    width: 300px;
+    padding: 15px 5px;
+    z-index: 1051;
+    border-radius: 30px 0 30px 0;
+    overflow: auto;
+    transition: all 0.3s;
+  }
+
+  .sidebar-open {
+    .nav-head-links-wrap {
+      inset: 12px auto 12px 12px;
+    }
+  }
+
+  .nav-head-links-wrap .nav-links-list {
+    display: block;
+  }
+
+  .mobile-hamburger {
+    display: inline-block;
+  }
+
+}
+
+@media screen and (max-width: 1199px) {
+  .header-logo-wrap {
+    max-width: 100px;
+  }
+
+  .header-nav-wrap {
+    .btn {
+      padding-block: 6px;
+      padding-inline: 20px;
+
+      i {
+        display: none;
+      }
+    }
+  }
+
+  .nav-lst .nav-list-link {
+    padding: 7px 25px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header-logo-wrap {
+    img {
+      max-width: 90px;
+    }
+  }
+}

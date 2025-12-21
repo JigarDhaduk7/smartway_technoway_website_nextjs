@@ -1,0 +1,158 @@
+@use "../abstracts/mixins" as *;
+
+.accordion-card {
+    .accordion-body {
+        color: var(--text-primary-subtle);
+        padding-block: 16px;
+        padding-inline: 16px;
+    }
+
+    .accordion-item {
+        .accordion-header {
+            .accordion-button {
+                word-break: break-all;
+            }
+        }
+    }
+
+    &.accordion-gray-card {
+        position: relative;
+
+        .accordion-item {
+            background: var(--bg-primary);
+            border: 0;
+            position: relative;
+            margin-block-end: 16px;
+            border-radius: 20px 0 20px 0;
+            // overflow: hidden;
+
+            .accordion-header {
+                .accordion-button {
+                    flex-direction: row-reverse;
+                    justify-content: start;
+                    font-weight: var(--font-semibold);
+                    @include fluid-font(2);
+                    color: var(--text-primary);
+                    background-color: transparent;
+                    position: relative;
+                    box-shadow: none;
+                    text-decoration: none;
+                    padding-block: 15px 15px;
+                    padding-inline: 16px 12px;
+                    line-height: normal;
+                    border-radius: 7px 7px 0 0;
+
+                    &.collapsed {
+                        border-radius: 7px;
+                        transition: color 0.15s ease-in-out,
+                            background-color 0.15s ease-in-out,
+                            border-color 0.15s ease-in-out,
+                            box-shadow 0.15s ease-in-out,
+                            border-radius 0.15s ease;
+                    }
+
+                    &::after {
+                        background-color: transparent;
+                        border: 1px solid transparent;
+                        width: 26px;
+                        height: 26px;
+                        border-radius: 50%;
+                        background-image: url('data:image/svg+xml,<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><style>.a{fill:none;stroke:%23395267;stroke-linecap:round;stroke-linejoin:round;stroke-width:2}</style><path class="a" d="m2 5l6 6 6-6"/></svg>');
+                        background-size: 64% 65%;
+                        background-position: 50% 55%;
+                        margin: 0 15px 0 0;
+                    }
+
+                    &:focus-visible {
+                        @include outline-style();
+                    }
+                }
+            }
+
+            .accordion-body {
+                padding-block: 0 16px;
+                padding-inline: 55px 16px;
+                color: var(--text-primary-subtle);
+            }
+
+            .accordion-collapse {
+                box-shadow: 0px 5px 10px color-mix(in srgb, var(--bg-primary) 6%, transparent);
+                position: relative;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+
+
+            }
+        }
+    }
+
+    &.career-accordion {
+        .accordion-item {
+            background: var(--bg-primary);
+            border: 0;
+            position: relative;
+            margin-block-end: 16px;
+            border-radius: 20px 0 20px 0;
+            // overflow: hidden;
+
+            .accordion-header {
+                .accordion-button {
+
+                    justify-content: space-between;
+                    font-weight: var(--font-semibold);
+                    @include fluid-font(2);
+                    color: var(--text-primary);
+                    background-color: transparent;
+                    position: relative;
+                    box-shadow: none;
+                    text-decoration: none;
+                    padding-block: 15px 15px;
+                    padding-inline: 16px 12px;
+                    line-height: normal;
+                    border-radius: 7px 7px 0 0;
+
+                    &.collapsed {
+                        border-radius: 7px;
+                        transition: color 0.15s ease-in-out,
+                            background-color 0.15s ease-in-out,
+                            border-color 0.15s ease-in-out,
+                            box-shadow 0.15s ease-in-out,
+                            border-radius 0.15s ease;
+                    }
+
+                    &::after {
+                        background-color: transparent;
+                        border: 1px solid transparent;
+                        width: 26px;
+                        height: 26px;
+                        border-radius: 50%;
+                        background-image: url('data:image/svg+xml,<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><style>.a{fill:none;stroke:%23395267;stroke-linecap:round;stroke-linejoin:round;stroke-width:2}</style><path class="a" d="m2 5l6 6 6-6"/></svg>');
+                        background-size: 64% 65%;
+                        background-position: 50% 55%;
+                        margin: 0 15px 0 0;
+                    }
+
+                    &:focus-visible {
+                        @include outline-style();
+                    }
+                }
+            }
+
+            .accordion-body {
+                padding-block: 0 16px;
+                padding-inline: 16px 16px;
+                color: var(--text-primary-subtle);
+            }
+
+            .accordion-collapse {
+                box-shadow: 0px 5px 10px color-mix(in srgb, var(--bg-primary) 6%, transparent);
+                position: relative;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+
+
+            }
+        }
+    }
+
+}

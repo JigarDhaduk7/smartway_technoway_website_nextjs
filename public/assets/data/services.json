@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Web Development",
+    "description": "Modern responsive web apps using React."
+  },
+  {
+    "id": 2,
+    "title": "UI/UX Design",
+    "description": "Design systems and accessible interfaces."
+  },
+  {
+    "id": 3,
+    "title": "Performance Optimization",
+    "description": "Make apps fast and reliable."
+  }
+]

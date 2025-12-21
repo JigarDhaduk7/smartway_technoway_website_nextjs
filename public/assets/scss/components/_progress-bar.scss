@@ -1,0 +1,94 @@
+@use "../abstracts/mixins" as *;
+
+.custom-progress-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .custom-progress {
+        width: 100%;
+
+        .progress {
+            background-color: var(--progress-bg);
+            height: 12px;
+            border-radius: 10px;
+        }
+
+        .progress-bar {
+            background-color: var(--progress-bar-bg);
+            border-radius: 10px;
+        }
+    }
+
+    .custom-progress-percentage {
+        font-size: var(--font-size-13);
+        width: 45px;
+        height: 12px;
+        padding-inline-start: 10px;
+        line-height: 12px;
+    }
+}
+
+.range-slider {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    margin-block: 10px 10px;
+    margin-inline: 0 0;
+}
+
+.range-slider {
+    input[type="range"] {
+        position: absolute;
+        width: 100%;
+        height: 10px;
+        appearance: none;
+        background: transparent;
+        pointer-events: none;
+        outline: none !important;
+
+        &::-webkit-slider-runnable-track {
+            height: 12px;
+            background-color: var(--progress-bg);
+            border-radius: 5px;
+        }
+
+        &::-webkit-slider-thumb {
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: var(--white);
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: all;
+            z-index: 1;
+            position: relative;
+            top: -6px;
+            border: 1px solid #B2D0F6;
+            box-shadow: 0px 3px 6px color-mix(in srgb, var(--bg-primary-active) 20%, transparent);
+            // @include outline-style();        
+        }
+
+        &:focus {
+            &::-webkit-slider-thumb {
+                outline: 2px solid var(--form-control-border-focus);
+            }
+        }
+    }
+}
+
+.range-slider-fill {
+    position: absolute;
+    top: -1px;
+    height: 12px;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.range-slider-single-color {
+    background-color: var(--progress-bar-bg);
+}
+
+.range-slider-gradiant-color {
+    background: transparent linear-gradient(90deg, #E42525 0%, #F15921 36%, #FFB012 69%, #00A857 100%) 0% 0% no-repeat padding-box;
+}

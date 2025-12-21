@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Launching with Vite",
+    "excerpt": "Short intro to Vite and why it\u2019s great."
+  },
+  {
+    "id": 2,
+    "title": "Design Systems 101",
+    "excerpt": "Basics of building reusable design systems."
+  }
+]

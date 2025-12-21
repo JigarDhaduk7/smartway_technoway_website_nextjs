@@ -1,0 +1,27 @@
+@use "../abstracts/mixins" as *;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonts-manrope);
+    color: var(--text-primary);
+    // letter-spacing: 0.15px;
+    line-height: 30px;
+    @include fluid-font(1);
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -ms-font-feature-settings: normal;
+    font-feature-settings: normal;
+    font-weight: 400;
+    overflow-x: hidden;
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        line-height: 27px;
+    }
+}
