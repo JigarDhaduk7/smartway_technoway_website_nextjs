@@ -1,0 +1,9 @@
+.best-solutions-img {
+    height: 450px;
+}
+
+@media screen and (min-width: 1200px) {
+    .best-solutions-img {
+        height: 100%;
+    }
+}
