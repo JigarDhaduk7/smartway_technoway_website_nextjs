@@ -1,0 +1,75 @@
+.footer-sec-wrap {
+  position: relative;
+  padding-block: 100px 80px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0 0 0 0;
+    // background-image: url('../../assets/images/logo-backgradund-pattern.svg');
+    background-image: url('../../../public/assets/images/logo-backgradund-pattern.svg');
+    background-size: 100%;
+    background-attachment: fixed;
+    opacity: 0.04;
+
+  }
+}
+
+.footer-logo {
+  max-width: 120px;
+  margin-block-end: 24px;
+}
+
+.footer-list-link {
+  color: var(--text-primary-subtle);
+  font-weight: 500;
+  transition: all 0.3s;
+
+  &:hover {
+    color: var(--text-secondary);
+    text-shadow: 0 0 0.8px var(--text-secondary);
+    // padding-inline-start: 6px;
+    // font-weight: 700;
+  }
+}
+
+.back-to-top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--white);
+  border-radius: 15px 0 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background: conic-gradient(#265CAA 0%, #768EA4 0%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: scale(0.8);
+  z-index: 1000;
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    fill: white;
+  }
+
+  &.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &:hover {
+    background: conic-gradient(#0056b3 100%, #ccc 0%);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .footer-sec-wrap {
+    padding-block: 50px 50px;
+  }
+}

@@ -1,0 +1,16 @@
+.company-success-highlights-wrap {
+    position: relative;
+    padding-block: 2%;
+
+    &::before {
+        content: '';
+        position: absolute !important;
+        z-index: -1;
+        inset: 0 0 0 0;
+        background-image: url('../../../public/assets/images/logo-backgradund-pattern.svg');
+        background-size: 100%;
+        background-attachment: fixed;
+        opacity: 0.04;
+
+    }
+}
