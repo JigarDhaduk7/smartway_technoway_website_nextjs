@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "bootstrap/dist/css/bootstrap.min.css";   // ✅ Bootstrap CSS
+// import "./globals.css";
 import "../public/assets/scss/app.scss";
+
 import Navbar from "./component/header/navbar";
 import Footer from "./component/Footer/footer";
 import AOSInitializer from "./component/AOSInitializer/AOSInitializer";
+import BootstrapClient from "./component/BootstrapClient";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,18 +26,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AOSInitializer />
+        <BootstrapClient />
         <Navbar />
         {children}
         <Footer />
+
+
       </body>
     </html>
   );

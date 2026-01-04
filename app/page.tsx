@@ -85,7 +85,7 @@ const Home: React.FC = () => (
           </div>
           <div className='col-12 col-lg-6 order-lg-1 position-relative' data-aos="zoom-in">
             <div className='hero-bg-round-pattern fa-spin'>
-              <Image src={heroBgPatterns} className="w-100" alt="Pattern" />
+              <Image src={heroBgPatterns} alt="Pattern" />
             </div>
             <div className='row'>
               <div className='col-12 pb-4'>
