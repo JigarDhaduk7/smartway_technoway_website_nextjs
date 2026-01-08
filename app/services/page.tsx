@@ -38,6 +38,7 @@ import bestSolutionsCompetitivePricingIcon from '@/public/assets/images/competit
 import bestSolutionsFastServiceSupportIcon from '@/public/assets/images/fast-service-support-icon.svg';
 
 import './Services.scss';
+import NextLevelServices from '../component/NextLevelServices/nextlevelservices';
 
 const Services: React.FC = () => {
   return (
@@ -69,118 +70,8 @@ const Services: React.FC = () => {
       </section>
 
       {/* NEXT LEVEL SERVICES */}
-      <section className="home-next-level-solution-wrap pt-100">
-        <div className="container">
-
-          <div className="row align-items-center justify-content-between">
-            <div className="col-lg-7 col-xl-6">
-              <h2 className="heading-xxxl mb-3" data-aos="fade-up">
-                Next-Level IT Services Built Around
-              </h2>
-            </div>
-            <div className="col-lg-5 col-xl-4">
-              <p className="peragraph-style-1" data-aos="fade-up">
-                We provide tailored IT solutions designed to match the unique needs of your business.
-              </p>
-            </div>
-          </div>
-
-          <div className="row pb-100">
-
-            {/* WEB DEVELOPMENT */}
-            <div className="col-md-6 col-xl-4 my-3">
-              <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70" data-aos="fade-up">
-                <div className="card-body card-pad-50">
-                  <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
-                    <Image src={servicesWebDevIcon} alt="Icon" />
-                  </div>
-
-                  <h2 className="heading-lg">Web Development</h2>
-                  <p className="peragraph-style-1">
-                    Building functional and user-friendly websites and applications from the ground up
-                  </p>
-
-                  <div className="d-inline-block">
-                    <Link href="/services/web-development" className="btn btn-link d-flex align-items-center">
-                      Learn more <i className="far fa-long-arrow-right font-18 ms-2"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* CLOUD SOLUTIONS */}
-            <div className="col-md-6 col-xl-4 my-3">
-              <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70" data-aos="fade-up">
-                <div className="card-body card-pad-50">
-                  <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
-                    <Image src={servicesCloudSolutionsIcon} alt="Icon" />
-                  </div>
-                  <h2 className="heading-lg">Cloud Solutions</h2>
-                  <p className="peragraph-style-1">Our IT services are customized to fit your business goals</p>
-                  <a href="" className="btn btn-link d-flex align-items-center">Learn more <i className="far fa-long-arrow-right font-18 ms-2" /></a>
-                </div>
-              </div>
-            </div>
-
-            {/* CONSULTING */}
-            <div className="col-md-6 col-xl-4 my-3">
-              <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70" data-aos="fade-up">
-                <div className="card-body card-pad-50">
-                  <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
-                    <Image src={servicesITConsultingIcon} alt="Icon" />
-                  </div>
-                  <h2 className="heading-lg">IT Consulting</h2>
-                  <p className="peragraph-style-1">Expert guidance to align technology with your goals</p>
-                  <a href="" className="btn btn-link d-flex align-items-center">Learn more <i className="far fa-long-arrow-right font-18 ms-2" /></a>
-                </div>
-              </div>
-            </div>
-
-            {/* UI/UX, APP, EMAIL MARKETING */}
-            <div className="col-md-6 col-xl-4 my-3">
-              <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70" data-aos="fade-up">
-                <div className="card-body card-pad-50">
-                  <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
-                    <Image src={servicesITUIUXDesignIcon} alt="Icon" />
-                  </div>
-                  <h2 className="heading-lg">UI/UX Design</h2>
-                  <p className="peragraph-style-1">Beautiful interfaces for better user engagement</p>
-                  <a href="" className="btn btn-link d-flex align-items-center">Learn more <i className="far fa-long-arrow-right font-18 ms-2" /></a>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-6 col-xl-4 my-3">
-              <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70" data-aos="fade-up">
-                <div className="card-body card-pad-50">
-                  <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
-                    <Image src={servicesITAppDevelopmentIcon} alt="Icon" />
-                  </div>
-                  <h2 className="heading-lg">App Development</h2>
-                  <p className="peragraph-style-1">Custom apps tailored to your business needs</p>
-                  <a href="" className="btn btn-link d-flex align-items-center">Learn more <i className="far fa-long-arrow-right font-18 ms-2" /></a>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-6 col-xl-4 my-3">
-              <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70" data-aos="fade-up">
-                <div className="card-body card-pad-50">
-                  <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
-                    <Image src={servicesITEmailMarketingIcon} alt="Icon" />
-                  </div>
-                  <h2 className="heading-lg">Email Marketing</h2>
-                  <p className="peragraph-style-1">Targeted campaigns that convert better</p>
-                  <a href="" className="btn btn-link d-flex align-items-center">Learn more <i className="far fa-long-arrow-right font-18 ms-2" /></a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
+     
+     <NextLevelServices/>
 
       <CompanySuccessHighlights />
 
