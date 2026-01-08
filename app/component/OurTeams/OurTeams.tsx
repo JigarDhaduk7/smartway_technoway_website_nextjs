@@ -4,9 +4,9 @@ import React from 'react';
 import Image from 'next/image';
 import './OurTeams.scss';
 
-import ourTeamImage1 from '@/assets/images/our-team-member-1.jpg';
-import ourTeamImage2 from '@/assets/images/our-team-member-2.jpg';
-import ourTeamImage3 from '@/assets/images/our-team-member-3.jpg';
+import ourTeamImage1 from '../../../public/assets/images/our-team-member-1.jpg';
+import ourTeamImage2 from '../../../public/assets/images/our-team-member-2.jpg';
+import ourTeamImage3 from '../../../public/assets/images/our-team-member-3.jpg';
 
 const OurTeams: React.FC = () => (
   <section className='our-success-teams-wrap'>

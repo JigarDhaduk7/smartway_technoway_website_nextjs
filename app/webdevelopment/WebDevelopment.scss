@@ -1,0 +1,202 @@
+.best-solutions-img {
+    height: 450px;
+}
+
+.services-workflow-main {
+    position: relative;
+
+    .services-workflow-inner {
+        position: relative;
+        overflow: auto;
+
+        &::before {
+            content: "";
+            position: sticky;
+            inset: 35px auto auto 50%;
+            display: inline-block;
+            height: 70px;
+            transform: translate(0, 0);
+            width: 4px;
+            background: var(--bs-border-color);
+        }
+
+        ul {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        .services-workflow-list {
+            position: relative;
+            padding-inline: 15px;
+
+            &:hover {
+                .services-workflow-list-inner {
+                    .services-workflow-number {
+                        border-color: var(--bg-secondary);
+                    }
+
+                    .services-workflow-card-main {
+
+                        &::before {
+                            background: var(--bg-secondary);
+                        }
+                    }
+
+                    .services-workflow-box {
+                        background-color: var(--bg-secondary);
+
+                    }
+                }
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 25px 0 auto 0;
+                transform: translate(0, 0);
+                height: 4px;
+                background: var(--bs-border-color);
+            }
+
+            &:first-child {
+                &::before {
+                    inset: 25px 0 auto 50%;
+                }
+            }
+
+            &:last-child {
+                &::before {
+                    inset: 25px 50% auto 0;
+                }
+            }
+
+            &:nth-of-type(odd) {
+                .services-workflow-list-inner {
+
+                    .services-workflow-box {
+                        border-radius: 50px 0 50px 0;
+
+
+                        &::before {
+                            border-radius: 40px 0 40px 0;
+
+                        }
+
+                    }
+                }
+            }
+
+            &:nth-of-type(even) {
+                .services-workflow-list-inner {
+
+                    .services-workflow-box {
+                        border-radius: 0 50px 0 50px;
+
+
+                        &::before {
+                            border-radius: 0 40px 0 40px;
+
+                        }
+
+                    }
+                }
+            }
+
+            .services-workflow-list-inner {
+                position: relative;
+
+                .services-workflow-card-main {
+                    position: relative;
+                    padding-block-start: 50px;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        inset: 0 auto 50% 50%;
+                        transform: translate(-40%, 0);
+                        width: 4px;
+                        background: var(--bs-border-color);
+                        transition: all 0.6s;
+                    }
+                }
+
+                .services-workflow-number {
+                    position: relative;
+                    width: 55px;
+                    height: 55px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--text-white);
+                    font-weight: 600;
+                    font-size: 18px;
+                    background-color: var(--bg-secondary);
+                    border: 4px solid var(--bs-border-color);
+                    border-radius: 50%;
+                    margin: 0 auto;
+                    transition: all 0.6s;
+                }
+
+                .services-workflow-box {
+                    position: relative;
+                    width: 160px;
+                    height: 160px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #F9FAFB;
+                    box-shadow: 4px 4px 20px 0px #265CAA26;
+                    margin: 0 auto;
+                    transition: all 0.6s;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        inset: 17px;
+                        background-color: #fff;
+                        z-index: 1;
+
+                    }
+
+                    .services-workflow-icn {
+                        position: relative;
+                        z-index: 2;
+                        max-width: 55px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tech-platforms-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 130px;
+    box-shadow: 4px 4px 20px 0px #265CAA26;
+    border-radius: 15px;
+    margin-bottom: 24px;
+    padding-inline: 12px;
+    padding-block: 12px;
+
+    &:hover {
+        .tech-platforms-imgs {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.tech-platforms-imgs {
+    max-height: 75px;
+    max-width: 65%;
+    object-fit: contain;
+    transition: all 0.25s;
+}
+
+
+@media screen and (min-width: 1200px) {
+    .best-solutions-img {
+        height: 100%;
+    }
+}

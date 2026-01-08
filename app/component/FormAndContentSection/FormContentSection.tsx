@@ -1,7 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import toast, { Toaster } from 'react-hot-toast';
+import { submitData } from '../../../lib/api';
 import './FormContentSection.scss';
 
 import logoBgPattern from '@/public/assets/images/logo-large-bg-patterns.svg';
@@ -9,8 +11,44 @@ import itStrategyIcon from '@/public/assets/images/it-strategy-icon.svg';
 import workforceIcon from '@/public/assets/images/workforce-icon.svg';
 
 const FormContentSection: React.FC = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      await submitData('contacts/create', formData);
+      toast.success('Message sent successfully!', {
+        style: {
+          background: '#265CAA',
+          color: '#fff',
+          fontWeight: '600'
+        }
+      });
+      setFormData({ firstName: '', lastName: '', email: '', phone: '' });
+    } catch (error) {
+      toast.error('Failed to send message. Please try again.', {
+        style: {
+          background: '#dc3545',
+          color: '#fff',
+          fontWeight: '600'
+        }
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className="container">
+    <>
+      <Toaster position="top-right" />
+      <div className="container">
       <div className="row align-items-center justify-content-between">
 
         {/* FORM */}
@@ -36,73 +74,88 @@ const FormContentSection: React.FC = () => {
                 </div>
 
                 <div className="col-12">
-                  <div className="row">
+                  <form onSubmit={handleSubmit}>
+                    <div className="row">
 
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <label className="form-label mb-1 text-white">
-                          First Name
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Enter first name"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <label className="form-label mb-1 text-white">
-                          Last Name
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Enter last name"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="col-12">
-                      <div className="form-group">
-                        <label className="form-label mb-1 text-white">
-                          Email
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Enter your email"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="col-12">
-                      <div className="form-group mb-4">
-                        <label className="form-label mb-1 text-white">
-                          Phone
-                        </label>
-                        <div className="input-group mb-3">
-                          <span className="input-group-text">+91</span>
+                      <div className="col-md-6">
+                        <div className="form-group">
+                          <label className="form-label mb-1 text-white">
+                            First Name
+                          </label>
                           <input
                             type="text"
                             className="form-control"
-                            placeholder="00000 00000"
+                            placeholder="Enter first name"
+                            value={formData.firstName}
+                            onChange={(e) => setFormData({...formData, firstName: e.target.value})}
+                            required
                           />
                         </div>
                       </div>
-                    </div>
 
-                    <div className="col-12 mt-2">
-                      <a
-                        href=""
-                        className="btn btn-primary text-secondary bg-white fw-bold"
-                      >
-                        Send Message
-                      </a>
-                    </div>
+                      <div className="col-md-6">
+                        <div className="form-group">
+                          <label className="form-label mb-1 text-white">
+                            Last Name
+                          </label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Enter last name"
+                            value={formData.lastName}
+                            onChange={(e) => setFormData({...formData, lastName: e.target.value})}
+                            required
+                          />
+                        </div>
+                      </div>
 
-                  </div>
+                      <div className="col-12">
+                        <div className="form-group">
+                          <label className="form-label mb-1 text-white">
+                            Email
+                          </label>
+                          <input
+                            type="email"
+                            className="form-control"
+                            placeholder="Enter your email"
+                            value={formData.email}
+                            onChange={(e) => setFormData({...formData, email: e.target.value})}
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div className="col-12">
+                        <div className="form-group mb-4">
+                          <label className="form-label mb-1 text-white">
+                            Phone
+                          </label>
+                          <div className="input-group mb-3">
+                            <span className="input-group-text">+91</span>
+                            <input
+                              type="tel"
+                              className="form-control"
+                              placeholder="00000 00000"
+                              value={formData.phone}
+                              onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="col-12 mt-2">
+                        <button
+                          type="submit"
+                          className="btn btn-primary text-secondary bg-white fw-bold"
+                          disabled={isSubmitting}
+                        >
+                          {isSubmitting ? 'Sending...' : 'Send Message'}
+                        </button>
+                      </div>
+
+                    </div>
+                  </form>
                 </div>
 
               </div>
@@ -181,6 +234,7 @@ const FormContentSection: React.FC = () => {
 
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,18 +1,39 @@
 'use client';
 
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import { getData } from '../../../lib/api';
 
 import 'swiper/css';
 import 'swiper/css/autoplay';
 
-import logoBgPattern from '@/public/assets/images/logo-large-bg-patterns.svg';
-
 import './SuccessStoriesSection.scss';
 
-const SuccessStoriesSection: React.FC = () => (
+interface Testimonial {
+  _id: string;
+  name: string;
+  designation: string;
+  message: string;
+  rating: number;
+}
+
+const SuccessStoriesSection: React.FC = () => {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const response = await getData('testimonials');
+        setTestimonials(response.data);
+      } catch (error) {
+        console.error('Failed to fetch testimonials:', error);
+      }
+    };
+    fetchTestimonials();
+  }, []);
+
+  return (
   <section className="home-success-stories-wrap pb-100">
     <div className="container">
 
@@ -73,87 +94,31 @@ const SuccessStoriesSection: React.FC = () => (
               onSlideChange={() => {}}
               onSwiper={() => {}}
             >
-
-              {/* SLIDE 1 */}
-              <SwiperSlide className="h-auto">
-                <div className="card card-xl card-gray __hover-blue __radius-tl-50 __radius-br-50 h-100">
-                  <div className="card-body card-pad-30">
-                    <div className="rating-start-wrap">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
+              {testimonials.map((testimonial) => (
+                <SwiperSlide key={testimonial._id} className="h-auto">
+                  <div className="card card-xl card-gray __hover-blue __radius-tl-50 __radius-br-50 h-100">
+                    <div className="card-body card-pad-30">
+                      <div className="rating-start-wrap">
+                        {Array.from({ length: 5 }, (_, i) => {
+                          const starValue = i + 1;
+                          if (starValue <= Math.floor(testimonial.rating)) {
+                            return <i key={i} className="fas fa-star"></i>;
+                          } else if (starValue - 0.5 <= testimonial.rating) {
+                            return <i key={i} className="fas fa-star-half-alt"></i>;
+                          } else {
+                            return <i key={i} className="far fa-star"></i>;
+                          }
+                        })}
+                      </div>
+                      <p className="peragraph-style-2 mb-4">
+                        {testimonial.message}
+                      </p>
+                      <h6 className="fw-extrabold mb-1">{testimonial.name}</h6>
+                      <small>{testimonial.designation}</small>
                     </div>
-                    <p className="peragraph-style-2 mb-4">
-                      Nexus transformed our IT infrastructure and made our
-                      operations far more efficient.
-                    </p>
-                    <h6 className="fw-extrabold mb-1">Michael Anderson</h6>
-                    <small>CEO at BrightWave</small>
                   </div>
-                </div>
-              </SwiperSlide>
-
-              {/* SLIDE 2 */}
-              <SwiperSlide className="h-auto">
-                <div className="card card-xl card-gray __hover-blue __radius-tl-50 __radius-br-50 h-100">
-                  <div className="card-body card-pad-30">
-                    <div className="rating-start-wrap">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                    </div>
-                    <p className="peragraph-style-2 mb-4">
-                      Nexus transformed our IT infrastructure...
-                    </p>
-                    <h6 className="fw-extrabold mb-1">Sophia Martinez</h6>
-                    <small>Operations Manager</small>
-                  </div>
-                </div>
-              </SwiperSlide>
-
-              {/* SLIDE 3 */}
-              <SwiperSlide className="h-auto">
-                <div className="card card-xl card-gray __hover-blue __radius-tl-50 __radius-br-50 h-100">
-                  <div className="card-body card-pad-30">
-                    <div className="rating-start-wrap">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                    </div>
-                    <p className="peragraph-style-2 mb-4">
-                      Nexus transformed our IT infrastructure...
-                    </p>
-                    <h6 className="fw-extrabold mb-1">Daniel Wong</h6>
-                    <small>Founder of HealthPlus</small>
-                  </div>
-                </div>
-              </SwiperSlide>
-
-              {/* SLIDE 4 */}
-              <SwiperSlide className="h-auto">
-                <div className="card card-xl card-gray __hover-blue __radius-tl-50 __radius-br-50 h-100">
-                  <div className="card-body card-pad-30">
-                    <div className="rating-start-wrap">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                    </div>
-                    <p className="peragraph-style-2 mb-4">
-                      Nexus transformed our IT infrastructure...
-                    </p>
-                    <h6 className="fw-extrabold mb-1">Michael Anderson</h6>
-                    <small>CEO at BrightWave</small>
-                  </div>
-                </div>
-              </SwiperSlide>
+                </SwiperSlide>
+              ))}
 
             </Swiper>
           </div>
@@ -162,5 +127,6 @@ const SuccessStoriesSection: React.FC = () => (
     </div>
   </section>
 );
+};
 
 export default SuccessStoriesSection;

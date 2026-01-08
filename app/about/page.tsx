@@ -3,12 +3,12 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import CompanySuccessHighlights from '../components/CompanySuccessHighlights/CompanySuccessHighlights';
-import OurCompanyValuesSection from '../components/OurCompanyValuesSection/OurCompanyValuesSection';
-import SuccessStoriesSection from '../components/SuccessStoriesSection/SuccessStoriesSection';
-import FormContentSection from '../components/FormAndContentSection/FormContentSection';
-import OurTeams from '../components/OurTeams/OurTeams';
-import FrequentlyAskedQuestion from '../components/FrequentlyAskedQuestionSection/FrequentlyAskedQuestion';
+import CompanySuccessHighlights from '../component/CompanySuccessHighlights/CompanySuccessHighlights';
+import OurCompanyValuesSection from '../component/OurCompanyValuesSection/OurCompanyValuesSection';
+import SuccessStoriesSection from '../component/SuccessStoriesSection/SuccessStoriesSection';
+import FormContentSection from '../component/FormAndContentSection/FormContentSection';
+import OurTeams from '../component/OurTeams/OurTeams';
+import FrequentlyAskedQuestion from '../component/FrequentlyAskedQuestionSection/FrequentlyAskedQuestion';
 
 import './About.scss';
 

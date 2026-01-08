@@ -9,8 +9,8 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 
-import FrequentlyAskedQuestion from '../components/FrequentlyAskedQuestionSection/FrequentlyAskedQuestion';
-import FormContentSection from '../components/FormAndContentSection/FormContentSection';
+import FrequentlyAskedQuestion from '../component/FrequentlyAskedQuestionSection/FrequentlyAskedQuestion';
+import FormContentSection from '../component/FormAndContentSection/FormContentSection';
 
 import logoBgPattern from "../../public/assets/images/logo-large-bg-patterns.svg";
 
