@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import React from 'react';
 
 import FormContentSection from '../component/FormAndContentSection/FormContentSection';
@@ -9,6 +10,17 @@ import logoBgPattern from "../../public/assets/images/logo-large-bg-patterns.svg
 import './ContactUs.scss';
 import Image from 'next/image';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Contact Us - Smartway Technoway | Get in Touch for IT Solutions',
+  description: 'Contact Smartway Technoway for expert IT consulting, web development, and digital transformation services. Get a free consultation and discuss your project requirements with our team.',
+  keywords: 'contact smartway technoway, IT consulting contact, web development inquiry, digital solutions consultation, technology support contact, project discussion',
+  openGraph: {
+    title: 'Contact Us - Smartway Technoway | Get in Touch for IT Solutions',
+    description: 'Ready to transform your business with innovative IT solutions? Contact our expert team for a free consultation and project discussion.',
+    type: 'website',
+  },
+};
 
 const ContactUs = () => (
 

@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import React from 'react';
 
 import CompanySuccessHighlights from '../component/CompanySuccessHighlights/CompanySuccessHighlights';
@@ -20,6 +21,17 @@ import ourMissionIcon from "../../public/assets/images/our-mission-icon.svg";
 import './Career.scss';
 import Image from 'next/image';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Careers - Join Smartway Technoway | IT Jobs & Opportunities',
+  description: 'Explore exciting career opportunities at Smartway Technoway. Join our dynamic team of IT professionals and grow your career in web development, software engineering, and digital solutions.',
+  keywords: 'careers smartway technoway, IT jobs, software developer jobs, web developer careers, technology jobs, remote work opportunities, UX designer jobs, programming careers',
+  openGraph: {
+    title: 'Careers - Join Smartway Technoway | IT Jobs & Opportunities',
+    description: 'Discover rewarding career opportunities at Smartway Technoway. Join our innovative team and advance your career in technology.',
+    type: 'website',
+  },
+};
 
 const Career = () => (
 

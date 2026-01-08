@@ -1,5 +1,4 @@
-'use client';
-
+import { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -12,6 +11,17 @@ import OurTeams from '../components/OurTeams/OurTeams';
 import FrequentlyAskedQuestion from '../components/FrequentlyAskedQuestionSection/FrequentlyAskedQuestion';
 
 import './About.scss';
+
+export const metadata: Metadata = {
+  title: 'About Us - Smartway Technoway | Leading IT Solutions Company',
+  description: 'Learn about Smartway Technoway - a leading IT consulting and web development company. Discover our vision, mission, and commitment to delivering innovative technology solutions for businesses worldwide.',
+  keywords: 'about smartway technoway, IT company, technology solutions, web development company, software development team, digital transformation experts',
+  openGraph: {
+    title: 'About Us - Smartway Technoway | Leading IT Solutions Company',
+    description: 'Learn about Smartway Technoway - a leading IT consulting and web development company with expert team delivering innovative solutions.',
+    type: 'website',
+  },
+};
 
 const About: React.FC = () => (
 

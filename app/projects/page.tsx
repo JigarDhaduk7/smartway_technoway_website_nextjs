@@ -1,8 +1,18 @@
-'use client';
-
+import { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'Our Projects - Smartway Technoway | Portfolio & Case Studies',
+  description: 'Explore our successful IT projects and case studies. See how we helped businesses with cloud migration, cybersecurity, custom software development, and digital transformation solutions.',
+  keywords: 'IT projects, case studies, cloud migration, cybersecurity solutions, custom software projects, digital transformation, business solutions portfolio',
+  openGraph: {
+    title: 'Our Projects - Smartway Technoway | Portfolio & Case Studies',
+    description: 'Explore our successful IT projects including cloud migration, cybersecurity upgrades, and custom software development solutions.',
+    type: 'website',
+  },
+};
 
 import OurCompanyValuesSection from '../component/OurCompanyValuesSection/OurCompanyValuesSection';
 import FormContentSection from '../component/FormAndContentSection/FormContentSection';

@@ -1,8 +1,18 @@
-'use client';
-
+import { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'Tech Blog - Smartway Technoway | IT Insights & Industry Trends',
+  description: 'Stay updated with the latest technology trends, IT insights, and expert advice. Read our blog for tips on web development, cloud solutions, cybersecurity, and digital transformation.',
+  keywords: 'technology blog, IT insights, web development tips, cloud computing, cybersecurity, digital transformation, tech trends, software development blog',
+  openGraph: {
+    title: 'Tech Blog - Smartway Technoway | IT Insights & Industry Trends',
+    description: 'Stay updated with latest technology trends and expert insights on web development, cloud solutions, and digital transformation.',
+    type: 'website',
+  },
+};
 
 import FormContentSection from '../component/FormAndContentSection/FormContentSection';
 

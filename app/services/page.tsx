@@ -1,5 +1,4 @@
-'use client';
-
+import { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,6 +7,17 @@ import CompanySuccessHighlights from '../component/CompanySuccessHighlights/Comp
 import SuccessStoriesSection from '../component/SuccessStoriesSection/SuccessStoriesSection';
 import FormContentSection from '../component/FormAndContentSection/FormContentSection';
 import FrequentlyAskedQuestion from '../component/FrequentlyAskedQuestionSection/FrequentlyAskedQuestion';
+
+export const metadata: Metadata = {
+  title: 'Our Services - Smartway Technoway | Web Development & IT Solutions',
+  description: 'Explore our comprehensive IT services including web development, cloud solutions, mobile app development, UI/UX design, IT consulting, and email marketing. Custom solutions for your business needs.',
+  keywords: 'web development services, IT consulting, cloud solutions, mobile app development, UI UX design, email marketing, custom software development, digital solutions',
+  openGraph: {
+    title: 'Our Services - Smartway Technoway | Web Development & IT Solutions',
+    description: 'Comprehensive IT services including web development, cloud solutions, and mobile app development. Custom solutions for your business.',
+    type: 'website',
+  },
+};
 
 import innerHeroBannerImage from '@/public/assets/images/our-services-banner-image.jpg';
 
