@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getData } from '../../lib/api';
 
 export const metadata: Metadata = {
   title: 'Tech Blog - Smartway Technoway | IT Insights & Industry Trends',
@@ -17,12 +18,7 @@ export const metadata: Metadata = {
 import FormContentSection from '../component/FormAndContentSection/FormContentSection';
 
 import logoBgPattern from '../../public/assets/images/logo-large-bg-patterns.svg';
-
 import innerHeroBannerImage from '../../public/assets/images/blog-categorie-banner-image.jpg';
-import blogCategorieImage1 from '../../public/assets/images/blog-categorie-image-1.jpg';
-import blogCategorieImage2 from '../../public/assets/images/blog-categorie-image-2.jpg';
-import blogCategorieImage3 from '../../public/assets/images/blog-categorie-image-3.jpg';
-
 import blogRecentPostImage1 from '../../public/assets/images/recent-post-img-1.jpg';
 import blogRecentPostImage2 from '../../public/assets/images/recent-post-img-2.jpg';
 import blogRecentPostImage3 from '../../public/assets/images/recent-post-img-3.jpg';
@@ -31,7 +27,25 @@ import blogRecentPostImage5 from '../../public/assets/images/recent-post-img-5.j
 
 import './Blogs.scss';
 
-const Blogs: React.FC = () => {
+interface Blog {
+  _id: string;
+  title: string;
+  image: string;
+  content: string;
+  isPublished: boolean;
+}
+
+const Blogs: React.FC = async () => {
+  let blogs: Blog[] = [];
+  let recentBlogs: Blog[] = [];
+  
+  try {
+    const response = await getData('blogs');
+    blogs = response.data.filter((blog: Blog) => blog.isPublished);
+    recentBlogs = blogs.slice(-5).reverse(); // Last 5 blogs, most recent first
+  } catch (error) {
+    console.error('Error fetching blogs:', error);
+  }
   return (
     <div className="smartway-blog-categories">
 
@@ -84,88 +98,49 @@ const Blogs: React.FC = () => {
               <div className="blog-categorie-wrap">
                 <div className="row">
 
-                  {/* BLOG ITEM 1 */}
-                  <div className="col-12 py-4" data-aos="fade-up">
-                    <div className="blog-categorie-img-main">
-                      <div className="card card-xl __radius-tl-70 __radius-br-70">
-                        <Image src={blogCategorieImage1} alt="Blog" className="blog-categorie-img object-cover img-h-400 w-100" />
-                      </div>
-
-                      <div className="blog-categorie-content">
-                        <h4 className="fw-semibold">The Top 5 Business Strategies for 2026</h4>
-
-                        <p className="peragraph-style-1">
-                          Blog! Here, we share expert advice, industry trends, actionable tips, and case studies
-                        </p>
-
-                        <div className="row justify-content-between">
-                          <div className="col-auto">
-                            <Link href="/blog-details" className="btn btn-primary">Learn More</Link>
+                  {blogs.length > 0 ? (
+                    blogs.map((blog) => (
+                      <div key={blog._id} className="col-12 py-4" data-aos="fade-up">
+                        <div className="blog-categorie-img-main">
+                          <div className="card card-xl __radius-tl-70 __radius-br-70">
+                            <Image 
+                              src={blog.image} 
+                              alt={blog.title} 
+                              className="blog-categorie-img object-cover img-h-400 w-100" 
+                              width={400}
+                              height={400}
+                            />
                           </div>
 
-                          <div className="col-auto opacity-75">
-                            <i className="far fa-calendar-alt opacity-75 me-2" />
-                            <span className="fw-medium">12 Aug, 2025</span>
-                          </div>
-                        </div>
-                      </div>
+                          <div className="blog-categorie-content">
+                            <h4 className="fw-semibold">{blog.title}</h4>
 
-                    </div>
-                  </div>
+                            <div 
+                              className="peragraph-style-1" 
+                              dangerouslySetInnerHTML={{ 
+                                __html: blog.content.substring(0, 150) + '...' 
+                              }} 
+                            />
 
-                  {/* BLOG ITEM 2 */}
-                  <div className="col-12 py-4" data-aos="fade-up">
-                    <div className="blog-categorie-img-main">
-                      <div className="card card-xl __radius-tl-70 __radius-br-70">
-                        <Image src={blogCategorieImage2} alt="Blog" className="blog-categorie-img object-cover img-h-400 w-100" />
-                      </div>
+                            <div className="row justify-content-between">
+                              <div className="col-auto">
+                                <Link href={`/blogs/${blog._id}`} className="btn btn-primary">Learn More</Link>
+                              </div>
 
-                      <div className="blog-categorie-content">
-                        <h4 className="fw-semibold">Unlocking Your Business's Potential</h4>
-
-                        <p className="peragraph-style-1">Blog! Here, we share expert advice, industry trends, actionable tips, and case studies</p>
-
-                        <div className="row justify-content-between">
-                          <div className="col-auto">
-                            <Link href="/" className="btn btn-primary">Learn More</Link>
-                          </div>
-
-                          <div className="col-auto opacity-75">
-                            <i className="far fa-calendar-alt opacity-75 me-2" />
-                            <span className="fw-medium">12 Aug, 2025</span>
+                              <div className="col-auto opacity-75">
+                                <i className="far fa-calendar-alt opacity-75 me-2" />
+                                <span className="fw-medium">12 Aug, 2025</span>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
-
+                    ))
+                  ) : (
+                    <div className="col-12 py-4 text-center">
+                      <p>No published blogs available.</p>
                     </div>
-                  </div>
-
-                  {/* BLOG ITEM 3 */}
-                  <div className="col-12 py-4" data-aos="fade-up">
-                    <div className="blog-categorie-img-main">
-                      <div className="card card-xl __radius-tl-70 __radius-br-70">
-                        <Image src={blogCategorieImage3} alt="Blog" className="blog-categorie-img object-cover img-h-400 w-100" />
-                      </div>
-
-                      <div className="blog-categorie-content">
-                        <h4 className="fw-semibold">Unlocking Your Business's Potential</h4>
-
-                        <p className="peragraph-style-1">Blog! Here, we share expert advice, industry trends, actionable tips, and case studies</p>
-
-                        <div className="row justify-content-between">
-                          <div className="col-auto">
-                            <Link href="/" className="btn btn-primary">Learn More</Link>
-                          </div>
-
-                          <div className="col-auto opacity-75">
-                            <i className="far fa-calendar-alt opacity-75 me-2" />
-                            <span className="fw-medium">12 Aug, 2025</span>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
+                  )}
 
                 </div>
               </div>
@@ -179,30 +154,34 @@ const Blogs: React.FC = () => {
                   <h5 className="fw-bold my-3">Recent Post</h5>
 
                   {/* Loop recent posts */}
-                  {[
-                    blogRecentPostImage1,
-                    blogRecentPostImage2,
-                    blogRecentPostImage3,
-                    blogRecentPostImage4,
-                    blogRecentPostImage5
-                  ].map((img, index) => (
-                    <div key={index} className="recent-post-item">
-                      <Link href="/" className="text-primary">
-                        <div className="row mx-0">
-                          <div className="col-auto ps-0">
-                            <div className="rp-col-img-main">
-                              <Image src={img} alt={`Recent ${index}`} className="rp-col-imgs" />
+                  {recentBlogs.length > 0 ? (
+                    recentBlogs.map((blog) => (
+                      <div key={blog._id} className="recent-post-item">
+                        <Link href={`/blogs/${blog._id}`} className="text-primary">
+                          <div className="row mx-0">
+                            <div className="col-auto ps-0">
+                              <div className="rp-col-img-main">
+                                <Image 
+                                  src={blog.image} 
+                                  alt={blog.title} 
+                                  className="rp-col-imgs" 
+                                  width={80}
+                                  height={80}
+                                />
+                              </div>
+                            </div>
+
+                            <div className="col pr-0 pe-col-content">
+                              <h6 className="fw-bold mb-1">{blog.title}</h6>
+                              <p className="mb-0 opacity-75">17 November 2025</p>
                             </div>
                           </div>
-
-                          <div className="col pr-0 pe-col-content">
-                            <h6 className="fw-bold mb-1">The Top 5 Business Strategies for 2026</h6>
-                            <p className="mb-0 opacity-75">17 November 2025</p>
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
-                  ))}
+                        </Link>
+                      </div>
+                    ))
+                  ) : (
+                    <p>No recent posts available.</p>
+                  )}
 
                 </div>
 

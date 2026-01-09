@@ -34,12 +34,14 @@ interface DynamicDetailProps {
   serviceSlug?: string;
 }
 
-const DynamicDetail: React.FC<DynamicDetailProps> = ({ serviceSlug = 'web-development' }) => {
+const DynamicDetail: React.FC<DynamicDetailProps> = ({ serviceSlug }) => {
   const [serviceData, setServiceData] = useState<ServiceData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchServiceData = async () => {
+      if (!serviceSlug) return;
+      
       try {
         const response = await getById('services', serviceSlug);
         setServiceData(response.data);

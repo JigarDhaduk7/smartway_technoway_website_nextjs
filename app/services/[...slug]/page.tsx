@@ -6,7 +6,7 @@ import ServicePageClient from './ServicePageClient';
 import './WebDevelopment.scss';
 
 interface PageProps {
-  params: { slug: string[] };
+  params: Promise<{ slug: string[] }>;
 }
 
 export async function generateStaticParams() {
@@ -21,7 +21,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug;
+  const resolvedParams = await params;
+  const slug = Array.isArray(resolvedParams.slug) ? resolvedParams.slug.join('/') : resolvedParams.slug;
   
   try {
     const response = await getById('services', slug);
@@ -45,8 +46,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
-const ServicePage: React.FC<PageProps> = ({ params }) => {
-  const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug;
+const ServicePage: React.FC<PageProps> = async ({ params }) => {
+  const resolvedParams = await params;
+  const slug = Array.isArray(resolvedParams.slug) ? resolvedParams.slug.join('/') : resolvedParams.slug;
 
   return <ServicePageClient slug={slug} />;
 };
