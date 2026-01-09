@@ -6,6 +6,12 @@ export const getData = async (endpoint: string) => {
   return response.json();
 };
 
+export const getById = async (endpoint: string, id: string) => {
+  const response = await fetch(`${API_BASE_URL}/${endpoint}/${id}`);
+  if (!response.ok) throw new Error("Failed to fetch data");
+  return response.json();
+};
+
 export const submitData = async (endpoint: string, data: any) => {
   const response = await fetch(`${API_BASE_URL}/${endpoint}`, {
     method: 'POST',
