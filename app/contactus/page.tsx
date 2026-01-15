@@ -1,10 +1,12 @@
+
+
 import { Metadata } from 'next';
-import React from 'react';
 
 import FormContentSection from '../component/FormAndContentSection/FormContentSection';
 
 import innerHeroBannerImage from "../../public/assets/images/contact-us-banner-image.jpg";
 
+// import logoBgPattern from "../../public/assets/images/logo-large-bg-patterns.svg";
 import logoBgPattern from "../../public/assets/images/logo-large-bg-patterns.svg";
 
 import './ContactUs.scss';
@@ -47,7 +49,7 @@ const ContactUs = () => (
 
     <section className='contact-sec-wrap home-sec-pattern-left overflow-hidden pt-100'>
       <div className='logo-bg-pattern-left'>
-        <img src={logoBgPattern} className="w-100" data-aos="fade-up" />
+        <Image alt='' src={logoBgPattern} className="w-100" data-aos="fade-up" />
       </div>
       <FormContentSection />
     </section>
@@ -60,10 +62,10 @@ const ContactUs = () => (
 
     <div className='ready-for-project-wrap home-sec-pattern-right home-sec-pattern-left'>
       <div className='logo-bg-pattern-right'>
-        <img src={logoBgPattern} className="w-100" data-aos="fade-up" />
+        <Image alt='' src={logoBgPattern} className="w-100" data-aos="fade-up" />
       </div>
       <div className="logo-bg-pattern-left">
-        <img src={logoBgPattern} className="w-100" data-aos="fade-up" />
+        <Image alt='' src={logoBgPattern} className="w-100" data-aos="fade-up" />
       </div>
       <div className='container ready-for-project-container'>
         <div className='row'>

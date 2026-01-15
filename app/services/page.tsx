@@ -102,7 +102,7 @@ const Services: React.FC = () => {
                 <div className="col-12 col-md-6 col-lg-6 col-xl-12 mb-4">
                   <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70">
                     <div className="card-body card-pad-40">
-                      <div className="card-icn-wrap icn-bg-blue icn-55">
+                      <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
                         <Image src={bestSolutionsTailoredIcon} alt="Icon" />
                       </div>
                       <h2 className="heading-lg">Tailored Solutions</h2>
@@ -114,7 +114,7 @@ const Services: React.FC = () => {
                 <div className="col-12 col-md-6 col-lg-6 col-xl-12 mb-4">
                   <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70">
                     <div className="card-body card-pad-40">
-                      <div className="card-icn-wrap icn-bg-blue icn-55">
+                      <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
                         <Image src={bestSolutionsGuaranteedSecurityIcon} alt="Icon" />
                       </div>
                       <h2 className="heading-lg">Guaranteed Security</h2>
@@ -140,7 +140,7 @@ const Services: React.FC = () => {
                 <div className="col-12 col-md-6 col-lg-6 col-xl-12 mb-4">
                   <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70">
                     <div className="card-body card-pad-40">
-                      <div className="card-icn-wrap icn-bg-blue icn-55">
+                      <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
                         <Image src={bestSolutionsCompetitivePricingIcon} alt="Icon" />
                       </div>
                       <h2 className="heading-lg">Competitive Pricing</h2>
@@ -152,7 +152,7 @@ const Services: React.FC = () => {
                 <div className="col-12 col-md-6 col-lg-6 col-xl-12 mb-4">
                   <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70">
                     <div className="card-body card-pad-40">
-                      <div className="card-icn-wrap icn-bg-blue icn-55">
+                      <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
                         <Image src={bestSolutionsFastServiceSupportIcon} alt="Icon" />
                       </div>
                       <h2 className="heading-lg">Fast Service & Support</h2>
