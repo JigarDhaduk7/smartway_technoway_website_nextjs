@@ -20,6 +20,7 @@ interface Testimonial {
 
 const SuccessStoriesSection: React.FC = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchTestimonials = async () => {
@@ -28,6 +29,8 @@ const SuccessStoriesSection: React.FC = () => {
         setTestimonials(response.data);
       } catch (error) {
         console.error('Failed to fetch testimonials:', error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchTestimonials();
@@ -58,6 +61,23 @@ const SuccessStoriesSection: React.FC = () => {
       <div className="row pt-4">
         <div className="col-12">
           <div data-aos="fade-up">
+            {loading ? (
+              <div className="d-flex gap-3">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="card card-xl card-gray __radius-tl-50 __radius-br-50 flex-fill">
+                    <div className="card-body card-pad-30">
+                      <div className="placeholder-glow">
+                        {/* <span className="placeholder col-4 mb-3"></span> */}
+                        <span className="placeholder col-12 mb-2"></span>
+                        <span className="placeholder col-12 mb-2"></span>
+                        <span className="placeholder col-8 mb-4"></span>
+                        <span className="placeholder col-6 mb-1"></span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
             <Swiper
               rewind={true}
               modules={[Autoplay]}
@@ -98,7 +118,7 @@ const SuccessStoriesSection: React.FC = () => {
                 <SwiperSlide key={testimonial._id} className="h-auto">
                   <div className="card card-xl card-gray __hover-blue __radius-tl-50 __radius-br-50 h-100">
                     <div className="card-body card-pad-30">
-                      <div className="rating-start-wrap">
+                      {/* <div className="rating-start-wrap">
                         {Array.from({ length: 5 }, (_, i) => {
                           const starValue = i + 1;
                           if (starValue <= Math.floor(testimonial.rating)) {
@@ -109,7 +129,7 @@ const SuccessStoriesSection: React.FC = () => {
                             return <i key={i} className="far fa-star"></i>;
                           }
                         })}
-                      </div>
+                      </div> */}
                       <p className="peragraph-style-2 mb-4">
                         {testimonial.message}
                       </p>
@@ -121,6 +141,7 @@ const SuccessStoriesSection: React.FC = () => {
               ))}
 
             </Swiper>
+            )}
           </div>
         </div>
       </div>

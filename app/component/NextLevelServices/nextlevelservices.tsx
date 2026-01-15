@@ -17,6 +17,7 @@ interface Service {
 
 const NextLevelServices: React.FC = () => {
   const [services, setServices] = useState<Service[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchServices = async () => {
@@ -28,6 +29,8 @@ const NextLevelServices: React.FC = () => {
       } catch (error) {
         console.error('Failed to fetch services:', error);
         setServices([]);
+      } finally {
+        setLoading(false);
       }
     };
     fetchServices();
@@ -51,7 +54,21 @@ const NextLevelServices: React.FC = () => {
       </div>
 
       <div className="row pb-100">
-        {services.map((service) => (
+        {loading ? (
+          [1, 2, 3].map((i) => (
+            <div key={i} className="col-md-6 col-xl-4 my-3">
+              <div className="card card-xl card-gray h-100 __radius-tr-70 __radius-bl-70">
+                <div className="card-body card-pad-50 placeholder-glow">
+                  <span className="placeholder col-3 mb-3" style={{height: '55px', display: 'block'}}></span>
+                  <span className="placeholder col-8 mb-2"></span>
+                  <span className="placeholder col-12 mb-2"></span>
+                  <span className="placeholder col-10"></span>
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          services.map((service) => (
           <div key={service._id} className="col-md-6 col-xl-4 my-3">
             <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70" data-aos="fade-up">
               <div className="card-body card-pad-50">
@@ -76,7 +93,8 @@ const NextLevelServices: React.FC = () => {
               </div>
             </div>
           </div>
-        ))}
+          ))
+        )}
 
       </div>
 

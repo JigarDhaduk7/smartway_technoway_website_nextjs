@@ -30,9 +30,11 @@ import './Blogs.scss';
 interface Blog {
   _id: string;
   title: string;
+  slug: string;
   image: string;
   content: string;
   isPublished: boolean;
+  createdAt: string;
 }
 
 const Blogs: React.FC = async () => {
@@ -124,12 +126,12 @@ const Blogs: React.FC = async () => {
 
                             <div className="row justify-content-between">
                               <div className="col-auto">
-                                <Link href={`/blogs/${blog._id}`} className="btn btn-primary">Learn More</Link>
+                                <Link href={`/blogs/${blog.slug}`} className="btn btn-primary">Learn More</Link>
                               </div>
 
                               <div className="col-auto opacity-75">
                                 <i className="far fa-calendar-alt opacity-75 me-2" />
-                                <span className="fw-medium">12 Aug, 2025</span>
+                                <span className="fw-medium">{new Date(blog.createdAt).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
                               </div>
                             </div>
                           </div>
@@ -157,7 +159,7 @@ const Blogs: React.FC = async () => {
                   {recentBlogs.length > 0 ? (
                     recentBlogs.map((blog) => (
                       <div key={blog._id} className="recent-post-item">
-                        <Link href={`/blogs/${blog._id}`} className="text-primary">
+                        <Link href={`/blogs/${blog.slug}`} className="text-primary">
                           <div className="row mx-0">
                             <div className="col-auto ps-0">
                               <div className="rp-col-img-main">
@@ -173,7 +175,7 @@ const Blogs: React.FC = async () => {
 
                             <div className="col pr-0 pe-col-content">
                               <h6 className="fw-bold mb-1">{blog.title}</h6>
-                              <p className="mb-0 opacity-75">17 November 2025</p>
+                              <p className="mb-0 opacity-75">{new Date(blog.createdAt).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
                             </div>
                           </div>
                         </Link>
