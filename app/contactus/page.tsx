@@ -14,12 +14,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Contact Us - Smartway Technoway | Get in Touch for IT Solutions',
-  description: 'Contact Smartway Technoway for expert IT consulting, web development, and digital transformation services. Get a free consultation and discuss your project requirements with our team.',
-  keywords: 'contact smartway technoway, IT consulting contact, web development inquiry, digital solutions consultation, technology support contact, project discussion',
+  title: "Contact Smartway Technoway | Let's Build the Future of Technology Together",
+  description: "Reach Smartway Technoway to discuss AI, automation, cloud, and software solutions. Connect with our experts in Ahmedabad to turn your idea into impact. Let's collaborate and create the next innovation.",
+  keywords: 'Smartway Technoway contact, IT company Ahmedabad, digital transformation consulting, AI automation inquiry, Smartway Group contact',
   openGraph: {
-    title: 'Contact Us - Smartway Technoway | Get in Touch for IT Solutions',
-    description: 'Ready to transform your business with innovative IT solutions? Contact our expert team for a free consultation and project discussion.',
+    title: "Contact Smartway Technoway | Let's Build the Future of Technology Together",
+    description: "Reach Smartway Technoway to discuss AI, automation, cloud, and software solutions. Connect with our experts in Ahmedabad to turn your idea into impact. Let's collaborate and create the next innovation.",
     type: 'website',
   },
 };
@@ -70,8 +70,8 @@ const ContactUs = () => (
       <div className='container ready-for-project-container'>
         <div className='row'>
           <div className='col-12 text-center'>
-            <h2 className='fw-bold'>We're Ready for a Challenging Project</h2>
-            <p>Send us your brief and tell your project too. We are ready to help all you need</p>
+            <h2 className='fw-bold'>Let's Build the Future of Technology — Together</h2>
+            <p>Every great idea begins with a conversation. We're here to listen, collaborate, and create solutions that bring your vision to life — from thought to impact.</p>
             <div className="d-inline-block">
               <a href="" className="btn btn-primary d-flex align-items-center">Let's Discuss it!</a>
             </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -22,12 +23,12 @@ const FrequentlyAskedQuestion: React.FC = () => {
         {/* LEFT SIDE FAQ */}
         <div className="col-lg-6">
           <h2 className="heading-xxxl mb-3" data-aos="fade-up">
-            Frequently Asked Questions
+            The Technoway Culture
           </h2>
 
-          <p className="peragraph-style-1" data-aos="fade-up">
-            When we talk to clients about our IT services for their company, a few of the same questions come up.
-          </p>
+          {/* <p className="peragraph-style-1" data-aos="fade-up">
+            Where Curiosity Meets Creativity
+          </p> */}
 
           <div className="col-12">
             <div className="accordion accordion-card accordion-gray-card" id="DefaultAccordionsWrap">
@@ -43,7 +44,7 @@ const FrequentlyAskedQuestion: React.FC = () => {
                     aria-expanded="true"
                     aria-controls="defaultaccordion1"
                   >
-                    What services do you offer?
+                    Where Curiosity Meets Creativity
                   </button>
                 </h2>
 
@@ -54,8 +55,16 @@ const FrequentlyAskedQuestion: React.FC = () => {
                 >
                   <div className="accordion-body">
                     <p className="mb-2">
-                      Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.
+                      Our culture celebrates curiosity, collaboration, and continuous learning. <br />
+                      We bring together thinkers, developers, designers, and dreamers who share one purpose — to make technology meaningful. <br />
+                      Every member of our team contributes to building products and solutions that not only meet goals but also inspire progress. <br />
                     </p>
+                    <ul>
+                      <li>•	Collaborative, agile, and idea-driven work environment</li>
+                      <li>•	Encouragement of innovation and experimentation</li>
+                      <li>•	Training and mentorship programs for continuous upskilling</li>
+                      <li>•	A shared belief in building “Technology for Good”</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -71,7 +80,7 @@ const FrequentlyAskedQuestion: React.FC = () => {
                     aria-expanded="false"
                     aria-controls="defaultaccordion2"
                   >
-                    How long does it take for you to complete a project?
+                    Expanding Horizons, One Innovation at a Time
                   </button>
                 </h2>
 
@@ -81,9 +90,11 @@ const FrequentlyAskedQuestion: React.FC = () => {
                   data-bs-parent="#DefaultAccordionsWrap"
                 >
                   <div className="accordion-body">
-                    <p className="mb-2">
-                      Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.
+                    <p className="mb-3">
+                      Headquartered in Ahmedabad, with operations extending across India, Smartway Technoway partners with enterprises globally to deliver high-impact IT solutions. <br />
+                      From strategic consulting to full-stack development, our footprint continues to expand in healthcare, manufacturing, retail, and technology sectors worldwide.
                     </p>
+                    <Link href='' className='btn btn-link d-flex align-items-center'>Partner With Us <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
                   </div>
                 </div>
               </div>
@@ -99,7 +110,7 @@ const FrequentlyAskedQuestion: React.FC = () => {
                     aria-expanded="false"
                     aria-controls="defaultaccordion3"
                   >
-                    How much does it cost to work with your agency?
+                    Let's Build the Future of Technology — Together
                   </button>
                 </h2>
 
@@ -109,12 +120,11 @@ const FrequentlyAskedQuestion: React.FC = () => {
                   data-bs-parent="#DefaultAccordionsWrap"
                 >
                   <div className="accordion-body">
-                    <p className="mb-2">
-                      Many desktop publishing packages now use Lorem Ipsum as their default model text.
+                    <p className="mb-3">
+                      We're here to collaborate, innovate, and accelerate your business growth through smart, scalable digital solutions. <br />
+                      Join us in creating technology that turns thoughts into lasting impact.
                     </p>
-                    <p className="mb-2">
-                      Many desktop publishing packages now use Lorem Ipsum as their default model text.
-                    </p>
+                    <Link href='' className='btn btn-link d-flex align-items-center'>Contact Technoway <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
                   </div>
                 </div>
               </div>

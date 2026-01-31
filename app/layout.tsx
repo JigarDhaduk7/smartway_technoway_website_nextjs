@@ -20,22 +20,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Smartway Technoway - IT Solutions & Web Development Services",
-  description: "Leading IT consulting and web development company offering custom software solutions, cloud services, mobile app development, and digital transformation. Expert team delivering innovative technology solutions for businesses worldwide.",
-  keywords: "IT consulting, web development, software solutions, cloud services, mobile app development, digital transformation, technology consulting, custom software",
+  title: "Smartway Technoway - From Thought to Impact | Innovative IT & Digital Solutions Company",
+  description: "Discover Smartway Technoway, the technology division of Smartway Group empowering businesses through AI, automation, cloud solutions, and custom software development. From thought to impact — we build technology that drives the future.",
+  keywords: "Smartway Technoway, IT solutions India & World, AI automation company, cloud infrastructure services, custom software development, digital transformation partner",
   authors: [{ name: "Smartway Technoway" }],
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
-    title: "Smartway Technoway - IT Solutions & Web Development Services",
-    description: "Leading IT consulting and web development company offering innovative technology solutions for businesses worldwide.",
+    title: "Smartway Technoway - From Thought to Impact | Innovative IT & Digital Solutions Company",
+    description: "Discover Smartway Technoway, the technology division of Smartway Group empowering businesses through AI, automation, cloud solutions, and custom software development. From thought to impact — we build technology that drives the future.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Smartway Technoway - IT Solutions & Web Development Services",
-    description: "Leading IT consulting and web development company offering innovative technology solutions for businesses worldwide.",
+    title: "Smartway Technoway - From Thought to Impact | Innovative IT & Digital Solutions Company",
+    description: "Discover Smartway Technoway, the technology division of Smartway Group empowering businesses through AI, automation, cloud solutions, and custom software development. From thought to impact — we build technology that drives the future.",
   },
   icons: {
     icon: [

@@ -49,191 +49,214 @@ const FormContentSection: React.FC = () => {
     <>
       <Toaster position="top-right" />
       <div className="container">
-      <div className="row align-items-center justify-content-between">
+        <div className="row align-items-center justify-content-between">
 
-        {/* FORM */}
-        <div className="col-lg-6 pb-5">
-          <div
-            className="card card-xl card-blue __radius-tl-70 __radius-br-70"
-            data-aos="fade-up"
-          >
-            <div className="card-body card-pad-40">
-              <div className="row">
+          {/* FORM */}
+          <div className="col-lg-6 pb-5">
+            <div
+              className="card card-xl card-blue __radius-tl-70 __radius-br-70"
+              data-aos="fade-up"
+            >
+              <div className="card-body card-pad-40">
+                <div className="row">
 
-                <div className="col-12 py-4">
-                  <span className="badge badge-numbers b-midnight-100 mb-0">
-                    <div className="badge-inner-num">
-                      <i className="fas fa-circle badge-left-round"></i>
-                      <span className="badge-num-text">Form</span>
-                    </div>
-                  </span>
-                </div>
-
-                <div className="col-12">
-                  <h5 className="heading-md text-white">Send us Message</h5>
-                </div>
-
-                <div className="col-12">
-                  <form onSubmit={handleSubmit}>
-                    <div className="row">
-
-                      <div className="col-md-6">
-                        <div className="form-group">
-                          <label className="form-label mb-1 text-white">
-                            First Name
-                          </label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Enter first name"
-                            value={formData.firstName}
-                            onChange={(e) => setFormData({...formData, firstName: e.target.value})}
-                            required
-                          />
-                        </div>
+                  <div className="col-12 py-4">
+                    <span className="badge badge-numbers b-midnight-100 mb-0">
+                      <div className="badge-inner-num">
+                        <i className="fas fa-circle badge-left-round"></i>
+                        <span className="badge-num-text">Form</span>
                       </div>
+                    </span>
+                  </div>
 
-                      <div className="col-md-6">
-                        <div className="form-group">
-                          <label className="form-label mb-1 text-white">
-                            Last Name
-                          </label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Enter last name"
-                            value={formData.lastName}
-                            onChange={(e) => setFormData({...formData, lastName: e.target.value})}
-                            required
-                          />
-                        </div>
-                      </div>
+                  <div className="col-12">
+                    <h5 className="heading-md text-white">Tell Us About Your Project</h5>
+                  </div>
 
-                      <div className="col-12">
-                        <div className="form-group">
-                          <label className="form-label mb-1 text-white">
-                            Email
-                          </label>
-                          <input
-                            type="email"
-                            className="form-control"
-                            placeholder="Enter your email"
-                            value={formData.email}
-                            onChange={(e) => setFormData({...formData, email: e.target.value})}
-                            required
-                          />
-                        </div>
-                      </div>
+                  <div className="col-12">
+                    <form onSubmit={handleSubmit}>
+                      <div className="row">
 
-                      <div className="col-12">
-                        <div className="form-group mb-4">
-                          <label className="form-label mb-1 text-white">
-                            Phone
-                          </label>
-                          <div className="input-group mb-3">
-                            <span className="input-group-text">+91</span>
+                        <div className="col-md-6">
+                          <div className="form-group">
+                            <label className="form-label mb-1 text-white">
+                              Full Name
+                            </label>
                             <input
-                              type="tel"
+                              type="text"
                               className="form-control"
-                              placeholder="00000 00000"
-                              value={formData.phone}
-                              onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                              placeholder="Enter full name"
+                              value={formData.firstName}
+                              onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                               required
                             />
                           </div>
                         </div>
-                      </div>
 
-                      <div className="col-12 mt-2">
-                        <button
-                          type="submit"
-                          className="btn btn-primary text-secondary bg-white fw-bold"
-                          disabled={isSubmitting}
-                        >
-                          {isSubmitting ? 'Sending...' : 'Send Message'}
-                        </button>
-                      </div>
+                        <div className="col-md-6">
+                          <div className="form-group">
+                            <label className="form-label mb-1 text-white">
+                              Company / Organization
+                            </label>
+                            <input
+                              type="text"
+                              className="form-control"
+                              placeholder="Enter company / organization"
+                              value={formData.lastName}
+                              onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                              required
+                            />
+                          </div>
+                        </div>
 
-                    </div>
-                  </form>
+                        <div className="col-md-6">
+                          <div className="form-group">
+                            <label className="form-label mb-1 text-white">
+                              Email Address
+                            </label>
+                            <input
+                              type="email"
+                              className="form-control"
+                              placeholder="Enter email address "
+                              value={formData.email}
+                              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                              required
+                            />
+                          </div>
+                        </div>
+
+                        <div className="col-md-6">
+                          <div className="form-group mb-4">
+                            <label className="form-label mb-1 text-white">
+                              Phone Number
+                            </label>
+                            <div className="input-group mb-3">
+                              <span className="input-group-text">+91</span>
+                              <input
+                                type="tel"
+                                className="form-control"
+                                placeholder="Enter phone number"
+                                value={formData.phone}
+                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                required
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="col-md-12">
+                          <div className="form-group">
+                            <label className="form-label mb-1 text-white">
+                              How Can We Help?
+                            </label>
+                            <textarea rows={4} className="form-control h-auto" placeholder="Enter message" required></textarea>
+                          </div>
+                        </div>
+
+                        <div className="col-md-12">
+                          <div className="form-group">
+                            <label className="form-label mb-1 text-white">
+                              Preferred Mode of Contact
+                            </label>
+                            <select className='form-control'>
+                              <option>Email </option>
+                              <option>Call </option>
+                              <option>WhatsApp </option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div className="col-12 mt-2">
+                          <button
+                            type="submit"
+                            className="btn btn-primary text-secondary bg-white fw-bold"
+                            disabled={isSubmitting}
+                          >
+                            {isSubmitting ? 'Sending...' : 'Send Message'}
+                          </button>
+                        </div>
+
+                      </div>
+                    </form>
+                  </div>
+
                 </div>
-
               </div>
             </div>
           </div>
-        </div>
 
-        {/* CONTENT */}
-        <div className="col-lg-6 ps-xl-5 pb-3">
-          <div className="row">
+          {/* CONTENT */}
+          <div className="col-lg-6 ps-xl-5 pb-3">
+            <div className="row">
 
-            <div className="col-12">
-              <h2 className="heading-xxxl" data-aos="fade-up">
-                Let&apos;s Build Something Great Together
-              </h2>
-              <div className="col-xl-9">
-                <p className="peragraph-style-1" data-aos="fade-up">
-                  Were here to answer your questions, discuss your ideas,
-                  and help you find the right IT solutions for your business.
-                </p>
+              <div className="col-12">
+                <h2 className="heading-xxxl" data-aos="fade-up">
+                  Let's Build the Future of Technology Together
+                </h2>
+                <div className="col-xl-9">
+                  <p className="peragraph-style-1 mb-2" data-aos="fade-up">We're ready to discuss your next big idea — whether you need a custom solution, system upgrade, or digital transformation roadmap. Let's create something that delivers real impact.</p>
+                  <div className="peragraph-style-1 mb-0" data-aos="fade-up"><i className="far fa-map-pin me-2"></i>Ahmedabad, Gujarat, India</div>
+                  <div className="peragraph-style-1 mb-0" data-aos="fade-up"><i className="far fa-mobile me-2"></i><a href='tel:+079-69209901/02' className='footer-list-link'>+079-69209901/02</a></div>
+                  <div className="peragraph-style-1 mb-0" data-aos="fade-up"> <i className="far fa-envelope me-2"></i><a href='mailto:info@smartwaytechnoway.com' className='footer-list-link'>info@smartwaytechnoway.com</a></div>
+                  <div className="d-inline-block mt-3" data-aos="fade-up"><a className="btn btn-primary d-flex align-items-center" href="">Contact Us</a></div>
+                </div>
               </div>
-            </div>
 
-            <div className="col-12">
-              <div className="row">
+              <div className="col-12">
+                <div className="row">
 
-                <div className="col-md-6 pt-4 pt-md-5">
-                  <div data-aos="fade-up">
-                    <div className="row">
-                      <div className="col-auto">
-                        <div className="icn-bg-blue card-icn-wrap icn-70 card card-xxl __radius-br-110 __radius-tr-110 __radius-bl-110">
-                          <Image
-                            src={itStrategyIcon}
-                            alt="IT Strategy"
-                            className="img-fluid"
-                          />
+                  <div className="col-md-6 pt-4 pt-md-5">
+                    <div data-aos="fade-up">
+                      <div className="row">
+                        <div className="col-auto">
+                          <div className="icn-bg-blue card-icn-wrap icn-70 card card-xxl __radius-br-110 __radius-tr-110 __radius-bl-110">
+                            <Image
+                              src={itStrategyIcon}
+                              alt="IT Strategy"
+                              className="img-fluid"
+                            />
+                          </div>
                         </div>
-                      </div>
-                      <div className="col">
-                        <h5 className="heading-md mb-2">IT Strategy</h5>
-                        <p className="peragraph-style-1 lh-base">
-                          Plan your digital future with expert guidance
-                        </p>
+                        <div className="col">
+                          <h5 className="heading-md mb-2">IT Strategy</h5>
+                          <p className="peragraph-style-1 lh-base">
+                            Plan your digital future with expert guidance
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="col-md-6 pt-4 pt-md-5">
-                  <div data-aos="fade-up">
-                    <div className="row">
-                      <div className="col-auto">
-                        <div className="icn-bg-blue card-icn-wrap icn-70 card card-xxl __radius-br-110 __radius-tr-110 __radius-bl-110">
-                          <Image
-                            src={workforceIcon}
-                            alt="Workforce"
-                            className="img-fluid"
-                          />
+                  <div className="col-md-6 pt-4 pt-md-5">
+                    <div data-aos="fade-up">
+                      <div className="row">
+                        <div className="col-auto">
+                          <div className="icn-bg-blue card-icn-wrap icn-70 card card-xxl __radius-br-110 __radius-tr-110 __radius-bl-110">
+                            <Image
+                              src={workforceIcon}
+                              alt="Workforce"
+                              className="img-fluid"
+                            />
+                          </div>
                         </div>
-                      </div>
-                      <div className="col">
-                        <h5 className="heading-md mb-2">Workforce</h5>
-                        <p className="peragraph-style-1 lh-base">
-                          Empower your teams to work securely
-                        </p>
+                        <div className="col">
+                          <h5 className="heading-md mb-2">Workforce</h5>
+                          <p className="peragraph-style-1 lh-base">
+                            Empower your teams to work securely
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
+
                 </div>
-
               </div>
-            </div>
 
+            </div>
           </div>
-        </div>
 
+        </div>
       </div>
-    </div>
     </>
   );
 };

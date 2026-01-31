@@ -13,12 +13,12 @@ import FrequentlyAskedQuestion from '../component/FrequentlyAskedQuestionSection
 import './About.scss';
 
 export const metadata: Metadata = {
-  title: 'About Us - Smartway Technoway | Leading IT Solutions Company',
-  description: 'Learn about Smartway Technoway - a leading IT consulting and web development company. Discover our vision, mission, and commitment to delivering innovative technology solutions for businesses worldwide.',
-  keywords: 'about smartway technoway, IT company, technology solutions, web development company, software development team, digital transformation experts',
+  title: 'About Smartway Technoway | Empowering the Future Through Innovation and Technology',
+  description: 'Smartway Technoway, a Smartway Group company, is redefining digital transformation with AI, automation, and cloud solutions. Learn about our story, values, and vision — From Thought to Impact.',
+  keywords: 'Smartway Technoway, About Smartway, IT company in India, AI and automation experts, digital transformation, Smartway Group technology',
   openGraph: {
-    title: 'About Us - Smartway Technoway | Leading IT Solutions Company',
-    description: 'Learn about Smartway Technoway - a leading IT consulting and web development company with expert team delivering innovative solutions.',
+    title: 'About Smartway Technoway | Empowering the Future Through Innovation and Technology',
+    description: 'Smartway Technoway, a Smartway Group company, is redefining digital transformation with AI, automation, and cloud solutions. Learn about our story, values, and vision — From Thought to Impact.',
     type: 'website',
   },
 };
@@ -56,9 +56,9 @@ const About: React.FC = () => (
           </div>
           <div className='col-lg-6 ps-xl-5 pb-3'>
             <div className='' data-aos="fade-up">
-              <h2 className='heading-xxxl'>End-to End IT Solutions for Growing Businesses</h2>
-              <div className='col-xl-9'>
-                <p className='peragraph-style-1'>We provide comprehensive, end-to-end IT solutions of designed to support businesses at stage of growing.</p>
+              <h2 className='heading-xxxl'>Empowering the Future Through Innovation and Intelligence</h2>
+              <div className='col-xl-12'>
+                <p className='peragraph-style-1'>From Thought to Impact — our journey is built on transforming vision into reality through technology that makes businesses smarter, faster, and more sustainable.</p>
               </div>
               <div className='row my-4'>
                 <div className='col-12'>
@@ -107,7 +107,7 @@ const About: React.FC = () => (
                   </div>
                 </div>
               </div>
-              <a href='' className='btn btn-primary'>Discover our Solutions</a>
+              <Link href='' className='btn btn-primary'>Explore Our Work</Link>
             </div>
           </div>
         </div>
@@ -119,7 +119,7 @@ const About: React.FC = () => (
         <div className='row align-items-center'>
           <div className='col-lg-6 order-lg-2 home-sec-padding'>
             <div className='card card-xxxl card-blue-overlay __radius-tl-150 __radius-br-150' data-aos="fade-up">
-              <Image src="/assets/images/our-vision-image.jpg" alt="Our Vision" className="w-100 img-h-400 object-cover" width={600} height={400} />
+              <Image src="/assets/images/our-vision-image.jpg" alt="Our Vision" className="w-100 img-h-500 object-cover" width={600} height={400} />
             </div>
           </div>
           <div className='col-lg-6 order-lg-1' data-aos="fade-up">
@@ -130,9 +130,15 @@ const About: React.FC = () => (
                 </div>
               </div>
               <div className='col-12 col-lg-11'>
-                <h2 className='fw-bold mb-3'>Our Vision</h2>
-                <p className='peragraph-style-1 lh-base mb-3'>To be the leading provider of AI-powered digital solutions, enabling businesses worldwide to unlock their full potential through innovative technology.</p>
-                <p className='peragraph-style-1 lh-base mb-3'>At TechXen, our vision is to be the leading force driving digital transformation and innovation worldwide. We envision a future where businesses of all sizes have the tools and expertise they need to thrive in an increasingly digital world.</p>
+                <h2 className='fw-bold mb-3'>OUR STORY</h2>
+                <p className='peragraph-style-1 lh-base mb-2'>Where Innovation Meets Purpose</p>
+                <p className='peragraph-style-1 lh-base mb-3'>Smartway Technoway Pvt. Ltd. was founded with a singular mission — to bridge innovation with real-world impact. Born from the legacy of Smartway Group, India's trusted leader in healthcare and wellness, Technoway represents the evolution of that philosophy into the digital era. We believe technology is more than code — it's the catalyst that powers transformation. From startups to enterprises, we craft intelligent IT solutions that empower organizations to perform, evolve, and lead.</p>
+                <ul className='peragraph-style-1'>
+                  <li>•	Established under the vision of Mr. Khilan Ramani, Founder & MD of Smartway Group</li>
+                  <li>•	Headquarters in Ahmedabad, Gujarat, India</li>
+                  <li>•	Operates as the technology arm of Smartway Wellness Pvt Ltd</li>
+                  <li>•	Focused on AI, automation, cloud, and enterprise-grade software</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -145,7 +151,7 @@ const About: React.FC = () => (
         <div className='row align-items-center'>
           <div className='col-lg-6 home-sec-padding'>
             <div className='card card-xxxl card-blue-overlay __radius-tl-150 __radius-br-150' data-aos="fade-up">
-              <Image src="/assets/images/our-mission-image.jpg" alt="Our Mission" className="w-100 img-h-400 object-cover" width={600} height={400} />
+              <Image src="/assets/images/our-mission-image.jpg" alt="Our Mission" className="w-100 img-h-500 object-cover" width={600} height={400} />
             </div>
           </div>
           <div className='col-lg-6' data-aos="fade-up">
@@ -156,9 +162,13 @@ const About: React.FC = () => (
                 </div>
               </div>
               <div className='col-12 col-lg-11'>
-                <h2 className='fw-bold mb-3'>Our Mission</h2>
-                <p className='peragraph-style-1 lh-base mb-3'>At TechXen, our mission is simple: to revolutionize the digital landscape by delivering top-notch technology solutions that drive growth, efficiency, and sustainability for our clients. We strive to be the trusted partner that businesses can rely on to navigate the complexities of the digital world.</p>
-                <p className='peragraph-style-1 lh-base mb-3'>To deliver exceptional digital experiences by combining cutting-edge AI technology with expert development skills, helping our clients achieve measurable business growth.</p>
+                <h2 className='fw-bold mb-3'>VISION & MISSION</h2>
+                <p className='peragraph-style-1 lh-base mb-3'>Our Vision: To Shape a Smarter Digital World</p>
+                <p className='peragraph-style-1 lh-base mb-2 fw-semibold font-16'>Vision </p>
+                <p className='peragraph-style-1 lh-base mb-3'>To be the catalyst that transforms businesses through intelligent, human-centric technology — creating an ecosystem of innovation, efficiency, and trust.</p>
+                <p className='peragraph-style-1 lh-base mb-2 fw-semibold font-16'>Mission</p>
+                <p className='peragraph-style-1 lh-base mb-3'>To deliver next-generation IT solutions that simplify complexities, drive growth, and enhance productivity for every client we serve.</p>
+                <p className='peragraph-style-1 lh-base mb-3'>We achieve this through deep technical expertise, design thinking, and a culture of continuous innovation.</p>
               </div>
             </div>
           </div>

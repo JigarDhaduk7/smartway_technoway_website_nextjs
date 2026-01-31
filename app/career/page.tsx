@@ -24,14 +24,14 @@ import Link from 'next/link';
 import FindYouAnOpenPosition from '../component/findyouanopenposition/findyouanopenposition';
 
 export const metadata: Metadata = {
-  title: 'Careers - Join Smartway Technoway | IT Jobs & Opportunities',
-  description: 'Explore exciting career opportunities at Smartway Technoway. Join our dynamic team of IT professionals and grow your career in web development, software engineering, and digital solutions.',
-  keywords: 'careers smartway technoway, IT jobs, software developer jobs, web developer careers, technology jobs, remote work opportunities, UX designer jobs, programming careers',
-  openGraph: {
-    title: 'Careers - Join Smartway Technoway | IT Jobs & Opportunities',
-    description: 'Discover rewarding career opportunities at Smartway Technoway. Join our innovative team and advance your career in technology.',
-    type: 'website',
-  },
+    title: 'Careers at Smartway Technoway | Join the Future of Innovation and Technology',
+    description: 'Be part of Smartway Technoway — a Smartway Group company building the future through AI, automation, and digital innovation. Join our team of dreamers, thinkers, and technologists who turn thought into impact.',
+    keywords: 'Smartway Technoway careers, IT jobs Ahmedabad, Smartway Group hiring, AI developer jobs, automation career, cloud engineer India',
+    openGraph: {
+        title: 'Careers at Smartway Technoway | Join the Future of Innovation and Technology',
+        description: 'Be part of Smartway Technoway — a Smartway Group company building the future through AI, automation, and digital innovation. Join our team of dreamers, thinkers, and technologists who turn thought into impact.',
+        type: 'website',
+    },
 };
 
 const Career = () => (
@@ -64,7 +64,7 @@ const Career = () => (
             <OurCompanyValuesSection />
         </section>
 
-        <FindYouAnOpenPosition/>
+        <FindYouAnOpenPosition />
 
         <div className='ready-for-project-wrap home-sec-pattern-right home-sec-pattern-left'>
             <div className='logo-bg-pattern-right'>

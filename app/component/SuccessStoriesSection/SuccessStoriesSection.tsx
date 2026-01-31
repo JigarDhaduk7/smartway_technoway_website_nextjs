@@ -34,99 +34,99 @@ const SuccessStoriesSection: React.FC = () => {
   }, []);
 
   return (
-  <section className="home-success-stories-wrap pb-100">
-    <div className="container">
+    <section className="home-success-stories-wrap pb-100">
+      <div className="container">
 
-      <div
-        className="row align-items-center justify-content-between"
-        data-aos="fade-up"
-      >
-        <div className="col-lg-7 col-xl-6">
-          <h2 className="heading-xxxl mb-3">
-            Success Stories from Our Partners
-          </h2>
+        <div
+          className="row align-items-center justify-content-between"
+          data-aos="fade-up"
+        >
+          <div className="col-lg-7 col-xl-6">
+            <h2 className="heading-xxxl mb-3">
+              Success Stories from Our Partners
+            </h2>
+          </div>
+          <div className="col-lg-5 col-xl-4">
+            <p className="peragraph-style-1">
+              Discover how businesses across industries have achieved growth and
+              efficiency with our IT solutions. These success stories highlight
+              the real impact
+            </p>
+          </div>
         </div>
-        <div className="col-lg-5 col-xl-4">
-          <p className="peragraph-style-1">
-            Discover how businesses across industries have achieved growth and
-            efficiency with our IT solutions. These success stories highlight
-            the real impact
-          </p>
-        </div>
-      </div>
 
-      <div className="row pt-4">
-        <div className="col-12">
-          <div data-aos="fade-up">
-            <Swiper
-              rewind={true}
-              modules={[Autoplay]}
-              spaceBetween={24}
-              speed={6000}
-              autoplay={{
-                delay: 4500,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              centeredSlides={true}
-              breakpoints={{
-                300: {
-                  slidesPerView: 1,
-                  centeredSlides: true,
-                },
-                768: {
-                  slidesPerView: 2,
-                  centeredSlides: true,
-                },
-                1024: {
-                  slidesPerView: 2,
-                  centeredSlides: true,
-                },
-                1200: {
-                  slidesPerView: 3,
-                  centeredSlides: false,
-                },
-                1440: {
-                  slidesPerView: 3,
-                  centeredSlides: false,
-                },
-              }}
-              onSlideChange={() => {}}
-              onSwiper={() => {}}
-            >
-              {testimonials.map((testimonial) => (
-                <SwiperSlide key={testimonial._id} className="h-auto">
-                  <div className="card card-xl card-gray __hover-blue __radius-tl-50 __radius-br-50 h-100">
-                    <div className="card-body card-pad-30">
-                      <div className="rating-start-wrap">
-                        {Array.from({ length: 5 }, (_, i) => {
-                          const starValue = i + 1;
-                          if (starValue <= Math.floor(testimonial.rating)) {
-                            return <i key={i} className="fas fa-star"></i>;
-                          } else if (starValue - 0.5 <= testimonial.rating) {
-                            return <i key={i} className="fas fa-star-half-alt"></i>;
-                          } else {
-                            return <i key={i} className="far fa-star"></i>;
-                          }
-                        })}
+        <div className="row pt-4">
+          <div className="col-12">
+            <div data-aos="fade-up">
+              <Swiper
+                rewind={true}
+                modules={[Autoplay]}
+                spaceBetween={24}
+                speed={6000}
+                autoplay={{
+                  delay: 4500,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }}
+                centeredSlides={true}
+                breakpoints={{
+                  300: {
+                    slidesPerView: 1,
+                    centeredSlides: true,
+                  },
+                  768: {
+                    slidesPerView: 2,
+                    centeredSlides: true,
+                  },
+                  1024: {
+                    slidesPerView: 2,
+                    centeredSlides: true,
+                  },
+                  1200: {
+                    slidesPerView: 3,
+                    centeredSlides: false,
+                  },
+                  1440: {
+                    slidesPerView: 3,
+                    centeredSlides: false,
+                  },
+                }}
+                onSlideChange={() => { }}
+                onSwiper={() => { }}
+              >
+                {testimonials.map((testimonial) => (
+                  <SwiperSlide key={testimonial._id} className="h-auto">
+                    <div className="card card-xl card-gray __hover-blue __radius-tl-50 __radius-br-50 h-100">
+                      <div className="card-body card-pad-30">
+                        <div className="rating-start-wrap">
+                          {Array.from({ length: 5 }, (_, i) => {
+                            const starValue = i + 1;
+                            if (starValue <= Math.floor(testimonial.rating)) {
+                              return <i key={i} className="fas fa-star"></i>;
+                            } else if (starValue - 0.5 <= testimonial.rating) {
+                              return <i key={i} className="fas fa-star-half-alt"></i>;
+                            } else {
+                              return <i key={i} className="far fa-star"></i>;
+                            }
+                          })}
+                        </div>
+                        <p className="peragraph-style-2 mb-4">
+                          {testimonial.message}
+                        </p>
+                        <h6 className="fw-extrabold mb-1">{testimonial.name}</h6>
+                        <small>{testimonial.designation}</small>
                       </div>
-                      <p className="peragraph-style-2 mb-4">
-                        {testimonial.message}
-                      </p>
-                      <h6 className="fw-extrabold mb-1">{testimonial.name}</h6>
-                      <small>{testimonial.designation}</small>
                     </div>
-                  </div>
-                </SwiperSlide>
-              ))}
+                  </SwiperSlide>
+                ))}
 
-            </Swiper>
+              </Swiper>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
 };
 
 export default SuccessStoriesSection;

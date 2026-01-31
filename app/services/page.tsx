@@ -9,12 +9,12 @@ import FormContentSection from '../component/FormAndContentSection/FormContentSe
 import FrequentlyAskedQuestion from '../component/FrequentlyAskedQuestionSection/FrequentlyAskedQuestion';
 
 export const metadata: Metadata = {
-  title: 'Our Services - Smartway Technoway | Web Development & IT Solutions',
-  description: 'Explore our comprehensive IT services including web development, cloud solutions, mobile app development, UI/UX design, IT consulting, and email marketing. Custom solutions for your business needs.',
-  keywords: 'web development services, IT consulting, cloud solutions, mobile app development, UI UX design, email marketing, custom software development, digital solutions',
+  title: 'Smartway Technoway Services | AI, Cloud, Automation & Software Solutions for Modern Businesses',
+  description: 'Explore Smartway Technoway full range of IT services — from custom software development to AI automation and cloud infrastructure management. We build scalable, intelligent, and future-ready solutions for every enterprise.',
+  keywords: 'Smartway Technoway services, AI automation, cloud solutions, software development, IT management, digital transformation company',
   openGraph: {
-    title: 'Our Services - Smartway Technoway | Web Development & IT Solutions',
-    description: 'Comprehensive IT services including web development, cloud solutions, and mobile app development. Custom solutions for your business.',
+    title: 'Smartway Technoway Services | AI, Cloud, Automation & Software Solutions for Modern Businesses',
+    description: 'Explore Smartway Technoway full range of IT services — from custom software development to AI automation and cloud infrastructure management. We build scalable, intelligent, and future-ready solutions for every enterprise.',
     type: 'website',
   },
 };
@@ -70,8 +70,8 @@ const Services: React.FC = () => {
       </section>
 
       {/* NEXT LEVEL SERVICES */}
-     
-     <NextLevelServices/>
+
+      <NextLevelServices />
 
       <CompanySuccessHighlights />
 

@@ -5,11 +5,11 @@ import Image from 'next/image';
 import { getData } from '../../lib/api';
 
 export const metadata: Metadata = {
-  title: 'Tech Blog - Smartway Technoway | IT Insights & Industry Trends',
-  description: 'Stay updated with the latest technology trends, IT insights, and expert advice. Read our blog for tips on web development, cloud solutions, cybersecurity, and digital transformation.',
-  keywords: 'technology blog, IT insights, web development tips, cloud computing, cybersecurity, digital transformation, tech trends, software development blog',
+  title: 'Smartway Technoway Insights | AI, Automation, and Digital Transformation Blog',
+  description: "Stay ahead with Smartway Technoway's latest insights on AI, cloud, and enterprise innovation. Explore expert articles, success stories, and trends shaping the future of technology — From Thought to Impact.",
+  keywords: 'Smartway Technoway blog, AI trends, cloud solutions India, automation insights, technology blog, digital transformation articles',
   openGraph: {
-    title: 'Tech Blog - Smartway Technoway | IT Insights & Industry Trends',
+    title: "Stay ahead with Smartway Technoway's latest insights on AI, cloud, and enterprise innovation. Explore expert articles, success stories, and trends shaping the future of technology — From Thought to Impact.",
     description: 'Stay updated with latest technology trends and expert insights on web development, cloud solutions, and digital transformation.',
     type: 'website',
   },
@@ -38,7 +38,7 @@ interface Blog {
 const Blogs: React.FC = async () => {
   let blogs: Blog[] = [];
   let recentBlogs: Blog[] = [];
-  
+
   try {
     const response = await getData('blogs');
     blogs = response.data.filter((blog: Blog) => blog.isPublished);
@@ -81,12 +81,13 @@ const Blogs: React.FC = async () => {
           {/* TITLE SECTION */}
           <div className="row align-items-center justify-content-between pb-2" data-aos="fade-up">
             <div className="col-lg-7 col-xl-6">
-              <h2 className="heading-xxxl mb-3">Success Stories from Our Partners</h2>
+              <h2 className="heading-xxxl mb-3">Technoway Insights — Where Innovation Meets Intelligence</h2>
             </div>
 
-            <div className="col-lg-5 col-xl-4">
+            <div className="col-lg-5 col-xl-5">
               <p className="peragraph-style-1">
-                Blog! Here, we share expert advice, industry trends, actionable tips, and case studies that can help you 
+                Knowledge is the foundation of progress. <br />
+                Explore the latest ideas, trends, and stories driving the digital future — curated by the thinkers and innovators at Smartway Technoway.
               </p>
             </div>
           </div>
@@ -103,10 +104,10 @@ const Blogs: React.FC = async () => {
                       <div key={blog._id} className="col-12 py-4" data-aos="fade-up">
                         <div className="blog-categorie-img-main">
                           <div className="card card-xl __radius-tl-70 __radius-br-70">
-                            <Image 
-                              src={blog.image} 
-                              alt={blog.title} 
-                              className="blog-categorie-img object-cover img-h-400 w-100" 
+                            <Image
+                              src={blog.image}
+                              alt={blog.title}
+                              className="blog-categorie-img object-cover img-h-400 w-100"
                               width={400}
                               height={400}
                             />
@@ -115,11 +116,11 @@ const Blogs: React.FC = async () => {
                           <div className="blog-categorie-content">
                             <h4 className="fw-semibold">{blog.title}</h4>
 
-                            <div 
-                              className="peragraph-style-1" 
-                              dangerouslySetInnerHTML={{ 
-                                __html: blog.content.substring(0, 150) + '...' 
-                              }} 
+                            <div
+                              className="peragraph-style-1"
+                              dangerouslySetInnerHTML={{
+                                __html: blog.content.substring(0, 150) + '...'
+                              }}
                             />
 
                             <div className="row justify-content-between">
@@ -161,10 +162,10 @@ const Blogs: React.FC = async () => {
                           <div className="row mx-0">
                             <div className="col-auto ps-0">
                               <div className="rp-col-img-main">
-                                <Image 
-                                  src={blog.image} 
-                                  alt={blog.title} 
-                                  className="rp-col-imgs" 
+                                <Image
+                                  src={blog.image}
+                                  alt={blog.title}
+                                  className="rp-col-imgs"
                                   width={80}
                                   height={80}
                                 />

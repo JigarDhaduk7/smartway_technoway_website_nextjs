@@ -13,12 +13,11 @@ const OurTeams: React.FC = () => (
     <div className='container'>
       <div className='row align-items-center justify-content-between' data-aos="fade-up">
         <div className='col-lg-7 col-xl-6'>
-          <h2 className="heading-xxxl mb-3">The Team Behind Your Success</h2>
+          <h2 className="heading-xxxl mb-3">Visionary Leadership Guiding Every Innovation</h2>
         </div>
-        <div className='col-lg-5 col-xl-4'>
+        <div className='col-lg-5 col-xl-5'>
           <p className="peragraph-style-1">
-            Our team of dedicated IT professionals brings years of expertise, innovation, and passion to every project. 
-            From strategists and developers to cybersecurity specialists
+            Smartway Technoway thrives under the leadership of Mr. Khilan Ramani, a visionary entrepreneur known for redefining innovation across industries. His philosophy — “Keep Going, Keep Growing” — fuels every initiative under the Smartway umbrella.
           </p>
         </div>
       </div>
@@ -30,10 +29,10 @@ const OurTeams: React.FC = () => (
           <div className='success-teams-col-main' data-aos="fade-up">
             <div className='success-teams-inner'>
               <div className='card card-xl card-gray __hover-blue __radius-tl-70 __radius-br-70 h-100'>
-                <Image 
-                  src={ourTeamImage1} 
-                  alt="Team Member" 
-                  className="w-100 team-img-height object-cover" 
+                <Image
+                  src={ourTeamImage1}
+                  alt="Team Member"
+                  className="w-100 team-img-height object-cover"
                 />
               </div>
               <div className='team-info-wrap'>
@@ -51,10 +50,10 @@ const OurTeams: React.FC = () => (
           <div className='success-teams-col-main' data-aos="fade-up">
             <div className='success-teams-inner'>
               <div className='card card-xl card-gray __hover-blue __radius-tl-70 __radius-br-70 h-100'>
-                <Image 
-                  src={ourTeamImage2} 
-                  alt="Team Member" 
-                  className="w-100 team-img-height object-cover" 
+                <Image
+                  src={ourTeamImage2}
+                  alt="Team Member"
+                  className="w-100 team-img-height object-cover"
                 />
               </div>
               <div className='team-info-wrap'>
@@ -72,10 +71,10 @@ const OurTeams: React.FC = () => (
           <div className='success-teams-col-main' data-aos="fade-up">
             <div className='success-teams-inner'>
               <div className='card card-xl card-gray __hover-blue __radius-tl-70 __radius-br-70 h-100'>
-                <Image 
-                  src={ourTeamImage3} 
-                  alt="Team Member" 
-                  className="w-100 team-img-height object-cover" 
+                <Image
+                  src={ourTeamImage3}
+                  alt="Team Member"
+                  className="w-100 team-img-height object-cover"
                 />
               </div>
               <div className='team-info-wrap'>

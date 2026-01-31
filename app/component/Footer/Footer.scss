@@ -68,6 +68,15 @@
   }
 }
 
+.footer-copyrigh {
+  background-color: var(--bg-secondary);
+  color: var(--text-white);
+  text-align: center;
+  font-weight: var(--font-medium);
+  font-size: var(--font-size-14);
+  padding: 5px 0;
+}
+
 @media screen and (max-width: 767px) {
   .footer-sec-wrap {
     padding-block: 50px 50px;

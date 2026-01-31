@@ -174,10 +174,10 @@ const Footer: React.FC = () => {
 
               <div className="row">
                 <div className="col-md-4 col-lg-6 col-xl-4 py-2">
-                  <div className="d-flex">
-                    <Image src={getInTouchIcon1} alt="Address" width={25} />
+                  <div className="d-flex align-items-start">
+                    <Image src={getInTouchIcon1} className="mt-1" alt="Address" width={25} />
                     <p className="mb-0 ps-2">
-                      45 Sunset Boulevard, Jakarta Selatan, DKI Jakarta
+                      Times Square Grand Sindhubhuvan, Main, Road, Ahmedabad, Gujarat 380059
                     </p>
                   </div>
                 </div>
@@ -186,7 +186,7 @@ const Footer: React.FC = () => {
                   <div className="d-flex">
                     <Image src={getInTouchIcon2} alt="Phone" width={25} />
                     <p className="mb-0 ps-2">
-                      <a href="tel:+9182145678899">+91 821-4567-8899</a>
+                      <a href="tel:+079-69209901/02" className="footer-list-link">+079-69209901/02</a>
                     </p>
                   </div>
                 </div>
@@ -195,7 +195,7 @@ const Footer: React.FC = () => {
                   <div className="d-flex">
                     <Image src={getInTouchIcon3} alt="Email" width={25} />
                     <p className="mb-0 ps-2">
-                      <a href="mailto:hello@Smartwy.com">hello@Smartwy.com</a>
+                      <a href="mailto:info@smartwaytechnoway.com" className="footer-list-link">info@smartwaytechnoway.com</a>
                     </p>
                   </div>
                 </div>
@@ -206,6 +206,9 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </footer>
+      <div className="footer-copyrigh">
+        © 2025 Smartway Technoway Pvt Ltd | A Smartway Group Company | From Thought to Impact
+      </div>
 
       {/* BACK TO TOP BUTTON */}
       <a

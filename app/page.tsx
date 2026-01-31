@@ -92,16 +92,16 @@ const Home: React.FC = () => (
                 <span className="badge badge-numbers b-midnight-100 mb-0">
                   <div className="badge-inner-num">
                     <i className="fas fa-circle badge-left-round"></i>
-                    <span className="badge-num-text">Tech Company</span>
+                    <span className="badge-num-text">From Thought to Impact</span>
                   </div>
                 </span>
               </div>
             </div>
             <div className='smartway-tech-hero-section' data-aos="fade-up">
-              <h1 className='hero-sec-heading fw-extrabold'>We Build <br /> Innovative IT <br /> Solutions</h1>
-              <p className='hero-sec-peragraph'>We deliver cutting-edge IT services that empower your business to <br /> stay ahead in a rapidly evolving digital world. From cloud solutions</p>
+              <h1 className='hero-sec-heading fw-extrabold'>Transforming Ideas <br /> Into Intelligent <br /> Technology</h1>
+              <p className='hero-sec-peragraph'>At Smartway Technoway, we turn innovation into impact. As the technology arm of the Smartway Group, we create smart, scalable, and secure digital solutions that help businesses grow faster in a connected world. From AI and automation to cloud architecture and enterprise software — we design systems that empower you to lead the future.</p>
               <div className='pt-3'>
-                <Link href='' className='btn btn-primary'>Get Started</Link>
+                <Link href='' className='btn btn-primary'>Explore Technoway</Link>
                 <Link href='' className='btn btn-outline-primary'>Our Services</Link>
               </div>
             </div>
@@ -126,7 +126,7 @@ const Home: React.FC = () => (
                     </div>
                   </div>
                   <div className='col'>
-                    <h5>Cloud Solutions</h5>
+                    <h5>About Smartway Technoway</h5>
                     <p className='mb-0'>Next-Gen Server Solutions for Modern IT Demands.</p>
                   </div>
                 </div>
@@ -135,11 +135,17 @@ const Home: React.FC = () => (
           </div>
           <div className='col-lg-6 ps-xl-5 pb-3'>
             <div className='' data-aos="fade-up">
-              <h2 className='heading-xxxl'>Relieve Your Web Hosting Worries and Reclaim Your Precious Time</h2>
-              <div className='col-xl-9'>
-                <p className='peragraph-style-1'>Effortless Web Hosting Solutions: Let Us Handle the Technical Details While You Focus on Growing Your Business and Enjoying Your Valuable Time</p>
+              <h2 className='heading-xxxl'>A Smartway Initiative Powering Tomorrow's Technology</h2>
+              <div className='col-xl-12 pb-3'>
+                <p className='peragraph-style-1'>Smartway Technoway Pvt Ltd is a division of the Smartway Group — India's leading conglomerate of innovation spanning pharmaceuticals, wellness, exports, and technology. We blend business intelligence with digital engineering to deliver customized solutions for organizations of every scale. Our mission is simple — to empower industries through tech that simplifies, accelerates, and inspires growth.</p>
+                <ul>
+                  <li className='peragraph-style-1 mb-1'>•	End-to-End IT & Digital Solutions</li>
+                  <li className='peragraph-style-1 mb-1'>•	AI, Automation & Analytics Expertise</li>
+                  <li className='peragraph-style-1 mb-1'>•	Cloud-Native and Secure Architectures</li>
+                  <li className='peragraph-style-1 mb-1'>•	24*7 Dedicated Support</li>
+                </ul>
               </div>
-              <Link href='' className='btn btn-primary'>Explore Now</Link>
+              <Link href='' className='btn btn-primary'>Discover Our Story</Link>
             </div>
           </div>
         </div>
@@ -153,10 +159,10 @@ const Home: React.FC = () => (
       <div className='container'>
         <div className='row align-items-center justify-content-between' data-aos="fade-up">
           <div className='col-lg-7 col-xl-6'>
-            <h2 className="heading-xxxl mb-3">Next-Level IT Services Built Around</h2>
+            <h2 className="heading-xxxl mb-3">Building Smart Solutions for a Digital World</h2>
           </div>
           <div className='col-lg-5 col-xl-4'>
-            <p className="peragraph-style-1">We provide tailored IT solutions designed to match the unique needs of your business. From infrastructure management</p>
+            <p className="peragraph-style-1">From concept to execution, Smartway Technoway offers a comprehensive suite of technology services designed to make your business future-ready.</p>
           </div>
         </div>
         <div className='row pb-100'>
@@ -166,10 +172,10 @@ const Home: React.FC = () => (
                 <div className='card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150'>
                   <Image src={servicesWebDevIcon} alt="Icon" />
                 </div>
-                <h2 className='heading-lg'>Web Development</h2>
-                <p className='peragraph-style-1'>Building functional and user-friendly websites and applications from the ground up</p>
+                <h2 className='heading-lg'>Software & Web Development</h2>
+                <p className='peragraph-style-1'>Custom enterprise applications and responsive web solutions crafted to deliver seamless performance and superior UX.</p>
                 <div className='d-inline-block'>
-                  <Link href='' className='btn btn-link d-flex align-items-center'>Learn more <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
+                  <Link href='' className='btn btn-link d-flex align-items-center'>View All Services <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
                 </div>
               </div>
             </div>
@@ -180,10 +186,10 @@ const Home: React.FC = () => (
                 <div className='card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150'>
                   <Image src={servicesCloudSolutionsIcon} alt="Icon" />
                 </div>
-                <h2 className='heading-lg'>Cloud Solutions</h2>
-                <p className='peragraph-style-1'>Our IT services are customized to fit your business goals, offering flexibility, innovation</p>
+                <h2 className='heading-lg'>AI & Automation Solutions</h2>
+                <p className='peragraph-style-1'>Transform operations with data-driven intelligence, predictive analytics, and workflow automation that maximizes efficiency.</p>
                 <div className='d-inline-block'>
-                  <Link href='' className='btn btn-link d-flex align-items-center'>Learn more <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
+                  <Link href='' className='btn btn-link d-flex align-items-center'>View All Services <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
                 </div>
               </div>
             </div>
@@ -194,10 +200,10 @@ const Home: React.FC = () => (
                 <div className='card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150'>
                   <Image src={servicesITConsultingIcon} alt="Icon" />
                 </div>
-                <h2 className='heading-lg'>IT Consulting</h2>
-                <p className='peragraph-style-1'>Get expert guidance to align technology with your business goals and optimize</p>
+                <h2 className='heading-lg'>Cloud Infrastructure & Security</h2>
+                <p className='peragraph-style-1'>Scalable and secure cloud deployments that optimize cost and enhance resilience — from migration to management.</p>
                 <div className='d-inline-block'>
-                  <Link href='' className='btn btn-link d-flex align-items-center'>Learn more <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
+                  <Link href='' className='btn btn-link d-flex align-items-center'>View All Services <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
                 </div>
               </div>
             </div>
@@ -213,10 +219,10 @@ const Home: React.FC = () => (
       <div className='container'>
         <div className='row align-items-center justify-content-between' data-aos="fade-up">
           <div className='col-lg-7 col-xl-6'>
-            <h2 className="heading-xxxl mb-3">Boost Your Hosting Speed with These Features</h2>
+            <h2 className="heading-xxxl mb-3">Innovation Driven by Integrity and Impact</h2>
           </div>
-          <div className='col-lg-5 col-xl-4'>
-            <p className="peragraph-style-1">Harness the Power of Speed to Keep Visitors Happy and Reduce Loading Time.</p>
+          <div className='col-lg-5 col-xl-5'>
+            <p className="peragraph-style-1">What sets us apart is not just technology — it's our approach. We listen, collaborate, and co-create solutions that fit your business goals while adapting to the speed of change. From strategic planning to hands-on execution, our team ensures precision, security, and scalability at every step.</p>
           </div>
         </div>
         <div className='row pb-100'>
@@ -235,7 +241,7 @@ const Home: React.FC = () => (
                   </div>
                   <div className='col ps-0'>
                     <h4 className='heading-md my-2'>Certified Experts</h4>
-                    <p className='peragraph-style-2 mb-0'>Certified professionals delivering trusted, high-quality solutions</p>
+                    <p className='peragraph-style-2 mb-0'>Backed by the trust of the Smartway Group</p>
                   </div>
                 </div>
               </div>
@@ -256,7 +262,7 @@ const Home: React.FC = () => (
                   </div>
                   <div className='col ps-0'>
                     <h4 className='heading-md my-2'>24/7 Support</h4>
-                    <p className='peragraph-style-2 mb-0'>Get expert help whenever you need it — we're available 24/7.</p>
+                    <p className='peragraph-style-2 mb-0'>Experienced team of certified developers & engineers</p>
                   </div>
                 </div>
               </div>
@@ -277,7 +283,7 @@ const Home: React.FC = () => (
                   </div>
                   <div className='col ps-0'>
                     <h4 className='heading-md my-2'>Scalable Solutions</h4>
-                    <p className='peragraph-style-2 mb-0'>Powerful, scalable solutions for sustainable business growth.</p>
+                    <p className='peragraph-style-2 mb-0'>Agile and transparent project management</p>
                   </div>
                 </div>
               </div>
@@ -298,7 +304,7 @@ const Home: React.FC = () => (
                   </div>
                   <div className='col ps-0'>
                     <h4 className='heading-md my-2'>Scaling Towards Success</h4>
-                    <p className='peragraph-style-2 mb-0'>Scaling Up for Boundless Success: Embrace New Opportunities</p>
+                    <p className='peragraph-style-2 mb-0'>Global delivery capability with local support</p>
                   </div>
                 </div>
               </div>
@@ -312,7 +318,7 @@ const Home: React.FC = () => (
       <div className='container'>
         <div className='row align-items-center justify-content-between' data-aos="fade-up">
           <div className='col-lg-7 col-xl-6'>
-            <h2 className="heading-xxxl mb-3">Smart Solutions for Every Business</h2>
+            <h2 className="heading-xxxl mb-3">Transforming Challenges into Success Stories</h2>
           </div>
           <div className='col-lg-5 col-xl-4'>
             <p className="peragraph-style-1">We provide intelligent IT solutions tailored to meet the unique challenges of every business. From startups to large enterprises, our technology-driven</p>
@@ -331,10 +337,10 @@ const Home: React.FC = () => (
               </div>
               <div className='card card-xl __hover-blue __radius-tr-70 __radius-bl-70 mt-3'>
                 <div className='card-body card-pad-40'>
-                  <h2 className='heading-xl mb-4'>Cloud Migration for a Retail Company</h2>
-                  <p className='peragraph-style-1'>We helped a mid-sized retail business migrate their entire infrastructure to the cloud, improving scalability, reducing costs</p>
+                  <h2 className='heading-xl mb-4'>AI-Powered Sales Automation for Pharma Distribution </h2>
+                  <p className='peragraph-style-1'>Improved order accuracy by 38% and reduced manual tasks by 70%.</p>
                   <div className='d-inline-block'>
-                    <Link href='' className='btn btn-primary d-flex align-items-center'>Learn more <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
+                    <Link href='' className='btn btn-primary d-flex align-items-center'>View All Projects <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
                   </div>
                 </div>
               </div>
@@ -352,10 +358,10 @@ const Home: React.FC = () => (
               </div>
               <div className='card card-xl __hover-blue __radius-tr-70 __radius-bl-70 mt-3'>
                 <div className='card-body card-pad-40'>
-                  <h2 className='heading-xl mb-4'>Cybersecurity Upgrade for a Financial Firm</h2>
-                  <p className='peragraph-style-1'>A financial services company trusted us to strengthen their data security. We implemented advanced threat detection</p>
+                  <h2 className='heading-xl mb-4'>Cloud Migration for Healthcare Client </h2>
+                  <p className='peragraph-style-1'>Delivered faster deployment and 30% infrastructure cost savings.</p>
                   <div className='d-inline-block'>
-                    <Link href='' className='btn btn-primary d-flex align-items-center'>Learn more <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
+                    <Link href='' className='btn btn-primary d-flex align-items-center'>View All Projects <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
                   </div>
                 </div>
               </div>
@@ -373,10 +379,10 @@ const Home: React.FC = () => (
               </div>
               <div className='card card-xl __hover-blue __radius-tr-70 __radius-bl-70 mt-3'>
                 <div className='card-body card-pad-40'>
-                  <h2 className='heading-xl mb-4'>Custom Software Development</h2>
-                  <p className='peragraph-style-1'>Our team developed a fully customized software platform designed to simplify complex operations.</p>
+                  <h2 className='heading-xl mb-4'>Smart Portal Development for Smartway Wellness</h2>
+                  <p className='peragraph-style-1'>Integrated 360° analytics and secure data flow across India's network.</p>
                   <div className='d-inline-block'>
-                    <Link href='' className='btn btn-primary d-flex align-items-center'>Learn more <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
+                    <Link href='' className='btn btn-primary d-flex align-items-center'>View All Projects <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
                   </div>
                 </div>
               </div>

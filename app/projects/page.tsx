@@ -4,12 +4,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Our Projects - Smartway Technoway | Portfolio & Case Studies',
-  description: 'Explore our successful IT projects and case studies. See how we helped businesses with cloud migration, cybersecurity, custom software development, and digital transformation solutions.',
-  keywords: 'IT projects, case studies, cloud migration, cybersecurity solutions, custom software projects, digital transformation, business solutions portfolio',
+  title: 'Smartway Technoway Case Studies | Proven Digital Transformation Success Stories',
+  description: 'Explore Smartway Technoways success stories — from AI automation and cloud migrations to enterprise software solutions.Discover how we help organizations transform ideas into measurable impact.',
+  keywords: 'Smartway Technoway projects, IT case studies, digital transformation success, AI automation projects, cloud migration company, software development results',
   openGraph: {
-    title: 'Our Projects - Smartway Technoway | Portfolio & Case Studies',
-    description: 'Explore our successful IT projects including cloud migration, cybersecurity upgrades, and custom software development solutions.',
+    title: 'Smartway Technoway Case Studies | Proven Digital Transformation Success Stories',
+    description: 'Explore Smartway Technoways success stories — from AI automation and cloud migrations to enterprise software solutions.Discover how we help organizations transform ideas into measurable impact.',
     type: 'website',
   },
 };
@@ -124,13 +124,13 @@ const Projects: React.FC = () => {
           <div className="row align-items-center justify-content-between">
             <div className="col-lg-7 col-xl-6">
               <h2 className="heading-xxxl mb-3" data-aos="fade-up">
-                Smart Solutions for Every Business
+                From Thought to Impact — Proven Through Results
               </h2>
             </div>
 
-            <div className="col-lg-5 col-xl-4">
+            <div className="col-lg-5 col-xl-5">
               <p className="peragraph-style-1" data-aos="fade-up">
-                We provide intelligent IT solutions tailored to every unique business challenge.
+                Every project we deliver begins with a vision and ends with measurable success. Here's how Smartway Technoway has helped organizations reimagine what's possible through intelligent, scalable, and secure digital solutions.
               </p>
             </div>
           </div>
