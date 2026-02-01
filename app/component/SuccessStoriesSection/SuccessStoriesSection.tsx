@@ -46,10 +46,10 @@ const SuccessStoriesSection: React.FC = () => {
         >
           <div className="col-lg-7 col-xl-6">
             <h2 className="heading-xxxl mb-3">
-              Success Stories from Our Partners
+              Voices of Trust and Transformation
             </h2>
           </div>
-          <div className="col-lg-5 col-xl-4">
+          <div className="col-lg-5 col-xl-5">
             <p className="peragraph-style-1">
               Discover how businesses across industries have achieved growth and
               efficiency with our IT solutions. These success stories highlight
@@ -58,130 +58,67 @@ const SuccessStoriesSection: React.FC = () => {
           </div>
         </div>
 
-<<<<<<< HEAD
         <div className="row pt-4">
           <div className="col-12">
             <div data-aos="fade-up">
-              <Swiper
-                rewind={true}
-                modules={[Autoplay]}
-                spaceBetween={24}
-                speed={6000}
-                autoplay={{
-                  delay: 4500,
-                  disableOnInteraction: false,
-                  pauseOnMouseEnter: true,
-                }}
-                centeredSlides={true}
-                breakpoints={{
-                  300: {
-                    slidesPerView: 1,
-                    centeredSlides: true,
-                  },
-                  768: {
-                    slidesPerView: 2,
-                    centeredSlides: true,
-                  },
-                  1024: {
-                    slidesPerView: 2,
-                    centeredSlides: true,
-                  },
-                  1200: {
-                    slidesPerView: 3,
-                    centeredSlides: false,
-                  },
-                  1440: {
-                    slidesPerView: 3,
-                    centeredSlides: false,
-                  },
-                }}
-                onSlideChange={() => { }}
-                onSwiper={() => { }}
-              >
-                {testimonials.map((testimonial) => (
-                  <SwiperSlide key={testimonial._id} className="h-auto">
-                    <div className="card card-xl card-gray __hover-blue __radius-tl-50 __radius-br-50 h-100">
+              {loading ? (
+                <div className="d-flex gap-3">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="card card-xl card-gray __radius-tl-50 __radius-br-50 flex-fill">
                       <div className="card-body card-pad-30">
-                        <div className="rating-start-wrap">
-                          {Array.from({ length: 5 }, (_, i) => {
-                            const starValue = i + 1;
-                            if (starValue <= Math.floor(testimonial.rating)) {
-                              return <i key={i} className="fas fa-star"></i>;
-                            } else if (starValue - 0.5 <= testimonial.rating) {
-                              return <i key={i} className="fas fa-star-half-alt"></i>;
-                            } else {
-                              return <i key={i} className="far fa-star"></i>;
-                            }
-                          })}
+                        <div className="placeholder-glow">
+                          {/* <span className="placeholder col-4 mb-3"></span> */}
+                          <span className="placeholder col-12 mb-2"></span>
+                          <span className="placeholder col-12 mb-2"></span>
+                          <span className="placeholder col-8 mb-4"></span>
+                          <span className="placeholder col-6 mb-1"></span>
                         </div>
-                        <p className="peragraph-style-2 mb-4">
-                          {testimonial.message}
-                        </p>
-                        <h6 className="fw-extrabold mb-1">{testimonial.name}</h6>
-                        <small>{testimonial.designation}</small>
-                      </div>
-=======
-      <div className="row pt-4">
-        <div className="col-12">
-          <div data-aos="fade-up">
-            {loading ? (
-              <div className="d-flex gap-3">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="card card-xl card-gray __radius-tl-50 __radius-br-50 flex-fill">
-                    <div className="card-body card-pad-30">
-                      <div className="placeholder-glow">
-                        {/* <span className="placeholder col-4 mb-3"></span> */}
-                        <span className="placeholder col-12 mb-2"></span>
-                        <span className="placeholder col-12 mb-2"></span>
-                        <span className="placeholder col-8 mb-4"></span>
-                        <span className="placeholder col-6 mb-1"></span>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-            <Swiper
-              rewind={true}
-              modules={[Autoplay]}
-              spaceBetween={24}
-              speed={6000}
-              autoplay={{
-                delay: 4500,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              centeredSlides={true}
-              breakpoints={{
-                300: {
-                  slidesPerView: 1,
-                  centeredSlides: true,
-                },
-                768: {
-                  slidesPerView: 2,
-                  centeredSlides: true,
-                },
-                1024: {
-                  slidesPerView: 2,
-                  centeredSlides: true,
-                },
-                1200: {
-                  slidesPerView: 3,
-                  centeredSlides: false,
-                },
-                1440: {
-                  slidesPerView: 3,
-                  centeredSlides: false,
-                },
-              }}
-              onSlideChange={() => {}}
-              onSwiper={() => {}}
-            >
-              {testimonials.map((testimonial) => (
-                <SwiperSlide key={testimonial._id} className="h-auto">
-                  <div className="card card-xl card-gray __hover-blue __radius-tl-50 __radius-br-50 h-100">
-                    <div className="card-body card-pad-30">
-                      {/* <div className="rating-start-wrap">
+                  ))}
+                </div>
+              ) : (
+                <Swiper
+                  rewind={true}
+                  modules={[Autoplay]}
+                  spaceBetween={24}
+                  speed={6000}
+                  autoplay={{
+                    delay: 4500,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                  }}
+                  centeredSlides={true}
+                  breakpoints={{
+                    300: {
+                      slidesPerView: 1,
+                      centeredSlides: true,
+                    },
+                    768: {
+                      slidesPerView: 2,
+                      centeredSlides: true,
+                    },
+                    1024: {
+                      slidesPerView: 2,
+                      centeredSlides: true,
+                    },
+                    1200: {
+                      slidesPerView: 3,
+                      centeredSlides: false,
+                    },
+                    1440: {
+                      slidesPerView: 3,
+                      centeredSlides: false,
+                    },
+                  }}
+                  onSlideChange={() => { }}
+                  onSwiper={() => { }}
+                >
+                  {testimonials.map((testimonial) => (
+                    <SwiperSlide key={testimonial._id} className="h-auto">
+                      <div className="card card-xl card-gray __hover-blue __radius-tl-50 __radius-br-50 h-100">
+                        <div className="card-body card-pad-30">
+                          {/* <div className="rating-start-wrap">
                         {Array.from({ length: 5 }, (_, i) => {
                           const starValue = i + 1;
                           if (starValue <= Math.floor(testimonial.rating)) {
@@ -193,23 +130,19 @@ const SuccessStoriesSection: React.FC = () => {
                           }
                         })}
                       </div> */}
-                      <p className="peragraph-style-2 mb-4">
-                        {testimonial.message}
-                      </p>
-                      <h6 className="fw-extrabold mb-1">{testimonial.name}</h6>
-                      <small>{testimonial.designation}</small>
->>>>>>> 9ce7fee0c23c85452d80ff9fd29caddb3ffd1bc2
-                    </div>
-                  </SwiperSlide>
-                ))}
+                          <p className="peragraph-style-2 mb-4">
+                            {testimonial.message}
+                          </p>
+                          <h6 className="fw-extrabold mb-0">{testimonial.name}</h6>
+                          <small>{testimonial.designation}</small>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ))}
 
-<<<<<<< HEAD
-              </Swiper>
+                </Swiper>
+              )}
             </div>
-=======
-            </Swiper>
-            )}
->>>>>>> 9ce7fee0c23c85452d80ff9fd29caddb3ffd1bc2
           </div>
         </div>
       </div>

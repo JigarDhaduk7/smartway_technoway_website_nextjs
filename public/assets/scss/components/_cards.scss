@@ -1,11 +1,11 @@
 @use "../abstracts/mixins" as *;
 
-@-webkit-keyframes icons_bounce {
-    100% {
-        transform: translateY(-7px);
+// @-webkit-keyframes icons_bounce {
+//     100% {
+//         transform: translateY(-7px);
 
-    }
-}
+//     }
+// }
 
 .swiper-free-mode-wrap {
     >.swiper-wrapper {
@@ -260,11 +260,11 @@
         background-color: var(--bg-secondary);
         color: #fff;
 
-        .card-icn-wrap.icn-bg-blue {
-            img {
-                -webkit-animation: icons_bounce .35s ease infinite alternate;
-            }
-        }
+        // .card-icn-wrap.icn-bg-blue {
+        //     img {
+        //         -webkit-animation: icons_bounce .35s ease infinite alternate;
+        //     }
+        // }
 
         .heading-lg,
         .peragraph-style-1,

@@ -5,6 +5,12 @@
 
 .blog-categorie-content {
     padding-block: 22px 0;
+
+    ul {
+        list-style: inherit;
+        margin: 0;
+        padding: revert;
+    }
 }
 
 .rp-col-img-main {

@@ -243,9 +243,9 @@ const Blogs: React.FC = async () => {
       </section>
 
       {/* CONTACT FORM */}
-      <section className="contact-sec-wrap home-sec-pattern-left overflow-hidden">
-        <div className="logo-bg-pattern-left">
-          <Image src={logoBgPattern} alt="Pattern" className="w-100" data-aos="fade-up" />
+      <section className='contact-sec-wrap home-sec-pattern-left overflow-hidden'>
+        <div className='logo-bg-pattern-left'>
+          <Image src={logoBgPattern} className="w-100" data-aos="fade-up" alt="Pattern" />
         </div>
 
         <FormContentSection />

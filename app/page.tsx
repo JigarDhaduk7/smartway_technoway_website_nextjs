@@ -151,7 +151,6 @@ const Home: React.FC = () => (
       </div>
     </section>
 
-<<<<<<< HEAD
     <section className='home-next-level-solution-wrap home-sec-pattern-right pt-5 pt-lg-0'>
       <div className='logo-bg-pattern-right'>
         <Image src={logoBgPattern} className="w-100" data-aos="fade-up" alt="Pattern" />
@@ -211,9 +210,6 @@ const Home: React.FC = () => (
         </div>
       </div>
     </section>
-=======
-    <NextLevelServices/>
->>>>>>> 9ce7fee0c23c85452d80ff9fd29caddb3ffd1bc2
 
     <section className='home-boost-hosting-speed-wrap home-sec-pattern-left'>
       <div className='logo-bg-pattern-left'>

@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:5000/api';
+const API_BASE_URL = process.env.API_BASE_URL || 'https://smartwayt.vercel.app/api';
 
 export const getData = async (endpoint: string) => {
   const response = await fetch(`${API_BASE_URL}/${endpoint}`);
