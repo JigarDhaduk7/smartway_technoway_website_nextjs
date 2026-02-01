@@ -17,6 +17,7 @@ interface Job {
 
 const FindYouAnOpenPosition: React.FC = () => {
   const [jobs, setJobs] = useState<Job[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -25,6 +26,8 @@ const FindYouAnOpenPosition: React.FC = () => {
         setJobs(response.data);
       } catch (error) {
         console.error("Failed to fetch jobs:", error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchJobs();
@@ -52,6 +55,18 @@ const FindYouAnOpenPosition: React.FC = () => {
         </div>
         <div className="row pt-4">
           <div className="col-12" data-aos="fade-up">
+            {loading ? (
+              <div className="placeholder-glow">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="card mb-3">
+                    <div className="card-body">
+                      <span className="placeholder col-6 mb-2"></span>
+                      <span className="placeholder col-12 mb-2"></span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
             <div
               className="accordion accordion-card career-accordion"
               id="DefaultAccordionsWrap"
@@ -168,6 +183,7 @@ const FindYouAnOpenPosition: React.FC = () => {
                 </div>
               ))}
             </div>
+            )}
           </div>
         </div>
       </div>

@@ -10,6 +10,7 @@ import 'swiper/css/autoplay';
 
 import FormContentSection from './component/FormAndContentSection/FormContentSection';
 import SuccessStoriesSection from './component/SuccessStoriesSection/SuccessStoriesSection';
+import BlogComponent from './component/BlogForHome/blogcomponent';
 
 import heroImage1 from "../public/assets/images/hero-section-image-1.png";
 import heroImage2 from "../public/assets/images/hero-section-image-2.png";
@@ -44,11 +45,9 @@ import bigBrandLogo4 from "../public/assets/images/big-brands-logo-4.png";
 import bigBrandLogo5 from "../public/assets/images/big-brands-logo-5.png";
 import bigBrandLogo6 from "../public/assets/images/big-brands-logo-6.png";
 
-import successStories1 from "../public/assets/images/success-stories-img-1.jpg";
-import successStories2 from "../public/assets/images/success-stories-img-2.jpg";
-import successStories3 from "../public/assets/images/success-stories-img-3.jpg";
 
 import './Home.scss';
+import NextLevelServices from './component/NextLevelServices/nextlevelservices';
 
 const Home: React.FC = () => (
   <div className="smartway-tech-home">
@@ -152,6 +151,7 @@ const Home: React.FC = () => (
       </div>
     </section>
 
+<<<<<<< HEAD
     <section className='home-next-level-solution-wrap home-sec-pattern-right pt-5 pt-lg-0'>
       <div className='logo-bg-pattern-right'>
         <Image src={logoBgPattern} className="w-100" data-aos="fade-up" alt="Pattern" />
@@ -211,6 +211,9 @@ const Home: React.FC = () => (
         </div>
       </div>
     </section>
+=======
+    <NextLevelServices/>
+>>>>>>> 9ce7fee0c23c85452d80ff9fd29caddb3ffd1bc2
 
     <section className='home-boost-hosting-speed-wrap home-sec-pattern-left'>
       <div className='logo-bg-pattern-left'>
@@ -475,139 +478,8 @@ const Home: React.FC = () => (
       <SuccessStoriesSection />
     </div>
 
-    <section className='home-build-together-wrap home-sec-pattern-right'>
-      <div className='logo-bg-pattern-right'>
-        <Image src={logoBgPattern} className="w-100" data-aos="fade-up" alt="Pattern" />
-      </div>
-      <div className='container'>
-        <div className='row align-items-center justify-content-between' data-aos="fade-up">
-          <div className='col-lg-7 col-xl-6'>
-            <h2 className="heading-xxxl mb-3">Success Stories from Our Partners</h2>
-          </div>
-          <div className='col-lg-5 col-xl-4'>
-            <p className="peragraph-style-1">Blog! Here, we share expert advice, industry trends, actionable tips, and case studies that can help you </p>
-          </div>
-        </div>
-        <div className='row pb-100 pt-4'>
-          <div className='col-12'>
-            <div data-aos="fade-up">
-              <Swiper
-                rewind={true}
-                modules={[Autoplay]}
-                spaceBetween={24}
-                speed={6000}
-                autoplay={{
-                  delay: 4500,
-                  disableOnInteraction: false,
-                  pauseOnMouseEnter: true,
-                }}
-                centeredSlides={true}
-                breakpoints={{
-                  300: {
-                    slidesPerView: 1,
-                    centeredSlides: true,
-                  },
-                  768: {
-                    slidesPerView: 2,
-                    centeredSlides: true,
-                  },
-                  1024: {
-                    slidesPerView: 2,
-                    centeredSlides: true,
-                  },
-                  1200: {
-                    slidesPerView: 3,
-                    centeredSlides: false,
-                  },
-                  1440: {
-                    slidesPerView: 3,
-                    centeredSlides: false,
-                  },
-                }}
-                onSlideChange={() => console.log("slide change")}
-                onSwiper={(swiper) => console.log(swiper)}
-              >
-                <SwiperSlide className='h-auto'>
-                  <div className='position-relative'>
-                    <div className='card card-xl __radius-tl-50 __radius-br-50'>
-                      <div className='smart-solutions-card-img'>
-                        <Image src={successStories1} className="w-100 object-cover img-h-300" alt="Success Story" />
-                      </div>
-                    </div>
-                    <div className='card border-0 card-xl mt-3'>
-                      <div className='card-body px-1 py-3'>
-                        <h2 className='heading-xl mb-3'>The Top 5 Business Strategies for 2026</h2>
-                        <p className='peragraph-style-1'>Blog! Here, we share expert advice, industry trends, actionable tips, and case studies</p>
-                        <div className='d-inline-block'>
-                          <Link href='' className='btn btn-primary d-flex align-items-center'>Read more</Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-
-                <SwiperSlide className='h-auto'>
-                  <div className='position-relative'>
-                    <div className='card card-xl __radius-tl-50 __radius-br-50'>
-                      <div className='smart-solutions-card-img'>
-                        <Image src={successStories2} className="w-100 object-cover img-h-300" alt="Success Story" />
-                      </div>
-                    </div>
-                    <div className='card border-0 card-xl mt-3'>
-                      <div className='card-body px-1 py-3'>
-                        <h2 className='heading-xl mb-3'>Unlocking Your Business's Potential</h2>
-                        <p className='peragraph-style-1'>Blog! Here, we share expert advice, industry trends, actionable tips, and case studies</p>
-                        <div className='d-inline-block'>
-                          <Link href='' className='btn btn-primary d-flex align-items-center'>Read more</Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-
-                <SwiperSlide className='h-auto'>
-                  <div className='position-relative'>
-                    <div className='card card-xl __radius-tl-50 __radius-br-50'>
-                      <div className='smart-solutions-card-img'>
-                        <Image src={successStories3} className="w-100 object-cover img-h-300" alt="Success Story" />
-                      </div>
-                    </div>
-                    <div className='card border-0 card-xl mt-3'>
-                      <div className='card-body px-1 py-3'>
-                        <h2 className='heading-xl mb-3'>Project Management Best Practices</h2>
-                        <p className='peragraph-style-1'>Blog! Here, we share expert advice, industry trends, actionable tips, and case studies</p>
-                        <div className='d-inline-block'>
-                          <Link href='' className='btn btn-primary d-flex align-items-center'>Read more</Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-
-                <SwiperSlide className='h-auto'>
-                  <div className='position-relative'>
-                    <div className='card card-xl __radius-tl-50 __radius-br-50'>
-                      <div className='smart-solutions-card-img'>
-                        <Image src={successStories1} className="w-100 object-cover img-h-300" alt="Success Story" />
-                      </div>
-                    </div>
-                    <div className='card border-0 card-xl mt-3'>
-                      <div className='card-body px-1 py-3'>
-                        <h2 className='heading-xl mb-3'>The Top 5 Business Strategies for 2026</h2>
-                        <p className='peragraph-style-1'>Blog! Here, we share expert advice, industry trends, actionable tips, and case studies</p>
-                        <div className='d-inline-block'>
-                          <Link href='' className='btn btn-primary d-flex align-items-center'>Read more</Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              </Swiper>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    {/* blogs  */}
+    <BlogComponent />
 
     <section className='contact-sec-wrap home-sec-pattern-left overflow-hidden'>
       <div className='logo-bg-pattern-left'>

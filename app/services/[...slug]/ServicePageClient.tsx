@@ -1,17 +1,59 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { getData } from '../../../lib/api';
 
 import DynamicDetail from '../../component/serviceDynamicDetailComponent/dynamicdetail';
 import FormContentSection from '../../component/FormAndContentSection/FormContentSection';
 import FrequentlyAskedQuestion from '../../component/FrequentlyAskedQuestionSection/FrequentlyAskedQuestion';
+
+interface Skill {
+  _id: string;
+  title: string;
+  slug: string;
+  image: string;
+  status: boolean;
+}
 
 interface ServicePageClientProps {
   slug: string;
 }
 
 const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
+  const [skills, setSkills] = useState<Skill[]>([]);
+  const [filteredSkills, setFilteredSkills] = useState<Skill[]>([]);
+  const [activeTab, setActiveTab] = useState('all');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSkills = async () => {
+      try {
+        const response = await getData('skills');
+        const activeSkills = response.data.filter((skill: Skill) => skill.status);
+        setSkills(activeSkills);
+        setFilteredSkills(activeSkills);
+      } catch (error) {
+        console.error('Failed to fetch skills:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchSkills();
+  }, []);
+
+  const handleTabChange = (tabSlug: string) => {
+    setActiveTab(tabSlug);
+    if (tabSlug === 'all') {
+      setFilteredSkills(skills);
+    } else {
+      const tabTitle = tabSlug.replace(/-/g, ' ');
+      setFilteredSkills(skills.filter(skill => 
+        skill.title.toLowerCase() === tabTitle.toLowerCase() ||
+        skill.slug === tabSlug
+      ));
+    }
+  };
   return (
     <div className='smartway-tech-about-us'>
       <DynamicDetail serviceSlug={slug} />
@@ -30,55 +72,154 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
             <div className='col-12 py-4' data-aos="fade-up">
               <ul className="nav nav-tabs button-nav-tab" role="tablist">
                 <li className="nav-item col" role="presentation">
-                  <button className="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all-tab-pane" type="button" role="tab" aria-controls="all-tab-pane" aria-selected="true">All</button>
+                  <button 
+                    className={`nav-link ${activeTab === 'all' ? 'active' : ''}`} 
+                    onClick={() => handleTabChange('all')}
+                    type="button"
+                  >
+                    All
+                  </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button className="nav-link" id="tech-platforms1-tab" data-bs-toggle="tab" data-bs-target="#tech-platforms1-tab-pane" type="button" role="tab" aria-controls="tech-platforms1-tab-pane" aria-selected="false">Frontend</button>
+                  <button 
+                    className={`nav-link ${activeTab === 'frontend' ? 'active' : ''}`} 
+                    onClick={() => handleTabChange('frontend')}
+                    type="button"
+                  >
+                    Frontend
+                  </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button className="nav-link" id="tech-platforms2-tab" data-bs-toggle="tab" data-bs-target="#tech-platforms2-tab-pane" type="button" role="tab" aria-controls="tech-platforms2-tab-pane" aria-selected="false">Backend</button>
+                  <button 
+                    className={`nav-link ${activeTab === 'backend' ? 'active' : ''}`} 
+                    onClick={() => handleTabChange('backend')}
+                    type="button"
+                  >
+                    Backend
+                  </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button className="nav-link" id="tech-platforms3-tab" data-bs-toggle="tab" data-bs-target="#tech-platforms3-tab-pane" type="button" role="tab" aria-controls="tech-platforms3-tab-pane" aria-selected="false">Frameworks</button>
+                  <button 
+                    className={`nav-link ${activeTab === 'frameworks' ? 'active' : ''}`} 
+                    onClick={() => handleTabChange('frameworks')}
+                    type="button"
+                  >
+                    Frameworks
+                  </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button className="nav-link" id="tech-platforms4-tab" data-bs-toggle="tab" data-bs-target="#tech-platforms4-tab-pane" type="button" role="tab" aria-controls="tech-platforms4-tab-pane" aria-selected="false">Mobile App</button>
+                  <button 
+                    className={`nav-link ${activeTab === 'mobile-app' ? 'active' : ''}`} 
+                    onClick={() => handleTabChange('mobile-app')}
+                    type="button"
+                  >
+                    Mobile App
+                  </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button className="nav-link" id="tech-platforms5-tab" data-bs-toggle="tab" data-bs-target="#tech-platforms5-tab-pane" type="button" role="tab" aria-controls="tech-platforms5-tab-pane" aria-selected="false">Data Base</button>
+                  <button 
+                    className={`nav-link ${activeTab === 'database' ? 'active' : ''}`} 
+                    onClick={() => handleTabChange('database')}
+                    type="button"
+                  >
+                    Data Base
+                  </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button className="nav-link" id="tech-platforms6-tab" data-bs-toggle="tab" data-bs-target="#tech-platforms6-tab-pane" type="button" role="tab" aria-controls="tech-platforms6-tab-pane" aria-selected="false">Google</button>
+                  <button 
+                    className={`nav-link ${activeTab === 'google' ? 'active' : ''}`} 
+                    onClick={() => handleTabChange('google')}
+                    type="button"
+                  >
+                    Google
+                  </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button className="nav-link" id="tech-platforms7-tab" data-bs-toggle="tab" data-bs-target="#tech-platforms7-tab-pane" type="button" role="tab" aria-controls="tech-platforms7-tab-pane" aria-selected="false">Data Science</button>
+                  <button 
+                    className={`nav-link ${activeTab === 'data-science' ? 'active' : ''}`} 
+                    onClick={() => handleTabChange('data-science')}
+                    type="button"
+                  >
+                    Data Science
+                  </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button className="nav-link" id="tech-platforms8-tab" data-bs-toggle="tab" data-bs-target="#tech-platforms8-tab-pane" type="button" role="tab" aria-controls="tech-platforms8-tab-pane" aria-selected="false">Machine Learning</button>
+                  <button 
+                    className={`nav-link ${activeTab === 'machine-learning' ? 'active' : ''}`} 
+                    onClick={() => handleTabChange('machine-learning')}
+                    type="button"
+                  >
+                    Machine Learning
+                  </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button className="nav-link" id="tech-platforms9-tab" data-bs-toggle="tab" data-bs-target="#tech-platforms9-tab-pane" type="button" role="tab" aria-controls="tech-platforms9-tab-pane" aria-selected="false">DevOps</button>
+                  <button 
+                    className={`nav-link ${activeTab === 'devops' ? 'active' : ''}`} 
+                    onClick={() => handleTabChange('devops')}
+                    type="button"
+                  >
+                    DevOps
+                  </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button className="nav-link" id="tech-platforms10-tab" data-bs-toggle="tab" data-bs-target="#tech-platforms10-tab-pane" type="button" role="tab" aria-controls="tech-platforms10-tab-pane" aria-selected="false">CMS</button>
+                  <button 
+                    className={`nav-link ${activeTab === 'cms' ? 'active' : ''}`} 
+                    onClick={() => handleTabChange('cms')}
+                    type="button"
+                  >
+                    CMS
+                  </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button className="nav-link" id="tech-platforms11-tab" data-bs-toggle="tab" data-bs-target="#tech-platforms11-tab-pane" type="button" role="tab" aria-controls="tech-platforms11-tab-pane" aria-selected="false">ECommerce</button>
+                  <button 
+                    className={`nav-link ${activeTab === 'ecommerce' ? 'active' : ''}`} 
+                    onClick={() => handleTabChange('ecommerce')}
+                    type="button"
+                  >
+                    ECommerce
+                  </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button className="nav-link" id="tech-platforms12-tab" data-bs-toggle="tab" data-bs-target="#tech-platforms12-tab-pane" type="button" role="tab" aria-controls="tech-platforms12-tab-pane" aria-selected="false">Security</button>
+                  <button 
+                    className={`nav-link ${activeTab === 'security' ? 'active' : ''}`} 
+                    onClick={() => handleTabChange('security')}
+                    type="button"
+                  >
+                    Security
+                  </button>
                 </li>
               </ul>
             </div>
             <div className='col-12'>
               <div className='row'>
-                {Array.from({ length: 36 }, (_, i) => (
-                  <div key={i} className='col-6 col-md-4 col-lg-3 col-xl-2' data-aos="fade-up">
-                    <div className='tech-platforms-box'>
-                      <Image src={`/assets/images/technologies-icon-${i + 1}.png`} alt={`Technology ${i + 1}`} className="tech-platforms-imgs" width={80} height={80} />
+                {loading ? (
+                  Array.from({ length: 12 }, (_, i) => (
+                    <div key={i} className='col-6 col-md-4 col-lg-3 col-xl-2' data-aos="fade-up">
+                      <div className='tech-platforms-box placeholder-glow'>
+                        <span className="placeholder" style={{width: '80px', height: '80px', display: 'block'}}></span>
+                      </div>
                     </div>
+                  ))
+                ) : filteredSkills.length > 0 ? (
+                  filteredSkills.map((skill) => (
+                    <div key={skill._id} className='col-6 col-md-4 col-lg-3 col-xl-2' data-aos="fade-up">
+                      <div className='tech-platforms-box'>
+                        <Image 
+                          src={skill.image} 
+                          alt={skill.title} 
+                          className="tech-platforms-imgs" 
+                          width={80} 
+                          height={80}
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div className='col-12 text-center py-5'>
+                    <p>No technologies available for this category.</p>
                   </div>
-                ))}
+                )}
               </div>
             </div>
           </div>

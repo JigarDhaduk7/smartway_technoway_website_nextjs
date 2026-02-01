@@ -56,7 +56,32 @@ const DynamicDetail: React.FC<DynamicDetailProps> = ({ serviceSlug }) => {
   }, [serviceSlug]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="container py-5">
+        <div className="placeholder-glow">
+          <div className="row mb-5">
+            <div className="col-12 text-center">
+              <span className="placeholder col-6 mb-3" style={{height: '40px'}}></span>
+              <span className="placeholder col-8 mb-2"></span>
+            </div>
+          </div>
+          <div className="row">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="col-md-6 col-xl-4 my-3">
+                <div className="card card-xxl card-gray h-100">
+                  <div className="card-body card-pad-50">
+                    <span className="placeholder col-3 mb-3" style={{height: '55px', display: 'block'}}></span>
+                    <span className="placeholder col-8 mb-2"></span>
+                    <span className="placeholder col-12 mb-2"></span>
+                    <span className="placeholder col-10"></span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
   }
 
   if (!serviceData) {
