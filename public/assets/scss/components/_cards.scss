@@ -418,6 +418,41 @@
     }
 }
 
+.button-nav-tab {
+    position: relative;
+    border: 0 !important;
+    border-radius: 0;
+    overflow: auto;
+    white-space: nowrap;
+    flex-wrap: nowrap !important;
+
+    li {
+        position: relative;
+        border-right: 0;
+
+        &:last-child {
+            border-right: 0;
+        }
+
+        .nav-link {
+            width: 100%;
+            position: relative;
+            border: 0;
+            color: var(--text-primary-subtle);
+            border-radius: 12px;
+            padding: 2px 12px;
+
+            &.active {
+                position: relative;
+                margin-bottom: 0;
+                background-color: var(--text-secondary);
+                color: var(--text-white);
+            }
+        }
+    }
+}
+
+
 @media screen and (max-width: 991px) {
     .card-pad-50 {
         padding: 35px !important;

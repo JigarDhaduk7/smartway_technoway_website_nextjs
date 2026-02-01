@@ -22,7 +22,7 @@
 
         ul {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         }
 
         .services-workflow-list {
@@ -189,7 +189,7 @@
 
 .tech-platforms-imgs {
     max-height: 75px;
-    max-width: 65%;
+    max-width: 30% !important;
     object-fit: contain;
     transition: all 0.25s;
 }
