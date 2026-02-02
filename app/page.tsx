@@ -240,7 +240,7 @@ const Home: React.FC = () => (
                   </div>
                   <div className='col ps-0'>
                     <h4 className='heading-md my-2'>Certified Experts</h4>
-                    <p className='peragraph-style-2 mb-0'>Backed by the trust of the Smartway Group</p>
+                    <p className='peragraph-style-2 mb-0'>Experienced team of certified developers & engineers</p>
                   </div>
                 </div>
               </div>
@@ -261,7 +261,7 @@ const Home: React.FC = () => (
                   </div>
                   <div className='col ps-0'>
                     <h4 className='heading-md my-2'>24/7 Support</h4>
-                    <p className='peragraph-style-2 mb-0'>Experienced team of certified developers & engineers</p>
+                    <p className='peragraph-style-2 mb-0'>Backed by the trust of the Smartway Group</p>
                   </div>
                 </div>
               </div>
@@ -282,7 +282,7 @@ const Home: React.FC = () => (
                   </div>
                   <div className='col ps-0'>
                     <h4 className='heading-md my-2'>Scalable Solutions</h4>
-                    <p className='peragraph-style-2 mb-0'>Agile and transparent project management</p>
+                    <p className='peragraph-style-2 mb-0'>Global delivery capability with local support</p>
                   </div>
                 </div>
               </div>
@@ -303,7 +303,7 @@ const Home: React.FC = () => (
                   </div>
                   <div className='col ps-0'>
                     <h4 className='heading-md my-2'>Scaling Towards Success</h4>
-                    <p className='peragraph-style-2 mb-0'>Global delivery capability with local support</p>
+                    <p className='peragraph-style-2 mb-0'>Agile and transparent project management</p>
                   </div>
                 </div>
               </div>

@@ -100,7 +100,7 @@ const Services: React.FC = () => {
               <div className="row">
 
                 <div className="col-12 col-md-6 col-lg-6 col-xl-12 mb-4">
-                  <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70">
+                  <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70" data-aos="fade-up">
                     <div className="card-body card-pad-40">
                       <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
                         <Image src={bestSolutionsTailoredIcon} alt="Icon" />
@@ -112,7 +112,7 @@ const Services: React.FC = () => {
                 </div>
 
                 <div className="col-12 col-md-6 col-lg-6 col-xl-12 mb-4">
-                  <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70">
+                  <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70" data-aos="fade-up">
                     <div className="card-body card-pad-40">
                       <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
                         <Image src={bestSolutionsGuaranteedSecurityIcon} alt="Icon" />
@@ -128,7 +128,7 @@ const Services: React.FC = () => {
 
             {/* CENTER IMAGE */}
             <div className="col-xl-4 mb-4">
-              <div className="card card-xxxl __radius-tl-150 __radius-br-150 h-100">
+              <div className="card card-xxxl __radius-tl-150 __radius-br-150 h-100" data-aos="fade-up">
                 <Image src={bestSolutionsBannerImage} alt="" className="w-100 best-solutions-img object-cover" />
               </div>
             </div>
@@ -138,7 +138,7 @@ const Services: React.FC = () => {
               <div className="row">
 
                 <div className="col-12 col-md-6 col-lg-6 col-xl-12 mb-4">
-                  <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70">
+                  <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70" data-aos="fade-up">
                     <div className="card-body card-pad-40">
                       <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
                         <Image src={bestSolutionsCompetitivePricingIcon} alt="Icon" />
@@ -150,7 +150,7 @@ const Services: React.FC = () => {
                 </div>
 
                 <div className="col-12 col-md-6 col-lg-6 col-xl-12 mb-4">
-                  <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70">
+                  <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70" data-aos="fade-up">
                     <div className="card-body card-pad-40">
                       <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
                         <Image src={bestSolutionsFastServiceSupportIcon} alt="Icon" />

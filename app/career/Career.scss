@@ -36,3 +36,31 @@
         opacity: 0.5;
     }
 }
+
+.ready-for-project-wrap {
+    background-color: var(--bg-secondary);
+    color: var(--text-white);
+    margin-block-start: -10px;
+
+    .ready-for-project-container {
+        padding-block: 100px;
+    }
+
+    .btn.btn-primary {
+        background-color: var(--white) !important;
+        color: var(--bg-secondary) !important;
+    }
+}
+
+.ready-for-project-wrap {
+    .logo-bg-pattern-right {
+        filter: brightness(5);
+        bottom: auto !important;
+        width: 13% !important;
+    }
+
+    .logo-bg-pattern-left {
+        filter: brightness(5);
+        width: 10% !important;
+    }
+}
