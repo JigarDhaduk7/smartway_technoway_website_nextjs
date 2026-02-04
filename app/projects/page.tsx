@@ -5,11 +5,11 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Smartway Technoway Case Studies | Proven Digital Transformation Success Stories',
-  description: 'Explore Smartway Technoways success stories — from AI automation and cloud migrations to enterprise software solutions.Discover how we help organizations transform ideas into measurable impact.',
+  description: "Explore Smartway Technoway's success stories — from AI automation and cloud migrations to enterprise software solutions. Discover how we help organizations transform ideas into measurable impact.",
   keywords: 'Smartway Technoway projects, IT case studies, digital transformation success, AI automation projects, cloud migration company, software development results',
   openGraph: {
     title: 'Smartway Technoway Case Studies | Proven Digital Transformation Success Stories',
-    description: 'Explore Smartway Technoways success stories — from AI automation and cloud migrations to enterprise software solutions.Discover how we help organizations transform ideas into measurable impact.',
+    description: "Explore Smartway Technoway's success stories — from AI automation and cloud migrations to enterprise software solutions. Discover how we help organizations transform ideas into measurable impact.",
     type: 'website',
   },
 };

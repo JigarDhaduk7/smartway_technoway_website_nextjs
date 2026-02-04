@@ -21,8 +21,8 @@ const FrequentlyAskedQuestion: React.FC = () => {
       <div className="row">
 
         {/* LEFT SIDE FAQ */}
-        <div className="col-lg-6">
-          <h2 className="heading-xxxl mb-3" data-aos="fade-up">
+        <div className="col-lg-6" data-aos="fade-up">
+          <h2 className="heading-xxxl mb-3">
             The Technoway Culture
           </h2>
 
@@ -34,7 +34,7 @@ const FrequentlyAskedQuestion: React.FC = () => {
             <div className="accordion accordion-card accordion-gray-card" id="DefaultAccordionsWrap">
 
               {/* FAQ 1 */}
-              <div className="accordion-item" data-aos="fade-up">
+              <div className="accordion-item">
                 <h2 className="accordion-header">
                   <button
                     className="accordion-button"
@@ -70,7 +70,7 @@ const FrequentlyAskedQuestion: React.FC = () => {
               </div>
 
               {/* FAQ 2 */}
-              <div className="accordion-item" data-aos="fade-up">
+              <div className="accordion-item">
                 <h2 className="accordion-header">
                   <button
                     className="accordion-button collapsed"
@@ -100,7 +100,7 @@ const FrequentlyAskedQuestion: React.FC = () => {
               </div>
 
               {/* FAQ 3 */}
-              <div className="accordion-item" data-aos="fade-up">
+              <div className="accordion-item">
                 <h2 className="accordion-header">
                   <button
                     className="accordion-button collapsed"

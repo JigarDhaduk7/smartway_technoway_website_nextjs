@@ -21,7 +21,7 @@ const OurCompanyValuesSection = () => (
       <div className='col-lg-7 col-xl-6'>
         <h2 className="heading-xxxl mb-3">The Core Values That Drive Us</h2>
       </div>
-      <div className='col-lg-5 col-xl-4'>
+      <div className='col-lg-5 col-xl-5'>
         <p className="peragraph-style-1">At the heart of Smartway Technoway lies a belief that great technology begins with great purpose. <br /> Our principles define how we think, build, and grow with every partner.</p>
       </div>
     </div>

@@ -186,19 +186,19 @@ const FormContentSection: React.FC = () => {
           </div>
 
           {/* CONTENT */}
-          <div className="col-lg-6 ps-xl-5 pb-3">
+          <div className="col-lg-6 ps-xl-5 pb-3" data-aos="fade-up">
             <div className="row">
 
               <div className="col-12">
-                <h2 className="heading-xxxl" data-aos="fade-up">
+                <h2 className="heading-xxxl">
                   Let's Build the Future of Technology Together
                 </h2>
                 <div className="col-xl-9">
-                  <p className="peragraph-style-1 mb-2" data-aos="fade-up">We're ready to discuss your next big idea — whether you need a custom solution, system upgrade, or digital transformation roadmap. Let's create something that delivers real impact.</p>
-                  <div className="peragraph-style-1 mb-0" data-aos="fade-up"><i className="far fa-map-pin me-2"></i>Ahmedabad, Gujarat, India</div>
-                  <div className="peragraph-style-1 mb-0" data-aos="fade-up"><i className="far fa-mobile me-2"></i><a href='tel:+079-69209901/02' className='footer-list-link'>+079-69209901/02</a></div>
-                  <div className="peragraph-style-1 mb-0" data-aos="fade-up"> <i className="far fa-envelope me-2"></i><a href='mailto:info@smartwaytechnoway.com' className='footer-list-link'>info@smartwaytechnoway.com</a></div>
-                  <div className="d-inline-block mt-3" data-aos="fade-up"><a className="btn btn-primary d-flex align-items-center" href="">Contact Us</a></div>
+                  <p className="peragraph-style-1 mb-2">We're ready to discuss your next big idea — whether you need a custom solution, system upgrade, or digital transformation roadmap. Let's create something that delivers real impact.</p>
+                  <div className="peragraph-style-1 mb-0"><i className="far fa-map-pin me-2"></i>Ahmedabad, Gujarat, India</div>
+                  <div className="peragraph-style-1 mb-0"><i className="far fa-mobile me-2"></i><a href='tel:+079-69209901/02' className='footer-list-link'>+079-69209901/02</a></div>
+                  <div className="peragraph-style-1 mb-0"> <i className="far fa-envelope me-2"></i><a href='mailto:info@smartwaytechnoway.com' className='footer-list-link'>info@smartwaytechnoway.com</a></div>
+                  <div className="d-inline-block mt-3"><a className="btn btn-primary d-flex align-items-center" href="">Contact Us</a></div>
                 </div>
               </div>
 

@@ -38,12 +38,11 @@ import smartSolutionsIcon1 from "../public/assets/images/smart-solutions-icon-1.
 import smartSolutionsIcon2 from "../public/assets/images/smart-solutions-icon-2.svg";
 import smartSolutionsIcon3 from "../public/assets/images/smart-solutions-icon-3.svg";
 
-import bigBrandLogo1 from "../public/assets/images/big-brands-logo-1.png";
-import bigBrandLogo2 from "../public/assets/images/big-brands-logo-2.png";
-import bigBrandLogo3 from "../public/assets/images/big-brands-logo-3.png";
-import bigBrandLogo4 from "../public/assets/images/big-brands-logo-4.png";
-import bigBrandLogo5 from "../public/assets/images/big-brands-logo-5.png";
-import bigBrandLogo6 from "../public/assets/images/big-brands-logo-6.png";
+import bigBrandLogo1 from "../public/assets/images/big-brands-logo-1.jpg";
+import bigBrandLogo2 from "../public/assets/images/big-brands-logo-2.jpg";
+import bigBrandLogo3 from "../public/assets/images/big-brands-logo-3.jpg";
+import bigBrandLogo4 from "../public/assets/images/big-brands-logo-4.jpg";
+import bigBrandLogo5 from "../public/assets/images/big-brands-logo-5.jpg";
 
 
 import './Home.scss';
@@ -160,7 +159,7 @@ const Home: React.FC = () => (
           <div className='col-lg-7 col-xl-6'>
             <h2 className="heading-xxxl mb-3">Building Smart Solutions for a Digital World</h2>
           </div>
-          <div className='col-lg-5 col-xl-4'>
+          <div className='col-lg-5 col-xl-5'>
             <p className="peragraph-style-1">From concept to execution, Smartway Technoway offers a comprehensive suite of technology services designed to make your business future-ready.</p>
           </div>
         </div>
@@ -319,7 +318,7 @@ const Home: React.FC = () => (
           <div className='col-lg-7 col-xl-6'>
             <h2 className="heading-xxxl mb-3">Transforming Challenges into Success Stories</h2>
           </div>
-          <div className='col-lg-5 col-xl-4'>
+          <div className='col-lg-5 col-xl-5'>
             <p className="peragraph-style-1">We provide intelligent IT solutions tailored to meet the unique challenges of every business. From startups to large enterprises, our technology-driven</p>
           </div>
         </div>
@@ -395,7 +394,7 @@ const Home: React.FC = () => (
       <div className='container'>
         <div className='row'>
           <div className='col-12'>
-            <h2 className='heading-xxxl mb-5 text-center' data-aos="fade-up">1300+ Big brands trust us</h2>
+            <h2 className='heading-xxxl mb-5 text-center' data-aos="fade-up">Big brands trust us</h2>
           </div>
           <div className='col-12'>
             <div data-aos="fade-up">
@@ -447,9 +446,6 @@ const Home: React.FC = () => (
                 </SwiperSlide>
                 <SwiperSlide className="big-brands-logo-img">
                   <Image src={bigBrandLogo5} alt="Brand" />
-                </SwiperSlide>
-                <SwiperSlide className="big-brands-logo-img">
-                  <Image src={bigBrandLogo6} alt="Brand" />
                 </SwiperSlide>
                 <SwiperSlide className="big-brands-logo-img">
                   <Image src={bigBrandLogo1} alt="Brand" />

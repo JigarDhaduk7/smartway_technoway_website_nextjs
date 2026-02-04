@@ -10,11 +10,11 @@ import FrequentlyAskedQuestion from '../component/FrequentlyAskedQuestionSection
 
 export const metadata: Metadata = {
   title: 'Smartway Technoway Services | AI, Cloud, Automation & Software Solutions for Modern Businesses',
-  description: 'Explore Smartway Technoway full range of IT services — from custom software development to AI automation and cloud infrastructure management. We build scalable, intelligent, and future-ready solutions for every enterprise.',
+  description: "Explore Smartway Technoway's full range of IT services — from custom software development to AI automation and cloud infrastructure management. We build scalable, intelligent, and future-ready solutions for every enterprise.",
   keywords: 'Smartway Technoway services, AI automation, cloud solutions, software development, IT management, digital transformation company',
   openGraph: {
     title: 'Smartway Technoway Services | AI, Cloud, Automation & Software Solutions for Modern Businesses',
-    description: 'Explore Smartway Technoway full range of IT services — from custom software development to AI automation and cloud infrastructure management. We build scalable, intelligent, and future-ready solutions for every enterprise.',
+    description: "Explore Smartway Technoway's full range of IT services — from custom software development to AI automation and cloud infrastructure management. We build scalable, intelligent, and future-ready solutions for every enterprise.",
     type: 'website',
   },
 };
