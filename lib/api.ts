@@ -1,5 +1,5 @@
 // const API_BASE_URL = process.env.API_BASE_URL || 'https://smartway-tech-3.onrender.com';
-const API_BASE_URL = 'https://smartway-tech-3.onrender.com';
+const API_BASE_URL = 'https://smartway-tech-3.onrender.com/api';
 
 export const getData = async (endpoint: string) => {
   const response = await fetch(`${API_BASE_URL}/${endpoint}`);
