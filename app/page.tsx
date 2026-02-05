@@ -47,6 +47,7 @@ import bigBrandLogo5 from "../public/assets/images/big-brands-logo-5.jpg";
 
 import './Home.scss';
 import NextLevelServices from './component/NextLevelServices/nextlevelservices';
+import ServiceComponent from './component/servicecomponent/ServiceComponent';
 
 const Home: React.FC = () => (
   <div className="smartway-tech-home">
@@ -150,65 +151,7 @@ const Home: React.FC = () => (
       </div>
     </section>
 
-    <section className='home-next-level-solution-wrap home-sec-pattern-right pt-5 pt-lg-0'>
-      <div className='logo-bg-pattern-right'>
-        <Image src={logoBgPattern} className="w-100" data-aos="fade-up" alt="Pattern" />
-      </div>
-      <div className='container'>
-        <div className='row align-items-center justify-content-between' data-aos="fade-up">
-          <div className='col-lg-7 col-xl-6'>
-            <h2 className="heading-xxxl mb-3">Building Smart Solutions for a Digital World</h2>
-          </div>
-          <div className='col-lg-5 col-xl-5'>
-            <p className="peragraph-style-1">From concept to execution, Smartway Technoway offers a comprehensive suite of technology services designed to make your business future-ready.</p>
-          </div>
-        </div>
-        <div className='row pb-100'>
-          <div className='col-md-6 col-xl-4 my-3'>
-            <div className='card card-xxl h-100 __hover-blue __radius-tr-110 __radius-bl-110' data-aos="fade-up">
-              <div className='card-body card-pad-50'>
-                <div className='card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150'>
-                  <Image src={servicesWebDevIcon} alt="Icon" />
-                </div>
-                <h2 className='heading-lg'>Software & Web Development</h2>
-                <p className='peragraph-style-1'>Custom enterprise applications and responsive web solutions crafted to deliver seamless performance and superior UX.</p>
-                <div className='d-inline-block'>
-                  <Link href='' className='btn btn-link d-flex align-items-center'>View All Services <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='col-md-6 col-xl-4 my-3'>
-            <div className='card card-xxl h-100 __hover-blue __radius-tr-110 __radius-bl-110' data-aos="fade-up">
-              <div className='card-body card-pad-50'>
-                <div className='card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150'>
-                  <Image src={servicesCloudSolutionsIcon} alt="Icon" />
-                </div>
-                <h2 className='heading-lg'>AI & Automation Solutions</h2>
-                <p className='peragraph-style-1'>Transform operations with data-driven intelligence, predictive analytics, and workflow automation that maximizes efficiency.</p>
-                <div className='d-inline-block'>
-                  <Link href='' className='btn btn-link d-flex align-items-center'>View All Services <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='col-md-6 col-xl-4 my-3'>
-            <div className='card card-xxl h-100 __hover-blue __radius-tr-110 __radius-bl-110' data-aos="fade-up">
-              <div className='card-body card-pad-50'>
-                <div className='card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150'>
-                  <Image src={servicesITConsultingIcon} alt="Icon" />
-                </div>
-                <h2 className='heading-lg'>Cloud Infrastructure & Security</h2>
-                <p className='peragraph-style-1'>Scalable and secure cloud deployments that optimize cost and enhance resilience — from migration to management.</p>
-                <div className='d-inline-block'>
-                  <Link href='' className='btn btn-link d-flex align-items-center'>View All Services <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <ServiceComponent />
 
     <section className='home-boost-hosting-speed-wrap home-sec-pattern-left'>
       <div className='logo-bg-pattern-left'>
