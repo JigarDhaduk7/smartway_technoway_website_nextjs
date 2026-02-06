@@ -137,7 +137,14 @@ const FormContentSection: React.FC = () => {
                                 className="form-control"
                                 placeholder="Enter phone number"
                                 value={formData.phone}
-                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                onChange={(e) => {
+                                  const value = e.target.value.replace(/\D/g, '');
+                                  if (value.length <= 10) {
+                                    setFormData({ ...formData, phone: value });
+                                  }
+                                }}
+                                pattern="[0-9]{10}"
+                                maxLength={10}
                                 required
                               />
                             </div>

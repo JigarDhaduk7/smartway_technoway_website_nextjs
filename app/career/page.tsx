@@ -1,4 +1,5 @@
-import { Metadata } from 'next';
+'use client';
+
 import React from 'react';
 
 import CompanySuccessHighlights from '../component/CompanySuccessHighlights/CompanySuccessHighlights';
@@ -23,16 +24,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import FindYouAnOpenPosition from '../component/findyouanopenposition/findyouanopenposition';
 
-export const metadata: Metadata = {
-    title: 'Careers at Smartway Technoway | Join the Future of Innovation and Technology',
-    description: 'Be part of Smartway Technoway — a Smartway Group company building the future through AI, automation, and digital innovation. Join our team of dreamers, thinkers, and technologists who turn thought into impact.',
-    keywords: 'Smartway Technoway careers, IT jobs Ahmedabad, Smartway Group hiring, AI developer jobs, automation career, cloud engineer India',
-    openGraph: {
-        title: 'Careers at Smartway Technoway | Join the Future of Innovation and Technology',
-        description: 'Be part of Smartway Technoway — a Smartway Group company building the future through AI, automation, and digital innovation. Join our team of dreamers, thinkers, and technologists who turn thought into impact.',
-        type: 'website',
-    },
-};
+
 
 const Career = () => (
 
@@ -66,7 +58,7 @@ const Career = () => (
 
         <FindYouAnOpenPosition />
 
-        <div className='ready-for-project-wrap home-sec-pattern-right home-sec-pattern-left'>
+        <div id='ApplyForCareer' className='ready-for-project-wrap home-sec-pattern-right home-sec-pattern-left'>
             <div className='logo-bg-pattern-right'>
                 <Image src={logoBgPattern} className="w-100" alt='' data-aos="fade-up" />
             </div>
@@ -79,7 +71,19 @@ const Career = () => (
                         <h2 className='fw-bold'>Come to Join Us!</h2>
                         <p>From year to year we strive to invent the most innovative technology that is used by both small enterprises and space enterprises.</p>
                         <div className="d-inline-block">
-                            <a href="" className="btn btn-primary d-flex align-items-center">See Current Opening</a>
+                            <button
+                                type='button'
+                                onClick={() => {
+                                    const element = document.getElementById('SeeCurrentOpening');
+                                    const offset = 80;
+                                    const elementPosition = element?.getBoundingClientRect().top || 0;
+                                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                                }}
+                                className="btn btn-primary d-flex align-items-center"
+                            >
+                                See Current Opening
+                            </button>
                         </div>
                     </div>
                 </div>
