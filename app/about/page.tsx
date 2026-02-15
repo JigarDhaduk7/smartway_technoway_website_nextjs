@@ -176,6 +176,41 @@ const About: React.FC = () => (
       </div>
     </section>
 
+    <section className='our-vision-sec-wrap'>
+      <div className='container'>
+        <div className='row align-items-center'>
+          <div className='col-lg-6 order-lg-2 home-sec-padding'>
+            <div className='card card-xxxl card-blue-overlay __radius-tl-150 __radius-br-150' data-aos="fade-up">
+              <Image src="/assets/images/our-vision-image.jpg" alt="Our Vision" className="w-100 img-h-500 object-cover" width={600} height={400} />
+            </div>
+          </div>
+          <div className='col-lg-6 order-lg-1' data-aos="fade-up">
+            <div className='row justify-content-start'>
+              <div className='col-12 col-lg-11'>
+                <div className='icn-bg-blue card-icn-wrap icn-70 card card-xxl __radius-tl-110 __radius-br-110 __radius-tr-110 mb-4'>
+                  <Image src="/assets/images/our-vision-icon.svg" alt='Our Vision Icon' className='img-fluid' width={70} height={70} />
+                </div>
+              </div>
+              <div className='col-12 col-lg-11'>
+                <h2 className='fw-bold mb-3'>OUR VALUES</h2>
+                <p className='peragraph-style-1 lh-base mb-2'>The Core Values That Drive Us</p>
+                <p className='peragraph-style-1 lh-base mb-3'>At the heart of Smartway Technoway lies a belief that great technology begins with great purpose.
+                  Our principles define how we think, build, and grow with every partner.
+                </p>
+                <ul className='peragraph-style-1'>
+                  <li>• <b>Innovation </b>-	We constantly evolve, explore, and adopt emerging technologies to stay ahead of the curve.</li>
+                  <li>•	<b>Integrity </b>- Integrity	Every interaction is rooted in honesty, transparency, and ethical excellence.</li>
+                  <li>•	<b>Impact </b>- Our success is measured by the real value we deliver to our clients and communities.</li>
+                  <li>•	<b>Collaboration </b>- We work as an extension of your team, co-creating solutions that drive long-term success.</li>
+                  <li>•	<b>Excellence </b>- Quality isn’t an option — it’s our standard in every line of code, design, and decision.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <CompanySuccessHighlights />
 
     <section className='company-values-wrap home-sec-pattern-right py-100'>

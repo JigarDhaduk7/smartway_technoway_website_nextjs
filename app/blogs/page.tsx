@@ -83,13 +83,13 @@ const Blogs: React.FC = async () => {
           {/* TITLE SECTION */}
           <div className="row align-items-center justify-content-between pb-2" data-aos="fade-up">
             <div className="col-lg-7 col-xl-6">
-              <h2 className="heading-xxxl mb-3">Technoway Insights — Where Innovation Meets Intelligence</h2>
+              <h2 className="heading-xxxl mb-3">Trusted by Innovators Who Build the Future</h2>
             </div>
 
             <div className="col-lg-5 col-xl-5">
               <p className="peragraph-style-1">
-                Knowledge is the foundation of progress. <br />
-                Explore the latest ideas, trends, and stories driving the digital future — curated by the thinkers and innovators at Smartway Technoway.
+                At Smartway Technoway, we don’t just serve clients — we partner with visionaries who believe in technology as a force for growth.
+                Across industries and geographies, our collaborations turn ideas into impact through intelligent innovation.
               </p>
             </div>
           </div>
