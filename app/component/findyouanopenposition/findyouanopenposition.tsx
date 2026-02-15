@@ -75,7 +75,7 @@ const FindYouAnOpenPosition: React.FC = () => {
                   <div key={job._id} className="accordion-item">
                     <h2 className="accordion-header">
                       <button
-                        className={`accordion-button font-14 pe-0 ${index !== 0 ? "collapsed" : ""
+                        className={`accordion-button font-14 pe-0 flex-wrap ${index !== 0 ? "collapsed" : ""
                           }`}
                         type="button"
                         data-bs-toggle="collapse"
@@ -83,7 +83,7 @@ const FindYouAnOpenPosition: React.FC = () => {
                         aria-expanded={index === 0}
                         aria-controls={`accordion${index + 1}`}
                       >
-                        <div className="col-auto">
+                        <div className="col-12 col-md-auto mb-2 mb-md-0">
                           <div className="text-secondary fw-semibold mb-1">
                             {job.title}
                           </div>
@@ -92,14 +92,14 @@ const FindYouAnOpenPosition: React.FC = () => {
                           </div>
                         </div>
                         <div className="col">
-                          <div className="row mx-0 justify-content-end">
-                            <div className="col-auto">
+                          <div className="row mx-md-0 justify-content-md-end">
+                            <div className="col-12 col-md-auto mb-2 mb-md-0">
                               <span className="text-secondary fw-semibold mb-1">
                                 Job Type:{" "}
                               </span>
                               <span className="fw-semibold">{job.jobType}</span>
                             </div>
-                            <div className="col-auto">
+                            <div className="col-12 col-md-auto mb-2 mb-md-0">
                               <span className="text-secondary fw-semibold mb-1">
                                 Experience:{" "}
                               </span>
@@ -107,7 +107,7 @@ const FindYouAnOpenPosition: React.FC = () => {
                                 {job.experience}
                               </span>
                             </div>
-                            <div className="col-auto">
+                            <div className="col-12 col-md-auto mb-2 mb-md-0">
                               <span className="text-secondary fw-semibold mb-1">
                                 No. Of Opening:{" "}
                               </span>

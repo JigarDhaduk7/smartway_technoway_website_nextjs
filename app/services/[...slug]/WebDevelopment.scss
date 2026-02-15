@@ -190,6 +190,7 @@
 .tech-platforms-imgs {
     max-height: 75px;
     max-width: 30% !important;
+    filter: brightness(0) saturate(100%) invert(27%) sepia(98%) saturate(743%) hue-rotate(189deg) brightness(97%) contrast(101%);
     object-fit: contain;
     transition: all 0.25s;
 }
