@@ -1,6 +1,6 @@
 
 
-const API_BASE_URL = process.env.API_BASE_URL || 'https://smartway-tech-3.onrender.com/api';
+const API_BASE_URL = process.env.API_BASE_URL || 'https://smartwaytechnoway.com/api';
 
 
 export const getData = async (endpoint: string) => {

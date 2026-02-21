@@ -38,11 +38,12 @@ import smartSolutionsIcon1 from "../public/assets/images/smart-solutions-icon-1.
 import smartSolutionsIcon2 from "../public/assets/images/smart-solutions-icon-2.svg";
 import smartSolutionsIcon3 from "../public/assets/images/smart-solutions-icon-3.svg";
 
-import bigBrandLogo1 from "../public/assets/images/big-brands-logo-1.jpg";
-import bigBrandLogo2 from "../public/assets/images/big-brands-logo-2.jpg";
-import bigBrandLogo3 from "../public/assets/images/big-brands-logo-3.jpg";
-import bigBrandLogo4 from "../public/assets/images/big-brands-logo-4.jpg";
-import bigBrandLogo5 from "../public/assets/images/big-brands-logo-5.jpg";
+import bigBrandLogo1 from "../public/assets/images/big-brands-logo-1.png";
+import bigBrandLogo2 from "../public/assets/images/big-brands-logo-2.png";
+import bigBrandLogo3 from "../public/assets/images/big-brands-logo-3.png";
+import bigBrandLogo4 from "../public/assets/images/big-brands-logo-4.png";
+import bigBrandLogo5 from "../public/assets/images/big-brands-logo-5.png";
+import bigBrandLogo6 from "../public/assets/images/big-brands-logo-6.png";
 
 
 import './Home.scss';
@@ -391,6 +392,9 @@ const Home: React.FC = () => (
                   <Image src={bigBrandLogo5} alt="Brand" />
                 </SwiperSlide>
                 <SwiperSlide className="big-brands-logo-img">
+                  <Image src={bigBrandLogo6} alt="Brand" />
+                </SwiperSlide>
+                <SwiperSlide className="big-brands-logo-img">
                   <Image src={bigBrandLogo1} alt="Brand" />
                 </SwiperSlide>
                 <SwiperSlide className="big-brands-logo-img">
@@ -401,6 +405,12 @@ const Home: React.FC = () => (
                 </SwiperSlide>
                 <SwiperSlide className="big-brands-logo-img">
                   <Image src={bigBrandLogo4} alt="Brand" />
+                </SwiperSlide>
+                <SwiperSlide className="big-brands-logo-img">
+                  <Image src={bigBrandLogo5} alt="Brand" />
+                </SwiperSlide>
+                <SwiperSlide className="big-brands-logo-img">
+                  <Image src={bigBrandLogo6} alt="Brand" />
                 </SwiperSlide>
               </Swiper>
             </div>
