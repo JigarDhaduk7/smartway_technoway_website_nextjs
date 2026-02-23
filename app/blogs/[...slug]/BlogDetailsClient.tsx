@@ -144,7 +144,7 @@ const BlogDetailsClient: React.FC<BlogDetailsClientProps> = ({ slug }) => {
                     <input type='text' className='form-control form-control-xl px-3 rounded-5' placeholder='Search' />
                   </div>
                 </div>
-                <div className='categories-contents-part pt-3'>
+                <div className='categories-contents-part pt-3 d-none'>
                   <h5 className='fw-bold my-3'>Contents </h5>
                   <div className='bg-light px-4 py-3 rounded-3'>
                     <div className='text-secondary'>1. 5 Project Ideas for Web Developers</div>
