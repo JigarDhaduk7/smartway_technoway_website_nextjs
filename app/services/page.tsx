@@ -88,7 +88,7 @@ const Services: React.FC = () => {
             </div>
             <div className="col-lg-5 col-xl-4">
               <p className="peragraph-style-1">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                Innovative and reliable solutions tailored to support your business goals and drive long-term success.
               </p>
             </div>
           </div>
@@ -106,7 +106,7 @@ const Services: React.FC = () => {
                         <Image src={bestSolutionsTailoredIcon} alt="Icon" />
                       </div>
                       <h2 className="heading-lg">Tailored Solutions</h2>
-                      <p className="peragraph-style-1 mb-0">Lorem ipsum dolor sit amet</p>
+                      <p className="peragraph-style-1 mb-0">Personalized solutions built around your needs.</p>
                     </div>
                   </div>
                 </div>

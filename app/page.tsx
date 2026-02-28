@@ -99,8 +99,8 @@ const Home: React.FC = () => (
               <h1 className='hero-sec-heading fw-extrabold'>Transforming Ideas <br /> Into Intelligent <br /> Technology</h1>
               <p className='hero-sec-peragraph'>At Smartway Technoway, we turn innovation into impact. As the technology arm of the Smartway Group, we create smart, scalable, and secure digital solutions that help businesses grow faster in a connected world. From AI and automation to cloud architecture and enterprise software — we design systems that empower you to lead the future.</p>
               <div className='pt-3'>
-                <Link href='' className='btn btn-primary'>Explore Technoway</Link>
-                <Link href='' className='btn btn-outline-primary'>Our Services</Link>
+                <Link href="/about" className='btn btn-primary'>Explore Technoway</Link>
+                <Link href="/services" className='btn btn-outline-primary'>Our Services</Link>
               </div>
             </div>
           </div>
@@ -143,7 +143,7 @@ const Home: React.FC = () => (
                   <li className='peragraph-style-1 mb-1'>•	24*7 Dedicated Support</li>
                 </ul>
               </div>
-              <Link href='' className='btn btn-primary'>Discover Our Story</Link>
+              <Link href="/about" className='btn btn-primary'>Discover Our Story</Link>
             </div>
           </div>
         </div>

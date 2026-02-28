@@ -9,6 +9,12 @@
     }
 }
 
+.success-teams-container:has(:hover) .success-teams-col-main:not(:hover) {
+    filter: grayscale(1) brightness(0.6);
+    transition: all 0.2s;
+    // transform: scale(0.95);
+}
+
 
 .team-info-wrap {
     position: absolute;
@@ -27,7 +33,7 @@
 
 .team-img-height {
     height: 450px;
-    transition: all 0.3s;
+    transition: all 0.2s;
 }
 
 @media screen and (min-width: 1400px) {
