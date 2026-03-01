@@ -64,7 +64,7 @@ const FormContentSection: React.FC = () => {
                     <span className="badge badge-numbers b-midnight-100 mb-0">
                       <div className="badge-inner-num">
                         <i className="fas fa-circle badge-left-round"></i>
-                        <span className="badge-num-text">Form</span>
+                        <span className="badge-num-text">Work With Us</span>
                       </div>
                     </span>
                   </div>
@@ -205,7 +205,7 @@ const FormContentSection: React.FC = () => {
                   <div className="peragraph-style-1 mb-0"><i className="far fa-map-pin me-2"></i>Ahmedabad, Gujarat, India</div>
                   <div className="peragraph-style-1 mb-0"><i className="far fa-mobile me-2"></i><a href='tel:+079-69209901/02' className='footer-list-link'>+079-69209901/02</a></div>
                   <div className="peragraph-style-1 mb-0"> <i className="far fa-envelope me-2"></i><a href='mailto:info@smartwaytechnoway.com' className='footer-list-link'>info@smartwaytechnoway.com</a></div>
-                  <div className="d-inline-block mt-3"><a className="btn btn-primary d-flex align-items-center" href="">Contact Us</a></div>
+                  <div className="d-inline-block mt-3"><a href="/contactus" className="btn btn-primary d-flex align-items-center">Contact Us</a></div>
                 </div>
               </div>
 

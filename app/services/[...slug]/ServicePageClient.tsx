@@ -48,7 +48,7 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
       setFilteredSkills(skills);
     } else {
       const tabTitle = tabSlug.replace(/-/g, ' ');
-      setFilteredSkills(skills.filter(skill => 
+      setFilteredSkills(skills.filter(skill =>
         skill.title.toLowerCase() === tabTitle.toLowerCase() ||
         skill.slug === tabSlug
       ));
@@ -72,8 +72,8 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
             <div className='col-12 py-4' data-aos="fade-up">
               <ul className="nav nav-tabs button-nav-tab" role="tablist">
                 <li className="nav-item col" role="presentation">
-                  <button 
-                    className={`nav-link ${activeTab === 'all' ? 'active' : ''}`} 
+                  <button
+                    className={`nav-link ${activeTab === 'all' ? 'active' : ''}`}
                     onClick={() => handleTabChange('all')}
                     type="button"
                   >
@@ -81,8 +81,8 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
                   </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button 
-                    className={`nav-link ${activeTab === 'frontend' ? 'active' : ''}`} 
+                  <button
+                    className={`nav-link ${activeTab === 'frontend' ? 'active' : ''}`}
                     onClick={() => handleTabChange('frontend')}
                     type="button"
                   >
@@ -90,8 +90,8 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
                   </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button 
-                    className={`nav-link ${activeTab === 'backend' ? 'active' : ''}`} 
+                  <button
+                    className={`nav-link ${activeTab === 'backend' ? 'active' : ''}`}
                     onClick={() => handleTabChange('backend')}
                     type="button"
                   >
@@ -99,8 +99,8 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
                   </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button 
-                    className={`nav-link ${activeTab === 'frameworks' ? 'active' : ''}`} 
+                  <button
+                    className={`nav-link ${activeTab === 'frameworks' ? 'active' : ''}`}
                     onClick={() => handleTabChange('frameworks')}
                     type="button"
                   >
@@ -108,8 +108,8 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
                   </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button 
-                    className={`nav-link ${activeTab === 'mobile-app' ? 'active' : ''}`} 
+                  <button
+                    className={`nav-link ${activeTab === 'mobile-app' ? 'active' : ''}`}
                     onClick={() => handleTabChange('mobile-app')}
                     type="button"
                   >
@@ -117,17 +117,17 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
                   </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button 
-                    className={`nav-link ${activeTab === 'database' ? 'active' : ''}`} 
-                    onClick={() => handleTabChange('database')}
+                  <button
+                    className={`nav-link ${activeTab === 'data base' ? 'active' : ''}`}
+                    onClick={() => handleTabChange('data base')}
                     type="button"
                   >
                     Data Base
                   </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button 
-                    className={`nav-link ${activeTab === 'google' ? 'active' : ''}`} 
+                  <button
+                    className={`nav-link ${activeTab === 'google' ? 'active' : ''}`}
                     onClick={() => handleTabChange('google')}
                     type="button"
                   >
@@ -135,8 +135,8 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
                   </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button 
-                    className={`nav-link ${activeTab === 'data-science' ? 'active' : ''}`} 
+                  <button
+                    className={`nav-link ${activeTab === 'data-science' ? 'active' : ''}`}
                     onClick={() => handleTabChange('data-science')}
                     type="button"
                   >
@@ -144,17 +144,17 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
                   </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button 
-                    className={`nav-link ${activeTab === 'machine-learning' ? 'active' : ''}`} 
-                    onClick={() => handleTabChange('machine-learning')}
+                  <button
+                    className={`nav-link ${activeTab === 'machine learning' ? 'active' : ''}`}
+                    onClick={() => handleTabChange('machine learning')}
                     type="button"
                   >
                     Machine Learning
                   </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button 
-                    className={`nav-link ${activeTab === 'devops' ? 'active' : ''}`} 
+                  <button
+                    className={`nav-link ${activeTab === 'devops' ? 'active' : ''}`}
                     onClick={() => handleTabChange('devops')}
                     type="button"
                   >
@@ -162,8 +162,8 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
                   </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button 
-                    className={`nav-link ${activeTab === 'cms' ? 'active' : ''}`} 
+                  <button
+                    className={`nav-link ${activeTab === 'cms' ? 'active' : ''}`}
                     onClick={() => handleTabChange('cms')}
                     type="button"
                   >
@@ -171,8 +171,8 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
                   </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button 
-                    className={`nav-link ${activeTab === 'ecommerce' ? 'active' : ''}`} 
+                  <button
+                    className={`nav-link ${activeTab === 'ecommerce' ? 'active' : ''}`}
                     onClick={() => handleTabChange('ecommerce')}
                     type="button"
                   >
@@ -180,8 +180,8 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
                   </button>
                 </li>
                 <li className="nav-item col" role="presentation">
-                  <button 
-                    className={`nav-link ${activeTab === 'security' ? 'active' : ''}`} 
+                  <button
+                    className={`nav-link ${activeTab === 'security' ? 'active' : ''}`}
                     onClick={() => handleTabChange('security')}
                     type="button"
                   >
@@ -196,7 +196,7 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
                   Array.from({ length: 12 }, (_, i) => (
                     <div key={i} className='col-6 col-md-4 col-lg-3 col-xl-2' data-aos="fade-up">
                       <div className='tech-platforms-box placeholder-glow'>
-                        <span className="placeholder" style={{width: '80px', height: '80px', display: 'block'}}></span>
+                        <span className="placeholder" style={{ width: '80px', height: '80px', display: 'block' }}></span>
                       </div>
                     </div>
                   ))
@@ -204,11 +204,11 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
                   filteredSkills.map((skill) => (
                     <div key={skill._id} className='col-6 col-md-4 col-lg-3 col-xl-2' data-aos="fade-up">
                       <div className='tech-platforms-box'>
-                        <Image 
-                          src={skill.image} 
-                          alt={skill.title} 
-                          className="tech-platforms-imgs" 
-                          width={80} 
+                        <Image
+                          src={skill.image}
+                          alt={skill.title}
+                          className="tech-platforms-imgs"
+                          width={80}
                           height={80}
                           loading="lazy"
                         />
