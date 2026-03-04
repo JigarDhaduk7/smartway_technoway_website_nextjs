@@ -51,7 +51,7 @@ const blogcomponent = () => {
       <div className='container'>
         <div className='row align-items-center justify-content-between' data-aos="fade-up">
           <div className='col-lg-7 col-xl-6'>
-            <h2 className="heading-xxxl mb-3">Success Stories from Our Partners</h2>
+            <h2 className="heading-xxxl mb-3">Latest Insights & Updates</h2>
           </div>
           <div className='col-lg-5 col-xl-4'>
             <p className="peragraph-style-1">Blog! Here, we share expert advice, industry trends, actionable tips, and case studies that can help you </p>
@@ -93,8 +93,8 @@ const blogcomponent = () => {
                     centeredSlides: false,
                   },
                 }}
-                onSlideChange={() => {}}
-                onSwiper={() => {}}
+                onSlideChange={() => { }}
+                onSwiper={() => { }}
               >
                 {loading ? (
                   [1, 2, 3].map((i) => (
@@ -102,7 +102,7 @@ const blogcomponent = () => {
                       <div className='position-relative'>
                         <div className='card card-xl __radius-tl-50 __radius-br-50'>
                           <div className='smart-solutions-card-img placeholder-glow'>
-                            <span className="placeholder w-100" style={{height: '300px'}}></span>
+                            <span className="placeholder w-100" style={{ height: '300px' }}></span>
                           </div>
                         </div>
                         <div className='card border-0 card-xl mt-3'>
@@ -121,9 +121,9 @@ const blogcomponent = () => {
                       <div className='position-relative'>
                         <div className='card card-xl __radius-tl-50 __radius-br-50'>
                           <div className='smart-solutions-card-img'>
-                            <Image 
-                              src={blog.image} 
-                              className="w-100 object-cover img-h-300" 
+                            <Image
+                              src={blog.image}
+                              className="w-100 object-cover img-h-300"
                               alt={blog.title}
                               width={400}
                               height={300}

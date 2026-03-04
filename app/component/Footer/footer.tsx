@@ -177,7 +177,7 @@ const Footer: React.FC = () => {
                   <div className="d-flex align-items-start">
                     <Image src={getInTouchIcon1} className="mt-1" alt="Address" width={25} />
                     <p className="mb-0 ps-2">
-                      Times Square Grand Sindhubhuvan, Main, Road, Ahmedabad, Gujarat 380059
+                      A-401, Times Square Grand, Nr. Sattva Vikas School, Sindhubhavan Main Road, Thaltej, Ahmedabad, Gujarat (380059)
                     </p>
                   </div>
                 </div>
