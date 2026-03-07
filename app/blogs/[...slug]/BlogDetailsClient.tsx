@@ -39,14 +39,14 @@ const BlogDetailsClient: React.FC<BlogDetailsClientProps> = ({ slug }) => {
   useEffect(() => {
     const fetchBlogData = async () => {
       if (!slug) return;
-      
+
       try {
         const blogResponse = await getById('blogs', slug);
         setBlog(blogResponse.data);
-        
+
         const allBlogsResponse = await getData('blogs');
         const publishedBlogs = allBlogsResponse.data.filter((b: Blog) => b.isPublished && b.slug !== slug);
-        
+
         setRelatedBlogs(publishedBlogs.slice(0, 4));
         setRecentBlogs(publishedBlogs.slice(-5).reverse());
       } catch (error) {
@@ -55,7 +55,7 @@ const BlogDetailsClient: React.FC<BlogDetailsClientProps> = ({ slug }) => {
         setLoading(false);
       }
     };
-    
+
     fetchBlogData();
   }, [slug]);
 
@@ -65,7 +65,7 @@ const BlogDetailsClient: React.FC<BlogDetailsClientProps> = ({ slug }) => {
         <div className="row">
           <div className="col-xl-8">
             <div className="placeholder-glow">
-              <span className="placeholder col-12 mb-3" style={{height: '400px'}}></span>
+              <span className="placeholder col-12 mb-3" style={{ height: '400px' }}></span>
               <span className="placeholder col-8 mb-2"></span>
               <span className="placeholder col-12 mb-2"></span>
               <span className="placeholder col-12 mb-2"></span>
@@ -74,10 +74,10 @@ const BlogDetailsClient: React.FC<BlogDetailsClientProps> = ({ slug }) => {
           </div>
           <div className="col-xl-4">
             <div className="placeholder-glow">
-              <span className="placeholder col-12 mb-3" style={{height: '60px'}}></span>
-              <span className="placeholder col-12 mb-2" style={{height: '80px'}}></span>
-              <span className="placeholder col-12 mb-2" style={{height: '80px'}}></span>
-              <span className="placeholder col-12" style={{height: '80px'}}></span>
+              <span className="placeholder col-12 mb-3" style={{ height: '60px' }}></span>
+              <span className="placeholder col-12 mb-2" style={{ height: '80px' }}></span>
+              <span className="placeholder col-12 mb-2" style={{ height: '80px' }}></span>
+              <span className="placeholder col-12" style={{ height: '80px' }}></span>
             </div>
           </div>
         </div>
@@ -119,11 +119,11 @@ const BlogDetailsClient: React.FC<BlogDetailsClientProps> = ({ slug }) => {
                   <div className='col-12 pb-4' data-aos="fade-up">
                     <div className='blog-categorie-img-main'>
                       <div className='card card-xl __radius-tl-70 __radius-br-70'>
-                        <Image 
-                          src={blog.image} 
-                          alt={blog.title} 
-                          className="blog-categorie-img object-cover img-h-400 w-100" 
-                          width={600} 
+                        <Image
+                          src={blog.image}
+                          alt={blog.title}
+                          className="blog-categorie-img object-cover img-h-400 w-100"
+                          width={600}
                           height={400}
                           loading="lazy"
                         />
@@ -138,13 +138,13 @@ const BlogDetailsClient: React.FC<BlogDetailsClientProps> = ({ slug }) => {
             </div>
             <div className='col-xl-4' data-aos="fade-up">
               <div className='recent-post-sticky-part-wrap'>
-                <div className='categories-search-part bg-light px-4 py-3 rounded-3'>
+                {/* <div className='categories-search-part bg-light px-4 py-3 rounded-3'>
                   <h5 className='fw-bold text-center my-3'>Search</h5>
                   <div className='form-group'>
                     <input type='text' className='form-control form-control-xl px-3 rounded-5' placeholder='Search' />
                   </div>
-                </div>
-                <div className='categories-contents-part pt-3'>
+                </div> */}
+                {/* <div className='categories-contents-part pt-3'>
                   <h5 className='fw-bold my-3'>Contents </h5>
                   <div className='bg-light px-4 py-3 rounded-3'>
                     <div className='text-secondary'>1. 5 Project Ideas for Web Developers</div>
@@ -161,7 +161,7 @@ const BlogDetailsClient: React.FC<BlogDetailsClientProps> = ({ slug }) => {
                     <div className='text-secondary ps-3'>7.4. How about a weather app project?</div>
                     <div className='text-secondary ps-3'>7.5. Can I make a task manager app?</div>
                   </div>
-                </div>
+                </div> */}
                 <div className='recent-post-sticky-inner'>
                   <h5 className='fw-bold my-3'>Recent Post</h5>
                   {recentBlogs.map((recentBlog) => (
@@ -170,11 +170,11 @@ const BlogDetailsClient: React.FC<BlogDetailsClientProps> = ({ slug }) => {
                         <div className='row mx-0'>
                           <div className='col-auto ps-0'>
                             <div className='rp-col-img-main'>
-                              <Image 
-                                src={recentBlog.image} 
-                                alt={recentBlog.title} 
-                                className="rp-col-imgs" 
-                                width={80} 
+                              <Image
+                                src={recentBlog.image}
+                                alt={recentBlog.title}
+                                className="rp-col-imgs"
+                                width={80}
                                 height={60}
                                 loading="lazy"
                               />
@@ -189,7 +189,7 @@ const BlogDetailsClient: React.FC<BlogDetailsClientProps> = ({ slug }) => {
                     </div>
                   ))}
                 </div>
-                <div className='categories-part-wrap pb-1'>
+                {/* <div className='categories-part-wrap pb-1'>
                   <h5 className='fw-bold my-3'>Categories</h5>
                   <div className='card card-gray mb-3 rounded-4'>
                     <Link href="/" className='text-primary'>
@@ -269,7 +269,7 @@ const BlogDetailsClient: React.FC<BlogDetailsClientProps> = ({ slug }) => {
                   <span className='badge badge-numbers b-blue-800 mb-2'>Development and Design</span>
                   <span className='badge badge-numbers b-blue-800 mb-2'>Infrastructure and Operations</span>
                   <span className='badge badge-numbers b-blue-800 mb-2'>Security and Emerging Technologies</span>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -326,19 +326,19 @@ const BlogDetailsClient: React.FC<BlogDetailsClientProps> = ({ slug }) => {
                       centeredSlides: false,
                     },
                   }}
-                  onSlideChange={() => {}}
-                  onSwiper={() => {}}
+                  onSlideChange={() => { }}
+                  onSwiper={() => { }}
                 >
                   {relatedBlogs.map((relatedBlog) => (
                     <SwiperSlide key={relatedBlog._id} className='h-auto'>
                       <div className='position-relative'>
                         <div className='card card-xl __radius-tl-50 __radius-br-50'>
                           <div className='smart-solutions-card-img'>
-                            <Image 
-                              src={relatedBlog.image} 
-                              alt={relatedBlog.title} 
-                              className="w-100 object-cover img-h-300" 
-                              width={400} 
+                            <Image
+                              src={relatedBlog.image}
+                              alt={relatedBlog.title}
+                              className="w-100 object-cover img-h-300"
+                              width={400}
                               height={300}
                               loading="lazy"
                             />

@@ -23,21 +23,28 @@ import logoBgPattern from '@/public/assets/images/logo-large-bg-patterns.svg';
 
 import smartSolutionsImage1 from '@/public/assets/images/smart-solutions-image-1.jpg';
 import smartSolutionsImage2 from '@/public/assets/images/smart-solutions-image-2.jpg';
-import smartSolutionsImage3 from '@/public/assets/images/smart-solutions-image-3.jpg';
-import smartSolutionsImage4 from '@/public/assets/images/smart-solutions-image-4.jpg';
-import smartSolutionsImage5 from '@/public/assets/images/smart-solutions-image-5.jpg';
-import smartSolutionsImage6 from '@/public/assets/images/smart-solutions-image-6.jpg';
-
 import smartSolutionsIcon1 from '@/public/assets/images/smart-solutions-icon-1.svg';
-import smartSolutionsIcon2 from '@/public/assets/images/smart-solutions-icon-2.svg';
-import smartSolutionsIcon3 from '@/public/assets/images/smart-solutions-icon-3.svg';
-import smartSolutionsIcon4 from '@/public/assets/images/smart-solutions-icon-4.svg';
-import smartSolutionsIcon5 from '@/public/assets/images/smart-solutions-icon-5.svg';
-import smartSolutionsIcon6 from '@/public/assets/images/smart-solutions-icon-6.svg';
-
+import { getData } from '@/lib/api';
 import './Projects.scss';
 
-const Projects: React.FC = () => {
+interface Project {
+  _id: string;
+  title: string;
+  content: string;
+  image: string;
+  slug: string;
+  isPublished: boolean;
+}
+
+const Projects: React.FC = async () => {
+  let projects: Project[] = [];
+
+  try {
+    const response = await getData('projects');
+    projects = response.data?.filter((p: Project) => p.isPublished) || [];
+  } catch (error) {
+    console.error('Failed to fetch projects:', error);
+  }
   return (
     <div className="smartway-tech-about-us">
 
@@ -67,7 +74,7 @@ const Projects: React.FC = () => {
       </section>
 
       {/* TABS SECTION */}
-      <section className="our-work-tabs-wrap pt-5" data-aos="fade-up">
+      {/* <section className="our-work-tabs-wrap pt-5" data-aos="fade-up">
         <div className="container">
           <div className="row">
             <div className="col-12">
@@ -115,7 +122,7 @@ const Projects: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* SMART SOLUTIONS SECTION */}
       <section className="home-smart-solutions-business-wrap pt-100">
@@ -137,37 +144,29 @@ const Projects: React.FC = () => {
 
           <div className="row">
 
-            {/* CARD TEMPLATE (repeated) */}
-            {[
-              { img: smartSolutionsImage1, icon: smartSolutionsIcon1, title: "Cloud Migration for a Retail Company", text: "We helped a mid-sized retail business migrate their entire infrastructure to the cloud, improving scalability, reducing costs" },
-              { img: smartSolutionsImage2, icon: smartSolutionsIcon2, title: "Cybersecurity Upgrade for a Financial Firm", text: "A financial services company trusted us to strengthen their data security. We implemented advanced threat detection" },
-              { img: smartSolutionsImage3, icon: smartSolutionsIcon3, title: "Custom Software Development", text: "A fully customized software platform designed to simplify complex operations." },
-              { img: smartSolutionsImage4, icon: smartSolutionsIcon4, title: "AI, Machine Learning & Data Analytics", text: "A next-generation analytics platform delivering deep visual insights using ML." },
-              { img: smartSolutionsImage5, icon: smartSolutionsIcon5, title: "Enterprise, SaaS & Business Solutions", text: "A robust business integration system connecting legacy systems with cloud platforms." },
-              { img: smartSolutionsImage6, icon: smartSolutionsIcon6, title: "Industry-Specific Solutions", text: "A complete healthcare management solution for records, appointments & billing." }
-            ].map((item, idx) => (
-              <div key={idx} className="col-md-6 col-xl-4 my-3 position-relative __card-parent-hover-blue">
+            {projects.map((project, idx) => (
+              <div key={project._id} className="col-md-6 col-xl-4 my-3 position-relative __card-parent-hover-blue">
                 <div data-aos="fade-up">
 
                   <div className="card card-xl __radius-tr-50 __radius-bl-50">
                     <div className="smart-solutions-card-img">
-                      <Image src={item.img} alt={item.title} className="w-100 object-cover img-h-250" />
+                      <Image src={project.image} alt={project.title} width={400} height={250} className="w-100 object-cover img-h-250" />
                     </div>
                   </div>
 
-                  <div className="icn-bg-blue card-icn-wrap icn-80 smart-solutions-img-icon">
-                    <Image src={item.icon} alt="Icon" className="img-fluid" />
-                  </div>
+                  {/* <div className="icn-bg-blue card-icn-wrap icn-80 smart-solutions-img-icon">
+                    <Image src={smartSolutionsIcon1} alt="Icon" className="img-fluid" />
+                  </div> */}
 
                   <div className="card card-xl __hover-blue __radius-tr-70 __radius-bl-70 mt-3">
                     <div className="card-body card-pad-40">
-                      <h2 className="heading-xl mb-4">{item.title}</h2>
-                      <p className="peragraph-style-1">{item.text}</p>
+                      <h2 className="heading-xl mb-4">{project.title}</h2>
+                      <p className="peragraph-style-1" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{project.content.replace(/<[^>]*>/g, '')}</p>
 
                       <div className="d-inline-block">
-                        <a href="" className="btn btn-primary d-flex align-items-center">
+                        <Link href={`/projects/${project.slug}`} className="btn btn-primary d-flex align-items-center">
                           Learn more <i className="far fa-long-arrow-right font-18 ms-2"></i>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
