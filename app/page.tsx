@@ -31,11 +31,13 @@ import boostSpeedSupportIcon from "../public/assets/images/boost-speed-support.s
 import boostSpeedScalableSolutionsIcon from "../public/assets/images/boost-speed-scalable-solutions.svg";
 import boostSpeedScalingTowardsSuccessIcon from "../public/assets/images/boost-speed-scaling-towards-success.svg";
 
-import bigBrandLogo1 from "../public/assets/images/big-brands-logo-1.jpg";
-import bigBrandLogo2 from "../public/assets/images/big-brands-logo-2.jpg";
-import bigBrandLogo3 from "../public/assets/images/big-brands-logo-3.jpg";
-import bigBrandLogo4 from "../public/assets/images/big-brands-logo-4.jpg";
-import bigBrandLogo5 from "../public/assets/images/big-brands-logo-5.jpg";
+import bigBrandLogo1 from "../public/assets/images/big-brands-logo-1.png";
+import bigBrandLogo2 from "../public/assets/images/big-brands-logo-2.png";
+import bigBrandLogo3 from "../public/assets/images/big-brands-logo-3.png";
+// import bigBrandLogo4 from "../public/assets/images/big-brands-logo-4.jpg";
+import bigBrandLogo4 from "../public/assets/images/big-brands-logo-4.png";
+// import bigBrandLogo5 from "../public/assets/images/big-brands-logo-5.jpg";
+import bigBrandLogo5 from "../public/assets/images/big-brands-logo-5.png";
 
 import './Home.scss';
 import NextLevelServices from './component/NextLevelServices/nextlevelservices';
