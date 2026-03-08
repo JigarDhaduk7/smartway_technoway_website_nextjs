@@ -17,7 +17,7 @@ const OurTeams: React.FC = () => {
   useEffect(() => {
     fetch('http://localhost:5000/api/leaders')
       .then(res => res.json())
-      .then(data => setLeaders(data.data))
+      .then(data => setLeaders(data.data.reverse()))
       .catch(err => console.error('Error fetching leaders:', err));
   }, []);
 
