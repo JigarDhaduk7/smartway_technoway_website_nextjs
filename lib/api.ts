@@ -1,6 +1,7 @@
 
 
-const API_BASE_URL = process.env.API_BASE_URL || 'https://smartwaytechnoway.com/api';
+// const API_BASE_URL = process.env.API_BASE_URL || 'https://smartwaytechnoway.com/api';
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:5000/api';
 
 
 export const getData = async (endpoint: string) => {
@@ -20,6 +21,15 @@ export const submitData = async (endpoint: string, data: any) => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
+  });
+  if (!response.ok) throw new Error("Failed to submit data");
+  return response.json();
+};
+
+export const submitFormData = async (endpoint: string, formData: FormData) => {
+  const response = await fetch(`${API_BASE_URL}/${endpoint}`, {
+    method: 'POST',
+    body: formData
   });
   if (!response.ok) throw new Error("Failed to submit data");
   return response.json();
