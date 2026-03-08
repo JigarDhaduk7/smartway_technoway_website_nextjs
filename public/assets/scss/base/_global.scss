@@ -25,6 +25,38 @@ img {
     height: auto !important;
 }
 
+/* Editor Table */
+.MsoNormalTable {
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.MsoNormalTable thead td {
+    background: #f9f9f9;
+    font-weight: 600;
+}
+
+/* Bordered Table */
+.MsoNormalTable,
+.MsoNormalTable th,
+.MsoNormalTable td {
+    border: 1px solid #dee2e6;
+}
+
+/* Cell Styling */
+.MsoNormalTable th,
+.MsoNormalTable td {
+    padding: 10px 14px;
+    text-align: left;
+    vertical-align: top;
+}
+
+/* Header Style */
+.MsoNormalTable th {
+    font-weight: 600;
+    background: #f8f9fa;
+}
+
 @media screen and (max-width: 767px) {
     body {
         line-height: 27px;

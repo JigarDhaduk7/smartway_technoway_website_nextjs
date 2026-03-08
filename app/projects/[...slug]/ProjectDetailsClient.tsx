@@ -90,7 +90,7 @@ const ProjectDetailsClient: React.FC<ProjectDetailsClientProps> = ({ slug }) => 
           <div className='row'>
             <div className='col-12'>
               <div className='row mb-4'>
-                <div className='col-12 col-lg-11'>
+                <div className='col-12 col-lg-12'>
                   <div className='card card-xl __radius-tl-70 __radius-br-70 mb-4'>
                     <Image
                       src={project.image}
