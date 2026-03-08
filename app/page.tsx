@@ -39,6 +39,7 @@ import bigBrandLogo5 from "../public/assets/images/big-brands-logo-5.jpg";
 
 import './Home.scss';
 import NextLevelServices from './component/NextLevelServices/nextlevelservices';
+import ServiceComponent from './component/servicecomponent/ServiceComponent';
 
 interface Project {
   _id: string;

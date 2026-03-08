@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: "Smartway Technoway - From Thought to Impact | Innovative IT & Digital Solutions Company",
   description: "Discover Smartway Technoway, the technology division of Smartway Group empowering businesses through AI, automation, cloud solutions, and custom software development. From thought to impact — we build technology that drives the future.",
   keywords: "Smartway Technoway, IT solutions India & World, AI automation company, cloud infrastructure services, custom software development, digital transformation partner",
-  authors: [{ name: "Smartway Technoway" }],
+  authors: [{ name: "Smartway Technoway PVT LTD" }],
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
