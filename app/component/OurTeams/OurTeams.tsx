@@ -71,7 +71,7 @@ const OurTeams: React.FC = () => {
               <div key={leader._id} className='col-md-6 col-lg-4 py-4'>
                 <div className='success-teams-col-main' data-aos="fade-up">
                   <div className='success-teams-inner'>
-                    <div className='card card-xl card-gray __radius-tl-70 __radius-br-70 h-100'>
+                    <div className='card card-xl card-gray __radius-tl-70 __radius-br-70 h-100 border'>
                       <Image
                         src={leader.image}
                         alt={leader.name}

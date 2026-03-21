@@ -56,7 +56,7 @@ const ContactUs = () => (
 
     <section className='contact-us-map-wrap'>
       <div className='contact-us-map-inner'>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.51986617957!2d72.49547297603681!3d23.04139491562416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b6f07953149%3A0x6a1b12ea875ea352!2sSMARTWAY%20WELLNESS%20PVT.%20LTD.!5e0!3m2!1sen!2sin!4v1764607720843!5m2!1sen!2sin" className='w-100 img-h-500'></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.520375848742!2d72.4957250760439!3d23.04137621562484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b5670cf42cd%3A0x686e91b70313fc1e!2sSmartway%20Technoway%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1774112971625!5m2!1sen!2sin" className='w-100 img-h-500'></iframe>
       </div>
     </section>
 
