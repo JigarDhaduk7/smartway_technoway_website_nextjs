@@ -114,8 +114,8 @@ const ProjectDetailsClient: React.FC<ProjectDetailsClientProps> = ({ slug }) => 
                 <h3 className='heading-xxl mb-4'>Related Projects</h3>
               </div>
               {relatedProjects.map((relatedProject) => (
-                <div key={relatedProject._id} className='col-md-4 mb-4'>
-                  <Link href={`/projects/${relatedProject.slug}`}>
+                <div key={relatedProject._id} className='col-md-4 __card-parent-hover-blue mb-4'>
+                  
                     <div className='card card-xl __radius-tr-50 __radius-bl-50'>
                       <Image
                         src={relatedProject.image}
@@ -125,8 +125,16 @@ const ProjectDetailsClient: React.FC<ProjectDetailsClientProps> = ({ slug }) => 
                         className="w-100 object-cover img-h-250"
                       />
                     </div>
-                    <h5 className='mt-3'>{relatedProject.title}</h5>
-                  </Link>
+                    <div className='card card-xl __hover-blue __radius-tr-70 __radius-bl-70 mt-3'>
+                      <div className='card-body card-pad-40'>
+                        <h2 className='heading-xl mb-4'>{relatedProject.title}</h2>
+                        <div className="d-inline-block">
+                          <Link href={`/projects/${relatedProject.slug}`} className='btn btn-primary d-flex align-items-center'>
+                            Learn more <i className="far fa-long-arrow-right font-18 ms-2"></i>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                 </div>
               ))}
             </div>
