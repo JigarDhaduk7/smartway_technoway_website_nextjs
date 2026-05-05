@@ -12,22 +12,18 @@ interface PageProps {
 export async function generateStaticParams() {
   try {
     const response = await getData('services');
-    return response.data.map((service: any) => ({
-      slug: [service.slug]
-    }));
-  } catch (error) {
+    return response.data.map((service: any) => ({ slug: [service.slug] }));
+  } catch {
     return [];
   }
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const resolvedParams = await params;
-  const slug = Array.isArray(resolvedParams.slug) ? resolvedParams.slug.join('/') : resolvedParams.slug;
-  
+  const { slug: slugArr } = await params;
+  const slug = Array.isArray(slugArr) ? slugArr.join('/') : slugArr;
+
   try {
-    const response = await getById('services', slug);
-    const service = response.data;
-    
+    const { data: service } = await getById('services', slug);
     return {
       title: `${service.title} - Smartway Technoway | Professional IT Solutions`,
       description: service.heroSection.subHeadline || service.card.shortDescription,
@@ -38,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         type: 'website',
       },
     };
-  } catch (error) {
+  } catch {
     return {
       title: 'Service - Smartway Technoway | IT Solutions',
       description: 'Professional IT services and digital solutions',
@@ -46,11 +42,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
-const ServicePage: React.FC<PageProps> = async ({ params }) => {
-  const resolvedParams = await params;
-  const slug = Array.isArray(resolvedParams.slug) ? resolvedParams.slug.join('/') : resolvedParams.slug;
+const ServicePage = async ({ params }: PageProps) => {
+  const { slug: slugArr } = await params;
+  const slug = Array.isArray(slugArr) ? slugArr.join('/') : slugArr;
 
-  return <ServicePageClient slug={slug} />;
+  let serviceData = null;
+  let skills: any[] = [];
+
+  try {
+    const [serviceRes, skillsRes] = await Promise.all([
+      getById('services', slug),
+      getData('skills'),
+    ]);
+    serviceData = serviceRes.data;
+    skills = skillsRes.data.filter((skill: any) => skill.status);
+  } catch {
+    // handled in client
+  }
+
+  return <ServicePageClient serviceData={serviceData} skills={skills} />;
 };
 
 export default ServicePage;

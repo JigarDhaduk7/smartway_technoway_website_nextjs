@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
-import { getData, getById } from '../../../lib/api';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 
@@ -27,64 +26,12 @@ interface Blog {
 }
 
 interface BlogDetailsClientProps {
-  slug: string;
+  blog: Blog | null;
+  relatedBlogs: Blog[];
+  recentBlogs: Blog[];
 }
 
-const BlogDetailsClient: React.FC<BlogDetailsClientProps> = ({ slug }) => {
-  const [blog, setBlog] = useState<Blog | null>(null);
-  const [relatedBlogs, setRelatedBlogs] = useState<Blog[]>([]);
-  const [recentBlogs, setRecentBlogs] = useState<Blog[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchBlogData = async () => {
-      if (!slug) return;
-
-      try {
-        const blogResponse = await getById('blogs', slug);
-        setBlog(blogResponse.data);
-
-        const allBlogsResponse = await getData('blogs');
-        const publishedBlogs = allBlogsResponse.data.filter((b: Blog) => b.isPublished && b.slug !== slug);
-
-        setRelatedBlogs(publishedBlogs.slice(0, 4));
-        setRecentBlogs(publishedBlogs.slice(-5).reverse());
-      } catch (error) {
-        console.error('Error fetching blog:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBlogData();
-  }, [slug]);
-
-  if (loading) {
-    return (
-      <div className="container py-5">
-        <div className="row">
-          <div className="col-xl-8">
-            <div className="placeholder-glow">
-              <span className="placeholder col-12 mb-3" style={{ height: '400px' }}></span>
-              <span className="placeholder col-8 mb-2"></span>
-              <span className="placeholder col-12 mb-2"></span>
-              <span className="placeholder col-12 mb-2"></span>
-              <span className="placeholder col-10"></span>
-            </div>
-          </div>
-          <div className="col-xl-4">
-            <div className="placeholder-glow">
-              <span className="placeholder col-12 mb-3" style={{ height: '60px' }}></span>
-              <span className="placeholder col-12 mb-2" style={{ height: '80px' }}></span>
-              <span className="placeholder col-12 mb-2" style={{ height: '80px' }}></span>
-              <span className="placeholder col-12" style={{ height: '80px' }}></span>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
+const BlogDetailsClient: React.FC<BlogDetailsClientProps> = ({ blog, relatedBlogs, recentBlogs }) => {
   if (!blog) {
     return <div className="text-center py-5">Blog not found</div>;
   }

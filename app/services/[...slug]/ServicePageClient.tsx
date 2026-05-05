@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { getData } from '../../../lib/api';
 
 import DynamicDetail from '../../component/serviceDynamicDetailComponent/dynamicdetail';
 import FormContentSection from '../../component/FormAndContentSection/FormContentSection';
@@ -16,47 +15,37 @@ interface Skill {
   status: boolean;
 }
 
-interface ServicePageClientProps {
-  slug: string;
+interface ServiceData {
+  title: string;
+  heroSection: { headline: string; subHeadline: string };
+  servicesOverview: {
+    title: string;
+    description: string;
+    services: Array<{ title: string; description: string; icon: string }>;
+  };
+  processSection: {
+    title: string;
+    steps: Array<{ step: number; title: string; icon: string }>;
+  };
 }
 
-const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
-  const [skills, setSkills] = useState<Skill[]>([]);
-  const [filteredSkills, setFilteredSkills] = useState<Skill[]>([]);
+interface ServicePageClientProps {
+  serviceData: ServiceData | null;
+  skills: Skill[];
+}
+
+const ServicePageClient: React.FC<ServicePageClientProps> = ({ serviceData, skills }) => {
   const [activeTab, setActiveTab] = useState('all');
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchSkills = async () => {
-      try {
-        const response = await getData('skills');
-        const activeSkills = response.data.filter((skill: Skill) => skill.status);
-        setSkills(activeSkills);
-        setFilteredSkills(activeSkills);
-      } catch (error) {
-        console.error('Failed to fetch skills:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchSkills();
-  }, []);
-
-  const handleTabChange = (tabSlug: string) => {
-    setActiveTab(tabSlug);
-    if (tabSlug === 'all') {
-      setFilteredSkills(skills);
-    } else {
-      const tabTitle = tabSlug.replace(/-/g, ' ');
-      setFilteredSkills(skills.filter(skill =>
-        skill.title.toLowerCase() === tabTitle.toLowerCase() ||
-        skill.slug === tabSlug
-      ));
-    }
-  };
+  const filteredSkills = activeTab === 'all'
+    ? skills
+    : skills.filter(skill =>
+        skill.title.toLowerCase() === activeTab.replace(/-/g, ' ').toLowerCase() ||
+        skill.slug === activeTab
+      );
   return (
     <div className='smartway-tech-about-us'>
-      <DynamicDetail serviceSlug={slug} />
+      <DynamicDetail serviceData={serviceData} />
 
       <section className='home-next-level-solution-wrap pt-100'>
         <div className='container'>
@@ -71,136 +60,22 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ slug }) => {
           <div className='row pb-100'>
             <div className='col-12 py-4' data-aos="fade-up">
               <ul className="nav nav-tabs button-nav-tab" role="tablist">
-                <li className="nav-item col" role="presentation">
-                  <button
-                    className={`nav-link ${activeTab === 'all' ? 'active' : ''}`}
-                    onClick={() => handleTabChange('all')}
-                    type="button"
-                  >
-                    All
-                  </button>
-                </li>
-                <li className="nav-item col" role="presentation">
-                  <button
-                    className={`nav-link ${activeTab === 'frontend' ? 'active' : ''}`}
-                    onClick={() => handleTabChange('frontend')}
-                    type="button"
-                  >
-                    Frontend
-                  </button>
-                </li>
-                <li className="nav-item col" role="presentation">
-                  <button
-                    className={`nav-link ${activeTab === 'backend' ? 'active' : ''}`}
-                    onClick={() => handleTabChange('backend')}
-                    type="button"
-                  >
-                    Backend
-                  </button>
-                </li>
-                <li className="nav-item col" role="presentation">
-                  <button
-                    className={`nav-link ${activeTab === 'frameworks' ? 'active' : ''}`}
-                    onClick={() => handleTabChange('frameworks')}
-                    type="button"
-                  >
-                    Frameworks
-                  </button>
-                </li>
-                <li className="nav-item col" role="presentation">
-                  <button
-                    className={`nav-link ${activeTab === 'mobile-app' ? 'active' : ''}`}
-                    onClick={() => handleTabChange('mobile-app')}
-                    type="button"
-                  >
-                    Mobile App
-                  </button>
-                </li>
-                <li className="nav-item col" role="presentation">
-                  <button
-                    className={`nav-link ${activeTab === 'data base' ? 'active' : ''}`}
-                    onClick={() => handleTabChange('data base')}
-                    type="button"
-                  >
-                    Data Base
-                  </button>
-                </li>
-                <li className="nav-item col" role="presentation">
-                  <button
-                    className={`nav-link ${activeTab === 'google' ? 'active' : ''}`}
-                    onClick={() => handleTabChange('google')}
-                    type="button"
-                  >
-                    Google
-                  </button>
-                </li>
-                <li className="nav-item col" role="presentation">
-                  <button
-                    className={`nav-link ${activeTab === 'data-science' ? 'active' : ''}`}
-                    onClick={() => handleTabChange('data-science')}
-                    type="button"
-                  >
-                    Data Science
-                  </button>
-                </li>
-                <li className="nav-item col" role="presentation">
-                  <button
-                    className={`nav-link ${activeTab === 'machine learning' ? 'active' : ''}`}
-                    onClick={() => handleTabChange('machine learning')}
-                    type="button"
-                  >
-                    Machine Learning
-                  </button>
-                </li>
-                <li className="nav-item col" role="presentation">
-                  <button
-                    className={`nav-link ${activeTab === 'devops' ? 'active' : ''}`}
-                    onClick={() => handleTabChange('devops')}
-                    type="button"
-                  >
-                    DevOps
-                  </button>
-                </li>
-                <li className="nav-item col" role="presentation">
-                  <button
-                    className={`nav-link ${activeTab === 'cms' ? 'active' : ''}`}
-                    onClick={() => handleTabChange('cms')}
-                    type="button"
-                  >
-                    CMS
-                  </button>
-                </li>
-                <li className="nav-item col" role="presentation">
-                  <button
-                    className={`nav-link ${activeTab === 'ecommerce' ? 'active' : ''}`}
-                    onClick={() => handleTabChange('ecommerce')}
-                    type="button"
-                  >
-                    ECommerce
-                  </button>
-                </li>
-                <li className="nav-item col" role="presentation">
-                  <button
-                    className={`nav-link ${activeTab === 'security' ? 'active' : ''}`}
-                    onClick={() => handleTabChange('security')}
-                    type="button"
-                  >
-                    Security
-                  </button>
-                </li>
+                {['all', 'frontend', 'backend', 'frameworks', 'mobile-app', 'data base', 'google', 'data-science', 'machine learning', 'devops', 'cms', 'ecommerce', 'security'].map((tab) => (
+                  <li key={tab} className="nav-item col" role="presentation">
+                    <button
+                      className={`nav-link ${activeTab === tab ? 'active' : ''}`}
+                      onClick={() => setActiveTab(tab)}
+                      type="button"
+                    >
+                      {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className='col-12'>
               <div className='row'>
-                {loading ? (
-                  Array.from({ length: 12 }, (_, i) => (
-                    <div key={i} className='col-6 col-md-4 col-lg-3 col-xl-2' data-aos="fade-up">
-                      <div className='tech-platforms-box placeholder-glow'>
-                        <span className="placeholder" style={{ width: '80px', height: '80px', display: 'block' }}></span>
-                      </div>
-                    </div>
-                  ))
-                ) : filteredSkills.length > 0 ? (
+                {filteredSkills.length > 0 ? (
                   filteredSkills.map((skill) => (
                     <div key={skill._id} className='col-6 col-md-4 col-lg-3 col-xl-2' data-aos="fade-up">
                       <div className='tech-platforms-box'>

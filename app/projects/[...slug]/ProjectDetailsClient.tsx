@@ -1,11 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getData, getById } from '../../../lib/api';
 import FormContentSection from '../../component/FormAndContentSection/FormContentSection';
-import logoBgPattern from "../../../public/assets/images/logo-large-bg-patterns.svg";
 import innerHeroBannerImage from "../../../public/assets/images/blog-categorie-banner-image.jpg";
 
 interface Project {
@@ -18,47 +16,11 @@ interface Project {
 }
 
 interface ProjectDetailsClientProps {
-  slug: string;
+  project: Project | null;
+  relatedProjects: Project[];
 }
 
-const ProjectDetailsClient: React.FC<ProjectDetailsClientProps> = ({ slug }) => {
-  const [project, setProject] = useState<Project | null>(null);
-  const [relatedProjects, setRelatedProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchProjectData = async () => {
-      if (!slug) return;
-
-      try {
-        const projectResponse = await getById('projects', slug);
-        setProject(projectResponse.data);
-
-        const allProjectsResponse = await getData('projects');
-        const publishedProjects = allProjectsResponse.data.filter((p: Project) => p.isPublished && p.slug !== slug);
-        setRelatedProjects(publishedProjects.slice(0, 3));
-      } catch (error) {
-        console.error('Error fetching project:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProjectData();
-  }, [slug]);
-
-  if (loading) {
-    return (
-      <div className="container py-5">
-        <div className="placeholder-glow">
-          <span className="placeholder col-12 mb-3" style={{ height: '400px' }}></span>
-          <span className="placeholder col-8 mb-2"></span>
-          <span className="placeholder col-12 mb-2"></span>
-        </div>
-      </div>
-    );
-  }
-
+const ProjectDetailsClient: React.FC<ProjectDetailsClientProps> = ({ project, relatedProjects }) => {
   if (!project) {
     return <div className="text-center py-5">Project not found</div>;
   }
