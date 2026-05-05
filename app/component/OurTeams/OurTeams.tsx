@@ -50,7 +50,7 @@ const OurTeams: React.FC = () => {
         <div className='row pb-100 pt-4 success-teams-container'>
           {loading ? (
             [1, 2, 3].map((i) => (
-              <div key={i} className='col-md-6 col-lg-4 py-4'>
+              <div key={i} className='col-md-4 col-lg-3 py-4'>
                 <div className='success-teams-col-main'>
                   <div className='success-teams-inner'>
                     <div className='card card-xl card-gray __radius-tl-70 __radius-br-70 h-100 placeholder-glow'>
@@ -68,7 +68,7 @@ const OurTeams: React.FC = () => {
             ))
           ) : (
             leaders.map((leader) => (
-              <div key={leader._id} className='col-md-6 col-lg-4 py-4'>
+              <div key={leader._id} className='col-md-4 col-lg-3 py-4'>
                 <div className='success-teams-col-main' data-aos="fade-up">
                   <div className='success-teams-inner'>
                     <div className='card card-xl card-gray __radius-tl-70 __radius-br-70 h-100 border'>
