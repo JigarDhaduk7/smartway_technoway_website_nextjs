@@ -21,7 +21,7 @@ const OurTeams: React.FC = () => {
       try {
         const response = await getData('leaders');
         if (response?.data) {
-          setLeaders(response.data);
+          setLeaders([...response.data].reverse());
         }
       } catch (error) {
         console.error('Failed to fetch leaders:', error);
