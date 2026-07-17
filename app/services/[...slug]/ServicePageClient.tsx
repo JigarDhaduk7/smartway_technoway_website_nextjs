@@ -38,8 +38,8 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ serviceData, skil
   const [activeTab, setActiveTab] = useState('all');
 
   const filteredSkills = activeTab === 'all'
-    ? skills
-    : skills.filter(skill =>
+    ? [...skills].reverse()
+    : [...skills].reverse().filter(skill =>
         skill.title.toLowerCase() === activeTab.replace(/-/g, ' ').toLowerCase() ||
         skill.slug === activeTab
       );
@@ -58,7 +58,7 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ serviceData, skil
             </div>
           </div>
           <div className='row pb-100'>
-            <div className='col-12 py-4' data-aos="fade-up">
+            {/* <div className='col-12 py-4' data-aos="fade-up">
               <ul className="nav nav-tabs button-nav-tab" role="tablist">
                 {['all', 'frontend', 'backend', 'frameworks', 'mobile-app', 'data base', 'google', 'data-science', 'machine learning', 'devops', 'cms', 'ecommerce', 'security'].map((tab) => (
                   <li key={tab} className="nav-item col" role="presentation">
@@ -72,8 +72,8 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ serviceData, skil
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className='col-12'>
+            </div> */}
+            <div className='col-12 pt-3'>
               <div className='row'>
                 {filteredSkills.length > 0 ? (
                   filteredSkills.map((skill) => (
