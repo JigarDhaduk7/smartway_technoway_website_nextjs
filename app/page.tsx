@@ -20,7 +20,7 @@ import heroImage4 from "../public/assets/images/hero-section-image-4.png";
 
 import heroBgPatterns from "../public/assets/images/home-hero-bg-patterns.png";
 import logoBgPattern from "../public/assets/images/logo-large-bg-patterns.svg";
-import homeSecondSectionImage from "../public/assets/images/home-second-sec-image.jpg";
+import homeSecondSectionImage from "../public/assets/images/home-second-sec-image.png";
 
 import servicesWebDevIcon from "../public/assets/images/web-development-icon.svg";
 import servicesCloudSolutionsIcon from "../public/assets/images/cloud-solutions-icon.svg";
@@ -40,8 +40,6 @@ import bigBrandLogo4 from "../public/assets/images/big-brands-logo-4.png";
 import bigBrandLogo5 from "../public/assets/images/big-brands-logo-5.png";
 
 import './Home.scss';
-import NextLevelServices from './component/NextLevelServices/nextlevelservices';
-import ServiceComponent from './component/servicecomponent/ServiceComponent';
 
 interface Project {
   _id: string;
@@ -193,7 +191,7 @@ const Home: React.FC = () => {
                   <h2 className='heading-lg'>Software & Web Development</h2>
                   <p className='peragraph-style-1'>Custom enterprise applications and responsive web solutions crafted to deliver seamless performance and superior UX.</p>
                   <div className='d-inline-block'>
-                    <Link href='' className='btn btn-link d-flex align-items-center'>View All Services <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
+                    <Link href='/services' className='btn btn-link d-flex align-items-center'>View All Services <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
                   </div>
                 </div>
               </div>
@@ -207,7 +205,7 @@ const Home: React.FC = () => {
                   <h2 className='heading-lg'>AI & Automation Solutions</h2>
                   <p className='peragraph-style-1'>Transform operations with data-driven intelligence, predictive analytics, and workflow automation that maximizes efficiency.</p>
                   <div className='d-inline-block'>
-                    <Link href='' className='btn btn-link d-flex align-items-center'>View All Services <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
+                    <Link href='/services' className='btn btn-link d-flex align-items-center'>View All Services <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
                   </div>
                 </div>
               </div>
@@ -221,7 +219,7 @@ const Home: React.FC = () => {
                   <h2 className='heading-lg'>Cloud Infrastructure & Security</h2>
                   <p className='peragraph-style-1'>Scalable and secure cloud deployments that optimize cost and enhance resilience — from migration to management.</p>
                   <div className='d-inline-block'>
-                    <Link href='' className='btn btn-link d-flex align-items-center'>View All Services <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
+                    <Link href='/services' className='btn btn-link d-flex align-items-center'>View All Services <i className="far fa-long-arrow-right font-18 ms-2"></i></Link>
                   </div>
                 </div>
               </div>

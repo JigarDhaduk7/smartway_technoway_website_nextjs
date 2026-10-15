@@ -11,7 +11,7 @@ import 'swiper/css/autoplay';
 import FrequentlyAskedQuestion from '../../component/FrequentlyAskedQuestionSection/FrequentlyAskedQuestion';
 import FormContentSection from '../../component/FormAndContentSection/FormContentSection';
 import logoBgPattern from "../../../public/assets/images/logo-large-bg-patterns.svg";
-import innerHeroBannerImage from "../../../public/assets/images/blog-categorie-banner-image.jpg";
+import innerHeroBannerImage from "../../../public/assets/images/blog-categorie-banner-image.png";
 
 import './BlogDetails.scss';
 

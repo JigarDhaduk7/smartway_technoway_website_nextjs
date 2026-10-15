@@ -43,7 +43,7 @@ const DynamicDetail: React.FC<DynamicDetailProps> = ({ serviceData }) => {
       <section className="inner-hero-sec-wrap">
         <div className="inner-hero-banner">
           <Image
-            src="/assets/images/web-development-services-banner-image.jpg"
+            src="/assets/images/our-services-banner-image.png"
             alt={`${serviceData.title} Banner`}
             className="w-100"
             width={1200}

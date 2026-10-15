@@ -15,10 +15,34 @@ import logo from "@/public/assets/images/smartwaytechnoway-logo.png";
 import getInTouchIcon1 from "@/public/assets/images/get-in-touch-icon-1.svg";
 import getInTouchIcon2 from "@/public/assets/images/get-in-touch-icon-2.svg";
 import getInTouchIcon3 from "@/public/assets/images/get-in-touch-icon-3.svg";
+import { getData } from "@/lib/api";
+
+interface FooterService {
+  _id: string;
+  title: string;
+  slug: string;
+}
 
 const Footer: React.FC = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [scrollPercent, setScrollPercent] = useState<number>(0);
+  const [services, setServices] = useState<FooterService[]>([]);
+  const [servicesLoading, setServicesLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await getData('services');
+        setServices(response?.data?.slice(0, 5) || []);
+      } catch (error) {
+        console.error('Failed to fetch services for footer:', error);
+        setServices([]);
+      } finally {
+        setServicesLoading(false);
+      }
+    };
+    fetchServices();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,21 +122,23 @@ const Footer: React.FC = () => {
                   <div className="footer-links-col">
                     <h6 className="fw-bold my-4">Services</h6>
                     <ul>
-                      <li className="py-1">
-                        <Link href="/" className="footer-list-link">Web Development</Link>
-                      </li>
-                      <li className="py-1">
-                        <Link href="/" className="footer-list-link">Software Development</Link>
-                      </li>
-                      <li className="py-1">
-                        <Link href="/" className="footer-list-link">Cloud Solutions</Link>
-                      </li>
-                      <li className="py-1">
-                        <Link href="/" className="footer-list-link">IT Consulting</Link>
-                      </li>
-                      <li className="py-1">
-                        <Link href="/" className="footer-list-link">AI & Automation</Link>
-                      </li>
+                      {servicesLoading ? (
+                        <li className="py-1 placeholder-glow">
+                          <span className="placeholder col-8"></span>
+                        </li>
+                      ) : services.length > 0 ? (
+                        services.map((service) => (
+                          <li key={service._id} className="py-1">
+                            <Link href={`/services/${service.slug}`} className="footer-list-link">
+                              {service.title}
+                            </Link>
+                          </li>
+                        ))
+                      ) : (
+                        <li className="py-1">
+                          <Link href="/services" className="footer-list-link">View All Services</Link>
+                        </li>
+                      )}
                     </ul>
                   </div>
                 </div>

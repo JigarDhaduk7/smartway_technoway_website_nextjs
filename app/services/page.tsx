@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
 };
 
-import innerHeroBannerImage from '@/public/assets/images/our-services-banner-image.jpg';
+import innerHeroBannerImage from '@/public/assets/images/our-services-banner-image.png';
 
 import logoBgPattern from '@/public/assets/images/logo-large-bg-patterns.svg';
 

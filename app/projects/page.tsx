@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 import OurCompanyValuesSection from '../component/OurCompanyValuesSection/OurCompanyValuesSection';
 import FormContentSection from '../component/FormAndContentSection/FormContentSection';
 
-import innerHeroBannerImage from '@/public/assets/images/our-work-banner-image.jpg';
+import innerHeroBannerImage from '@/public/assets/images/our-work-banner-image.png';
 
 import logoBgPattern from '@/public/assets/images/logo-large-bg-patterns.svg';
 

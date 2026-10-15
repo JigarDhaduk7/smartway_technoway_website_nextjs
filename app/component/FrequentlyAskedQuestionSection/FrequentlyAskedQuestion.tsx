@@ -13,7 +13,7 @@ import 'swiper/css/autoplay';
 import './FrequentlyAskedQuestion.scss';
 
 import logoBgPattern from '@/public/assets/images/logo-large-bg-patterns.svg';
-import aboutUsSecondSectionImage from '@/public/assets/images/faq-image.jpg';
+import aboutUsSecondSectionImage from '@/public/assets/images/faq-image.png';
 
 const FrequentlyAskedQuestion: React.FC = () => {
   return (

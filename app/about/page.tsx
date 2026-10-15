@@ -29,7 +29,7 @@ const About: React.FC = () => (
 
     <section className="inner-hero-sec-wrap">
       <div className='inner-hero-banner'>
-        <Image src="/assets/images/about-us-banner-image.jpg" alt="About Us Banner" className="w-100" width={1200} height={600} />
+        <Image src="/assets/images/about-us-banner-image.png" alt="About Us Banner" className="w-100" width={1200} height={600} />
       </div>
       <div className='inner-hero-sec-top-text'>
         <div className='container'>
@@ -51,7 +51,7 @@ const About: React.FC = () => (
         <div className='row align-items-center justify-content-between'>
           <div className='col-lg-6 home-sec-padding'>
             <div className='card card-xxxl card-blue-overlay __radius-tl-150 __radius-br-150' data-aos="fade-up">
-              <Image src="/assets/images/end-to-end-solutions-section-image.jpg" alt="End to End Solutions" className="w-100 img-h-500 object-cover" width={600} height={500} />
+              <Image src="/assets/images/end-to-end-solutions-section.png" alt="End to End Solutions" className="w-100 img-h-500 object-cover" width={600} height={500} />
             </div>
           </div>
           <div className='col-lg-6 ps-xl-5 pb-3'>
@@ -119,7 +119,7 @@ const About: React.FC = () => (
         <div className='row align-items-center'>
           <div className='col-lg-6 order-lg-2 home-sec-padding'>
             <div className='card card-xxxl card-blue-overlay __radius-tl-150 __radius-br-150' data-aos="fade-up">
-              <Image src="/assets/images/our-vision-image.jpg" alt="Our Vision" className="w-100 img-h-500 object-cover" width={600} height={400} />
+              <Image src="/assets/images/our-vision-image.png" alt="Our Vision" className="w-100 img-h-500 object-cover" width={600} height={400} />
             </div>
           </div>
           <div className='col-lg-6 order-lg-1' data-aos="fade-up">
@@ -151,7 +151,7 @@ const About: React.FC = () => (
         <div className='row align-items-center'>
           <div className='col-lg-6 home-sec-padding'>
             <div className='card card-xxxl card-blue-overlay __radius-tl-150 __radius-br-150' data-aos="fade-up">
-              <Image src="/assets/images/our-mission-image.jpg" alt="Our Mission" className="w-100 img-h-500 object-cover" width={600} height={400} />
+              <Image src="/assets/images/our-mission-image.png" alt="Our Mission" className="w-100 img-h-500 object-cover" width={600} height={400} />
             </div>
           </div>
           <div className='col-lg-6' data-aos="fade-up">
@@ -181,7 +181,7 @@ const About: React.FC = () => (
         <div className='row align-items-center'>
           <div className='col-lg-6 order-lg-2 home-sec-padding'>
             <div className='card card-xxxl card-blue-overlay __radius-tl-150 __radius-br-150' data-aos="fade-up">
-              <Image src="/assets/images/our-vision-image.jpg" alt="Our Vision" className="w-100 img-h-500 object-cover" width={600} height={400} />
+              <Image src="/assets/images/our-values-image.png" alt="Our Vision" className="w-100 img-h-500 object-cover" width={600} height={400} />
             </div>
           </div>
           <div className='col-lg-6 order-lg-1' data-aos="fade-up">

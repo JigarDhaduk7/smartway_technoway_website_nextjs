@@ -11,7 +11,7 @@ import OurTeams from '../component/OurTeams/OurTeams';
 import FrequentlyAskedQuestion from '../component/FrequentlyAskedQuestionSection/FrequentlyAskedQuestion';
 import logoBgPattern from "../../public/assets/images/logo-large-bg-patterns.svg";
 
-import innerHeroBannerImage from "../../public/assets/images/career-banner-image.jpg";
+import innerHeroBannerImage from "../../public/assets/images/career-banner-image.png";
 
 import aboutUsSecondSectionImage from "../../public/assets/images/end-to-end-solutions-section-image.jpg";
 import ourVisionImage from "../../public/assets/images/our-vision-image.jpg";

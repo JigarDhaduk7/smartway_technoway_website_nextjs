@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 import FormContentSection from '../component/FormAndContentSection/FormContentSection';
 
 import logoBgPattern from '../../public/assets/images/logo-large-bg-patterns.svg';
-import innerHeroBannerImage from '../../public/assets/images/blog-categorie-banner-image.jpg';
+import innerHeroBannerImage from '../../public/assets/images/blog-categorie-banner-image.png';
 import blogRecentPostImage1 from '../../public/assets/images/recent-post-img-1.jpg';
 import blogRecentPostImage2 from '../../public/assets/images/recent-post-img-2.jpg';
 import blogRecentPostImage3 from '../../public/assets/images/recent-post-img-3.jpg';

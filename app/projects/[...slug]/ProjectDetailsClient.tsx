@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import FormContentSection from '../../component/FormAndContentSection/FormContentSection';
-import innerHeroBannerImage from "../../../public/assets/images/blog-categorie-banner-image.jpg";
+import innerHeroBannerImage from "../../../public/assets/images/our-work-banner-image.png";
 
 interface Project {
   _id: string;
