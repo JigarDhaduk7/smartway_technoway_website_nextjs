@@ -9,7 +9,6 @@ import innerHeroBannerImage from "../../public/assets/images/contact-us-banner-i
 // import logoBgPattern from "../../public/assets/images/logo-large-bg-patterns.svg";
 import logoBgPattern from "../../public/assets/images/logo-large-bg-patterns.svg";
 
-import './ContactUs.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 

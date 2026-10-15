@@ -375,6 +375,65 @@
     margin: 0 0 0 0;
 }
 
+// Shared decorative section-pattern wrappers, used across every page.
+// Kept as the single canonical definition here (always loaded globally via app.scss)
+// instead of being redeclared per-page, which previously caused pages to silently
+// override each other's values once their stylesheets were both loaded in the DOM.
+.home-sec-pattern-right {
+    position: relative;
+    overflow: hidden;
+
+    .logo-bg-pattern-right {
+        position: absolute;
+        bottom: 0;
+        right: -5%;
+        z-index: 0;
+        width: 15%;
+        min-width: 100px;
+        opacity: 0.5;
+    }
+}
+
+.home-sec-pattern-left {
+    position: relative;
+
+    .logo-bg-pattern-left {
+        position: absolute;
+        bottom: -10%;
+        left: -3%;
+        z-index: 0;
+        width: 15%;
+        min-width: 100px;
+        opacity: 0.5;
+    }
+}
+
+.ready-for-project-wrap {
+    background-color: var(--bg-secondary);
+    color: var(--text-white);
+    margin-block-start: -10px;
+
+    .ready-for-project-container {
+        padding-block: 100px;
+    }
+
+    .btn.btn-primary {
+        background-color: var(--white) !important;
+        color: var(--bg-secondary) !important;
+    }
+
+    .logo-bg-pattern-right {
+        filter: brightness(5);
+        bottom: auto !important;
+        width: 13% !important;
+    }
+
+    .logo-bg-pattern-left {
+        filter: brightness(5);
+        width: 10% !important;
+    }
+}
+
 .inner-hero-sec-wrap {
     position: relative;
 

@@ -44,34 +44,15 @@
     }
 }
 
-.home-sec-pattern-right {
-    position: relative;
-    overflow: hidden;
-
-    .logo-bg-pattern-right {
-        position: absolute;
+// This detail page's patterns sit at different offsets than the site-wide
+// default (defined in components/_cards.scss), so they're scoped to this
+// page's own wrapper instead of redeclaring the shared classes globally.
+.smartway-blog-details {
+    .home-sec-pattern-right .logo-bg-pattern-right {
         bottom: -14%;
-        right: -5%;
-        z-index: 0;
-        width: 15%;
-        min-width: 100px;
-        opacity: 0.5;
     }
 
-}
-
-
-.home-sec-pattern-left {
-    position: relative;
-    // overflow: hidden;
-
-    .logo-bg-pattern-left {
-        position: absolute;
+    .home-sec-pattern-left .logo-bg-pattern-left {
         bottom: -27%;
-        left: -3%;
-        z-index: 0;
-        width: 15%;
-        min-width: 100px;
-        opacity: 0.5;
     }
 }

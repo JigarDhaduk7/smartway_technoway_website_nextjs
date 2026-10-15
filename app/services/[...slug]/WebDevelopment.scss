@@ -202,49 +202,21 @@
     }
 }
 
-.home-sec-pattern-right {
-    position: relative;
-    overflow: hidden;
-
-    .logo-bg-pattern-right {
-        position: absolute;
+// This page's patterns sit at different offsets than the site-wide default
+// (defined in components/_cards.scss), so they're scoped to this page's own
+// wrapper (.service-detail-page) instead of redeclaring the shared classes
+// globally. The "-added" rule must stay declared after the base one below so
+// it continues to win where both classes are applied to the same section.
+.service-detail-page {
+    .home-sec-pattern-right .logo-bg-pattern-right {
         bottom: -23%;
-        right: -5%;
-        z-index: 0;
-        width: 15%;
-        min-width: 100px;
-        opacity: 0.5;
     }
 
-}
-
-.home-sec-pattern-left {
-    position: relative;
-    // overflow: hidden;
-
-    .logo-bg-pattern-left {
-        position: absolute;
+    .home-sec-pattern-left .logo-bg-pattern-left {
         bottom: -62%;
-        left: -3%;
-        z-index: 0;
-        width: 15%;
-        min-width: 100px;
-        opacity: 0.5;
     }
-}
 
-.home-sec-pattern-right-added {
-    position: relative;
-    overflow: hidden;
-
-    .logo-bg-pattern-right {
-        position: absolute;
+    .home-sec-pattern-right-added .logo-bg-pattern-right {
         bottom: -50%;
-        right: -5%;
-        z-index: 0;
-        width: 15%;
-        min-width: 100px;
-        opacity: 0.5;
     }
-
 }

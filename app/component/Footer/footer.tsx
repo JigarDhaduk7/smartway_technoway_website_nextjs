@@ -56,11 +56,9 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="col-12">
                   <p>
-                    Fore is a modern and professional Elementor template kit
-                    designed for tech companies, IT services, and digital solution
-                    providers.
+                    <span className="fw-bold">Smartway Technoway</span> is a premier IT services and software development partner, empowering global enterprises with custom software engineering, dedicated staff augmentation, cloud solutions, and digital transformation.
                   </p>
-                  <p>Fore - Smartway Technoway</p>
+                  {/* <p>Fore - Smartway Technoway</p> */}
                 </div>
               </div>
             </div>
@@ -125,7 +123,7 @@ const Footer: React.FC = () => {
                     <h6 className="fw-bold my-4">Resources</h6>
                     <ul>
                       <li className="py-1">
-                        <Link href="/" className="footer-list-link">Pricing Plans</Link>
+                        <Link href="/pricing" className="footer-list-link">Pricing Plans</Link>
                       </li>
                       <li className="py-1">
                         <Link href="/" className="footer-list-link">FAQs</Link>

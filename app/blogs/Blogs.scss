@@ -3,6 +3,12 @@
         position: sticky;
         top: 85px;
     }
+
+    // This page's left pattern sits flush with the section bottom, unlike the
+    // -10% default used elsewhere.
+    .home-sec-pattern-left .logo-bg-pattern-left {
+        bottom: 0;
+    }
 }
 
 .blog-categorie-content {
@@ -31,21 +37,6 @@
         .rp-col-imgs {
             transform: scale(1.1);
         }
-    }
-}
-
-.home-sec-pattern-left {
-    position: relative;
-    // overflow: hidden;
-
-    .logo-bg-pattern-left {
-        position: absolute;
-        bottom: 0;
-        left: -3%;
-        z-index: 0;
-        width: 15%;
-        min-width: 100px;
-        opacity: 0.5;
     }
 }
 

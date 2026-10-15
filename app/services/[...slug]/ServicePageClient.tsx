@@ -44,7 +44,7 @@ const ServicePageClient: React.FC<ServicePageClientProps> = ({ serviceData, skil
         skill.slug === activeTab
       );
   return (
-    <div className='smartway-tech-about-us'>
+    <div className='smartway-tech-about-us service-detail-page'>
       <DynamicDetail serviceData={serviceData} />
 
       <section className='home-next-level-solution-wrap pt-100'>
