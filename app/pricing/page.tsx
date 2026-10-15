@@ -7,7 +7,7 @@ import CompanySuccessHighlights from '../component/CompanySuccessHighlights/Comp
 import FrequentlyAskedQuestion from '../component/FrequentlyAskedQuestionSection/FrequentlyAskedQuestion';
 import FormContentSection from '../component/FormAndContentSection/FormContentSection';
 
-import innerHeroBannerImage from '@/public/assets/images/our-services-banner-image.jpg';
+import innerHeroBannerImage from '@/public/assets/images/pricing-plans-banner-image.png';
 import logoBgPattern from '@/public/assets/images/logo-large-bg-patterns.svg';
 
 import workforceIcon from '@/public/assets/images/workforce-icon.svg';

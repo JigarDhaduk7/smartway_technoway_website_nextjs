@@ -126,16 +126,16 @@ const Footer: React.FC = () => {
                         <Link href="/pricing" className="footer-list-link">Pricing Plans</Link>
                       </li>
                       <li className="py-1">
-                        <Link href="/" className="footer-list-link">FAQs</Link>
+                        <Link href="/faqs" className="footer-list-link">FAQs</Link>
                       </li>
                       <li className="py-1">
-                        <Link href="/" className="footer-list-link">Help Center</Link>
+                        <Link href="/support" className="footer-list-link">Help Center</Link>
                       </li>
                       <li className="py-1">
-                        <Link href="/" className="footer-list-link">Documentation</Link>
+                        <Link href="/documentation" className="footer-list-link">Documentation</Link>
                       </li>
                       <li className="py-1">
-                        <Link href="/" className="footer-list-link">Privacy Policy</Link>
+                        <Link href="/privacy-policy" className="footer-list-link">Privacy Policy</Link>
                       </li>
                     </ul>
                   </div>
@@ -205,7 +205,7 @@ const Footer: React.FC = () => {
         </div>
       </footer>
       <div className="footer-copyrigh">
-        © 2025 Smartway Technoway Pvt Ltd | A Smartway Group Company | From Thought to Impact
+        © 2026 Smartway Technoway Pvt Ltd | A Smartway Group Company | From Thought to Impact
       </div>
 
       {/* BACK TO TOP BUTTON */}
