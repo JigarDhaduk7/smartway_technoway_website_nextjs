@@ -1,13 +1,13 @@
 import { Metadata } from 'next';
 import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 
+import PageHero from '../component/ui/PageHero';
+import SectionHeading from '../component/ui/SectionHeading';
+import Accordion from '../component/ui/Accordion';
+import CtaBand from '../component/ui/CtaBand';
+import { Reveal } from '../component/ui/Reveal';
 import CompanySuccessHighlights from '../component/CompanySuccessHighlights/CompanySuccessHighlights';
 import FormContentSection from '../component/FormAndContentSection/FormContentSection';
-
-import innerHeroBannerImage from '@/public/assets/images/faq-support-illustration.png';
-import logoBgPattern from '@/public/assets/images/logo-large-bg-patterns.svg';
 
 export const metadata: Metadata = {
   title: 'FAQs | Frequently Asked Questions - Smartway Technoway',
@@ -39,107 +39,51 @@ const faqs = [
   },
 ];
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+};
+
 const Faqs: React.FC = () => (
+  <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+    <PageHero
+      title="FAQs"
+      eyebrow="Help"
+      description="Everything you need to know about working with Smartway Technoway."
+      crumbs={[{ label: 'Home', href: '/' }, { label: 'FAQs' }]}
+    />
 
-  <div className='smartway-tech-faqs'>
-
-    <section className="inner-hero-sec-wrap">
-      <div className='inner-hero-banner'>
-        <Image src={innerHeroBannerImage} alt="FAQs Banner" className="w-100" />
-      </div>
-      <div className='inner-hero-sec-top-text'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-12 inner-hero-sec-txt'>
-              <h2 className='fw-semibold'>FAQs</h2>
-              <ul className='d-flex justify-content-center'>
-                <li><Link href="/" className='nav-list-link'>Home</Link> / &nbsp; </li>
-                <li> FAQs</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section className='faqs-intro-wrap pt-100'>
-      <div className='container'>
-        <div className='row justify-content-center text-center' data-aos="fade-up">
-          <div className='col-lg-8'>
-            <h2 className="heading-xxxl mb-3">Got Questions? We've Got Answers.</h2>
-            <p className="peragraph-style-1">Everything you need to know about working with Smartway Technoway — from onboarding timelines to how we keep your code and IP secure.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section className='faqs-list-sec-wrap pb-100'>
-      <div className='container'>
-        <div className='row justify-content-center'>
-          <div className='col-lg-9'>
-            <div className="accordion accordion-card accordion-gray-card" id="FaqsPageAccordion" data-aos="fade-up">
-              {faqs.map((faq, index) => (
-                <div className="accordion-item" key={faq.question}>
-                  <h2 className="accordion-header">
-                    <button
-                      className={`accordion-button ${index === 0 ? '' : 'collapsed'}`}
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target={`#faqsPageItem${index}`}
-                      aria-expanded={index === 0 ? 'true' : 'false'}
-                      aria-controls={`faqsPageItem${index}`}
-                    >
-                      {faq.question}
-                    </button>
-                  </h2>
-                  <div
-                    id={`faqsPageItem${index}`}
-                    className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`}
-                    data-bs-parent="#FaqsPageAccordion"
-                  >
-                    <div className="accordion-body">
-                      <p className="mb-0">{faq.answer}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+    <section className="relative pb-20 md:pb-28">
+      <div className="container-x">
+        <SectionHeading
+          align="center"
+          title="Got Questions? We've Got Answers."
+          description="From onboarding timelines to how we keep your code and IP secure."
+        />
+        <Reveal className="mx-auto mt-14 max-w-3xl">
+          <Accordion
+            items={faqs.map((f) => ({ key: f.question, title: f.question, content: <p>{f.answer}</p> }))}
+          />
+        </Reveal>
       </div>
     </section>
 
     <CompanySuccessHighlights />
 
-    <div className='ready-for-project-wrap home-sec-pattern-right home-sec-pattern-left'>
-      <div className='logo-bg-pattern-right'>
-        <Image src={logoBgPattern} alt="" className="w-100" data-aos="fade-up" />
-      </div>
-      <div className="logo-bg-pattern-left">
-        <Image src={logoBgPattern} alt="" className="w-100" data-aos="fade-up" />
-      </div>
-      <div className='container ready-for-project-container'>
-        <div className='row'>
-          <div className='col-12 text-center'>
-            <h2 className='fw-bold'>Still Have Questions?</h2>
-            <p>Can't find the answer you're looking for? Our team is happy to walk you through anything — no obligation required.</p>
-            <div className="d-inline-block">
-              <Link href="/contactus" className="btn btn-primary d-flex align-items-center">Ask Us Directly</Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <CtaBand
+      title="Still Have Questions?"
+      description="Can't find the answer you're looking for? Our team is happy to walk you through anything — no obligation required."
+      cta={{ label: 'Ask Us Directly', href: '/contactus' }}
+    />
 
-    <section className='contact-sec-wrap home-sec-pattern-left overflow-hidden py-100'>
-      <div className='logo-bg-pattern-left'>
-        <Image src={logoBgPattern} alt="" className="w-100" data-aos="fade-up" />
-      </div>
-      <FormContentSection />
-    </section>
-
-  </div>
-
+    <FormContentSection />
+  </>
 );
 
 export default Faqs;

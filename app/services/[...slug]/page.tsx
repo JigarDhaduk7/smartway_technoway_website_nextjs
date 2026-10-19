@@ -3,7 +3,6 @@ import React from 'react';
 import { getById, getData } from '../../../lib/api';
 import ServicePageClient from './ServicePageClient';
 
-import './WebDevelopment.scss';
 
 interface PageProps {
   params: Promise<{ slug: string[] }>;
