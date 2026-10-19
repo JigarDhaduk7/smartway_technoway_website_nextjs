@@ -1,12 +1,20 @@
 import { Metadata } from 'next';
 import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import { BadgeIndianRupee, Headphones, ShieldCheck, Wand2 } from 'lucide-react';
 
+import PageHero from '../component/ui/PageHero';
+import SectionHeading from '../component/ui/SectionHeading';
+import ParallaxImage from '../component/ui/ParallaxImage';
+import TiltCard from '../component/ui/TiltCard';
+import { Stagger, StaggerItem } from '../component/ui/Reveal';
+import NextLevelServices from '../component/NextLevelServices/nextlevelservices';
 import CompanySuccessHighlights from '../component/CompanySuccessHighlights/CompanySuccessHighlights';
 import SuccessStoriesSection from '../component/SuccessStoriesSection/SuccessStoriesSection';
 import FormContentSection from '../component/FormAndContentSection/FormContentSection';
 import FrequentlyAskedQuestion from '../component/FrequentlyAskedQuestionSection/FrequentlyAskedQuestion';
+
+import innerHeroBannerImage from '@/public/assets/images/our-services-banner-image.png';
+import bestSolutionsBannerImage from '@/public/assets/images/best-solutions-banner-image.png';
 
 export const metadata: Metadata = {
   title: 'Smartway Technoway Services | AI, Cloud, Automation & Software Solutions for Modern Businesses',
@@ -19,180 +27,66 @@ export const metadata: Metadata = {
   },
 };
 
-import innerHeroBannerImage from '@/public/assets/images/our-services-banner-image.png';
+const features = [
+  { icon: Wand2, title: 'Tailored Solutions', text: 'Personalized solutions built around your needs.' },
+  { icon: ShieldCheck, title: 'Guaranteed Security', text: 'High-quality secure systems' },
+  { icon: BadgeIndianRupee, title: 'Competitive Pricing', text: 'Affordable and reliable' },
+  { icon: Headphones, title: 'Fast Service & Support', text: 'Always available for help' },
+];
 
-import logoBgPattern from '@/public/assets/images/logo-large-bg-patterns.svg';
-
-import servicesWebDevIcon from '@/public/assets/images/web-development-icon.svg';
-import servicesCloudSolutionsIcon from '@/public/assets/images/cloud-solutions-icon.svg';
-import servicesITConsultingIcon from '@/public/assets/images/it-consulting-icon.svg';
-import servicesITUIUXDesignIcon from '@/public/assets/images/ui-ux-design-icon.svg';
-import servicesITAppDevelopmentIcon from '@/public/assets/images/app-development-icon.svg';
-import servicesITEmailMarketingIcon from '@/public/assets/images/email-marketing-icon.svg';
-
-import bestSolutionsBannerImage from '@/public/assets/images/best-solutions-banner-image.png';
-
-import bestSolutionsTailoredIcon from '@/public/assets/images/tailored-solutions-icon.svg';
-import bestSolutionsGuaranteedSecurityIcon from '@/public/assets/images/guaranteed-security-icon.svg';
-import bestSolutionsCompetitivePricingIcon from '@/public/assets/images/competitive-pricing-icon.svg';
-import bestSolutionsFastServiceSupportIcon from '@/public/assets/images/fast-service-support-icon.svg';
-
-import './Services.scss';
-import NextLevelServices from '../component/NextLevelServices/nextlevelservices';
+const FeatureCard = ({ f }: { f: (typeof features)[number] }) => (
+  <StaggerItem className="h-full">
+    <TiltCard className="rounded-3xl">
+      <div className="flex h-full flex-col rounded-3xl border border-line bg-surface/70 p-7 backdrop-blur">
+        <span className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-brand to-brand-bright">
+          <f.icon className="size-6 text-white" />
+        </span>
+        <h3 className="mt-8 font-display text-xl font-semibold">{f.title}</h3>
+        <p className="mt-2 text-muted">{f.text}</p>
+      </div>
+    </TiltCard>
+  </StaggerItem>
+);
 
 const Services: React.FC = () => {
   return (
-    <div className="smartway-tech-about-us">
-
-      {/* HERO SECTION */}
-      <section className="inner-hero-sec-wrap">
-        <div className="inner-hero-banner">
-          <Image src={innerHeroBannerImage} alt="" className="w-100" />
-        </div>
-
-        <div className="inner-hero-sec-top-text">
-          <div className="container">
-            <div className="row">
-              <div className="col-12 inner-hero-sec-txt">
-                <h2 className="fw-semibold">Our Services</h2>
-
-                <ul className="d-flex justify-content-center">
-                  <li>
-                    <Link href="/" className="nav-list-link">Home</Link> / &nbsp;
-                  </li>
-                  <li>Services</li>
-                </ul>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* NEXT LEVEL SERVICES */}
+    <>
+      <PageHero
+        title="Our Services"
+        eyebrow="What We Build"
+        description="From concept to execution — a comprehensive suite of technology services designed to make your business future-ready."
+        crumbs={[{ label: 'Home', href: '/' }, { label: 'Services' }]}
+        image={innerHeroBannerImage}
+        imageAlt="Our Services Banner"
+      />
 
       <NextLevelServices />
 
       <CompanySuccessHighlights />
 
-      {/* BEST SOLUTIONS SECTION */}
-      <section className="home-next-level-solution-wrap home-sec-pattern-right pt-100">
-        <div className="logo-bg-pattern-right">
-          <Image src={logoBgPattern} alt="" className="w-100" data-aos="fade-up" />
-        </div>
-
-        <div className="container">
-          <div className="row align-items-center justify-content-between mb-4" data-aos="fade-up">
-            <div className="col-lg-7 col-xl-6">
-              <h2 className="heading-xxxl mb-3">The Best Solutions for Your Business</h2>
-            </div>
-            <div className="col-lg-5 col-xl-4">
-              <p className="peragraph-style-1">
-                Innovative and reliable solutions tailored to support your business goals and drive long-term success.
-              </p>
-            </div>
-          </div>
-
-          <div className="row">
-
-            {/* LEFT FEATURES */}
-            <div className="col-xl-4">
-              <div className="row">
-
-                <div className="col-12 col-md-6 col-lg-6 col-xl-12 mb-4">
-                  <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70" data-aos="fade-up">
-                    <div className="card-body card-pad-40">
-                      <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
-                        <Image src={bestSolutionsTailoredIcon} alt="Icon" />
-                      </div>
-                      <h2 className="heading-lg">Tailored Solutions</h2>
-                      <p className="peragraph-style-1 mb-0">Personalized solutions built around your needs.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-12 col-md-6 col-lg-6 col-xl-12 mb-4">
-                  <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70" data-aos="fade-up">
-                    <div className="card-body card-pad-40">
-                      <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
-                        <Image src={bestSolutionsGuaranteedSecurityIcon} alt="Icon" />
-                      </div>
-                      <h2 className="heading-lg">Guaranteed Security</h2>
-                      <p className="peragraph-style-1 mb-0">High-quality secure systems</p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            {/* CENTER IMAGE */}
-            <div className="col-xl-4 mb-4">
-              <div className="card card-xxxl __radius-tl-150 __radius-br-150 h-100" data-aos="fade-up">
-                <Image src={bestSolutionsBannerImage} alt="" className="w-100 best-solutions-img object-cover" />
-              </div>
-            </div>
-
-            {/* RIGHT FEATURES */}
-            <div className="col-xl-4">
-              <div className="row">
-
-                <div className="col-12 col-md-6 col-lg-6 col-xl-12 mb-4">
-                  <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70" data-aos="fade-up">
-                    <div className="card-body card-pad-40">
-                      <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
-                        <Image src={bestSolutionsCompetitivePricingIcon} alt="Icon" />
-                      </div>
-                      <h2 className="heading-lg">Competitive Pricing</h2>
-                      <p className="peragraph-style-1 mb-0">Affordable and reliable</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-12 col-md-6 col-lg-6 col-xl-12 mb-4">
-                  <div className="card card-xl card-gray h-100 __hover-blue __radius-tr-70 __radius-bl-70" data-aos="fade-up">
-                    <div className="card-body card-pad-40">
-                      <div className="card-icn-wrap icn-bg-blue icn-55 __radius-tl-150 __radius-tr-150 __radius-bl-150">
-                        <Image src={bestSolutionsFastServiceSupportIcon} alt="Icon" />
-                      </div>
-                      <h2 className="heading-lg">Fast Service & Support</h2>
-                      <p className="peragraph-style-1 mb-0">Always available for help</p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
+      <section className="relative py-20 md:py-28">
+        <div className="container-x">
+          <SectionHeading
+            eyebrow="Why Choose Us"
+            title="The Best Solutions for Your Business"
+            description="Innovative and reliable solutions tailored to support your business goals and drive long-term success."
+          />
+          <Stagger className="mt-14 grid grid-flow-dense gap-5 md:grid-cols-2 xl:grid-cols-3 xl:grid-rows-2">
+            <FeatureCard f={features[0]} />
+            <StaggerItem className="md:col-span-2 xl:col-span-1 xl:row-span-2">
+              <ParallaxImage src={bestSolutionsBannerImage} alt="The best solutions for your business" className="h-full min-h-[320px] rounded-[32px] border border-line" />
+            </StaggerItem>
+            <FeatureCard f={features[1]} />
+            <FeatureCard f={features[2]} />
+            <FeatureCard f={features[3]} />
+          </Stagger>
         </div>
       </section>
 
-      {/* SUCCESS STORIES */}
-      <div className="pt-100 home-sec-pattern-left">
-        <div className="logo-bg-pattern-left">
-          <Image src={logoBgPattern} alt="" className="w-100" data-aos="fade-up" />
-        </div>
-        <SuccessStoriesSection />
-      </div>
-
-      {/* FAQ */}
-      <section className="frequently-asked-question-wrap home-sec-pattern-right pb-100">
-        <div className="logo-bg-pattern-right">
-          <Image src={logoBgPattern} alt="" className="w-100" data-aos="fade-up" />
-        </div>
-        <FrequentlyAskedQuestion />
-      </section>
-
-      {/* CONTACT */}
-      <section className="contact-sec-wrap home-sec-pattern-left overflow-hidden">
-        <div className="logo-bg-pattern-left">
-          <Image src={logoBgPattern} alt="" className="w-100" data-aos="fade-up" />
-        </div>
-        <FormContentSection />
-      </section>
-
-    </div>
+      <SuccessStoriesSection />
+      <FrequentlyAskedQuestion />
+      <FormContentSection />
+    </>
   );
 };
 

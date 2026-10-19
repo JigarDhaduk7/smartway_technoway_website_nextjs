@@ -1,29 +1,24 @@
 'use client';
 
-import React, { useState, useEffect } from 'react'
-import Image from 'next/image';
-import Link from 'next/link';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import React, { useState, useEffect, useRef } from 'react'
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { getData } from '../../../lib/api';
-import 'swiper/css';
-import 'swiper/css/autoplay';
-import logoBgPattern from "../../../public/assets/images/logo-large-bg-patterns.svg";
+import type { Blog } from '@/lib/types';
+import SectionHeading from '../ui/SectionHeading';
+import BlogCard from './BlogCard';
+import Button from '../ui/Button';
 
-interface Blog {
-  _id: string;
-  title: string;
-  slug: string;
-  image: string;
-  content: string;
-  isPublished: boolean;
-}
-
-const blogcomponent = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
-  const [loading, setLoading] = useState(true);
+// Home "Latest insights": horizontal snap carousel of published blogs from the admin.
+const blogcomponent = ({ title = 'Latest Insights & Updates', items }: { title?: string; items?: Blog[] }) => {
+  const [blogs, setBlogs] = useState<Blog[]>(items ?? []);
+  const [loading, setLoading] = useState(!items);
+  const track = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (items) {
+      setBlogs(items);
+      return;
+    }
     const fetchBlogs = async () => {
       try {
         const response = await getData('blogs');
@@ -36,125 +31,57 @@ const blogcomponent = () => {
       }
     };
     fetchBlogs();
-  }, []);
+  }, [items]);
 
-  const getTextFromHTML = (html: string, lines: number = 2) => {
-    const text = html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-    const sentences = text.split('. ');
-    return sentences.slice(0, lines).join('. ') + (sentences.length > lines ? '...' : '');
+  const scroll = (dir: 1 | -1) => {
+    const el = track.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * Math.min(el.clientWidth * 0.8, 480), behavior: 'smooth' });
   };
+
   return (
-    <section className='home-build-together-wrap home-sec-pattern-right'>
-      <div className='logo-bg-pattern-right'>
-        <Image src={logoBgPattern} className="w-100" data-aos="fade-up" alt="Pattern" />
-      </div>
-      <div className='container'>
-        <div className='row align-items-center justify-content-between' data-aos="fade-up">
-          <div className='col-lg-7 col-xl-6'>
-            <h2 className="heading-xxxl mb-3">Latest Insights & Updates</h2>
-          </div>
-          <div className='col-lg-5 col-xl-4'>
-            <p className="peragraph-style-1">Blog! Here, we share expert advice, industry trends, actionable tips, and case studies that can help you </p>
+    <section className="relative py-20 md:py-28">
+      <div className="container-x">
+        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <SectionHeading
+            align="left"
+            eyebrow="Blog"
+            title={title}
+            description="Expert advice, industry trends, actionable tips, and case studies that can help you grow."
+          />
+          <div className="flex shrink-0 gap-3">
+            <button type="button" aria-label="Previous posts" onClick={() => scroll(-1)} className="grid size-12 place-items-center rounded-full border border-line-strong transition-colors hover:bg-white/10">
+              <ArrowLeft className="size-5" />
+            </button>
+            <button type="button" aria-label="Next posts" onClick={() => scroll(1)} className="grid size-12 place-items-center rounded-full border border-line-strong transition-colors hover:bg-white/10">
+              <ArrowRight className="size-5" />
+            </button>
           </div>
         </div>
-        <div className='row pb-100 pt-4'>
-          <div className='col-12'>
-            <div data-aos="fade-up">
-              <Swiper
-                rewind={true}
-                modules={[Autoplay]}
-                spaceBetween={24}
-                speed={6000}
-                autoplay={{
-                  delay: 4500,
-                  disableOnInteraction: false,
-                  pauseOnMouseEnter: true,
-                }}
-                centeredSlides={true}
-                breakpoints={{
-                  300: {
-                    slidesPerView: 1,
-                    centeredSlides: true,
-                  },
-                  768: {
-                    slidesPerView: 2,
-                    centeredSlides: true,
-                  },
-                  1024: {
-                    slidesPerView: 2,
-                    centeredSlides: true,
-                  },
-                  1200: {
-                    slidesPerView: 3,
-                    centeredSlides: false,
-                  },
-                  1440: {
-                    slidesPerView: 3,
-                    centeredSlides: false,
-                  },
-                }}
-                onSlideChange={() => { }}
-                onSwiper={() => { }}
-              >
-                {loading ? (
-                  [1, 2, 3].map((i) => (
-                    <SwiperSlide key={i} className='h-auto'>
-                      <div className='position-relative'>
-                        <div className='card card-xl __radius-tl-50 __radius-br-50'>
-                          <div className='smart-solutions-card-img placeholder-glow'>
-                            <span className="placeholder w-100" style={{ height: '300px' }}></span>
-                          </div>
-                        </div>
-                        <div className='card border-0 card-xl mt-3'>
-                          <div className='card-body px-1 py-3 placeholder-glow'>
-                            <span className="placeholder col-8 mb-3"></span>
-                            <span className="placeholder col-12 mb-2"></span>
-                            <span className="placeholder col-6"></span>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))
-                ) : blogs.length > 0 ? (
-                  blogs.map((blog) => (
-                    <SwiperSlide key={blog._id} className='h-auto'>
-                      <div className='position-relative'>
-                        <div className='card card-xl __radius-tl-50 __radius-br-50'>
-                          <div className='smart-solutions-card-img'>
-                            <Image
-                              src={blog.image}
-                              className="w-100 object-cover img-h-300"
-                              alt={blog.title}
-                              width={400}
-                              height={300}
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div className='card border-0 card-xl mt-3'>
-                          <div className='card-body px-1 py-3'>
-                            <h2 className='heading-xl mb-3'>{blog.title}</h2>
-                            <p className='peragraph-style-1'>{getTextFromHTML(blog.content, 2)}</p>
-                            <div className='d-inline-block'>
-                              <Link href={`/blogs/${blog.slug}`} className='btn btn-primary d-flex align-items-center'>Read more</Link>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))
-                ) : (
-                  <SwiperSlide className='h-auto'>
-                    <div className='text-center py-5'>
-                      <p>No published blogs available.</p>
-                    </div>
-                  </SwiperSlide>
-                )}
-              </Swiper>
+      </div>
+
+      <div
+        ref={track}
+        className="mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-4 px-4 pb-4 [scrollbar-width:none] sm:scroll-px-6 sm:px-6 lg:scroll-px-[max(2rem,calc((100vw-1280px)/2+2rem))] lg:px-[max(2rem,calc((100vw-1280px)/2+2rem))] [&::-webkit-scrollbar]:hidden"
+      >
+        {loading ? (
+          [1, 2, 3].map((i) => <div key={i} className="h-[420px] w-[85vw] shrink-0 animate-pulse rounded-3xl bg-white/5 sm:w-[400px]" />)
+        ) : blogs.length > 0 ? (
+          blogs.map((blog, i) => (
+            <div key={blog._id} className="w-[85vw] shrink-0 snap-start sm:w-[400px]">
+              <BlogCard blog={blog} index={i} />
             </div>
-          </div>
-        </div>
+          ))
+        ) : (
+          <p className="text-muted">No published blogs available.</p>
+        )}
       </div>
+
+      {!items && (
+        <div className="container-x mt-10">
+          <Button href="/blogs" variant="ghost" arrow>Read all articles</Button>
+        </div>
+      )}
     </section>
   )
 }

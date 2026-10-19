@@ -1,178 +1,170 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 
 import logo from '@/public/assets/images/smartwaytechnoway-logo.png';
-import './Header.scss';
+import { mainNav, resourceNav, site } from '@/lib/site';
+import Button from '../ui/Button';
 
-const navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+const isActive = (pathname: string, href: string) =>
+  href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);
 
-  const submenuActiveRef = useRef<boolean>(false);
-  const backdropId = 'sidebar-backdrop';
-  const hamBtnId = 'mobileHamburger';
+// Floating glass navigation that tucks away on scroll-down and returns on scroll-up.
+const Navbar: React.FC = () => {
   const pathname = usePathname();
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  // ================================
-  // CLOSE SIDEBAR ON ROUTE CHANGE
-  // ================================
+  useMotionValueEvent(scrollY, 'change', (y) => {
+    const prev = scrollY.getPrevious() ?? 0;
+    setScrolled(y > 20);
+    setHidden(y > prev && y > 240 && !open);
+  });
+
+  useEffect(() => setOpen(false), [pathname]);
+
   useEffect(() => {
-    submenuActiveRef.current = false;
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
 
-    document.body.classList.remove('sidebar-open');
-
-    const existingBackdrop = document.getElementById(backdropId);
-    if (existingBackdrop) existingBackdrop.remove();
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [pathname]);
-
-  // ================================
-  // SCROLL + HAMBURGER LOGIC
-  // ================================
-  useEffect(() => {
-    const handleScroll = (): void => {
-      setIsScrolled(window.scrollY > 5);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    const onHamburgerClick = (): void => {
-      const bodyHtml = document.body;
-      const isMobile = window.innerWidth <= 991;
-      const existingBackdrop = document.getElementById(backdropId);
-
-      submenuActiveRef.current = !submenuActiveRef.current;
-      bodyHtml.classList.toggle('sidebar-open');
-
-      if (isMobile && submenuActiveRef.current) {
-        if (!existingBackdrop) {
-          const backdrop = document.createElement('div');
-          backdrop.id = backdropId;
-
-          Object.assign(backdrop.style, {
-            position: 'fixed',
-            top: '0',
-            left: '0',
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            zIndex: '8',
-            cursor: 'pointer',
-          } as CSSStyleDeclaration);
-
-          backdrop.addEventListener('click', () => {
-            submenuActiveRef.current = false;
-            document.body.classList.remove('sidebar-open');
-            backdrop.remove();
-          });
-
-          document.body.appendChild(backdrop);
-        }
-      } else if (existingBackdrop) {
-        existingBackdrop.remove();
-      }
-
-      document.querySelectorAll('.slick-slider').forEach(slider => {
-        try {
-          if (
-            (window as any).jQuery &&
-            (window as any).jQuery(slider).hasClass('slick-initialized')
-          ) {
-            (window as any).jQuery(slider).slick('refresh');
-          }
-        } catch {}
-      });
-    };
-
-    const hamBtn = document.getElementById(hamBtnId) as HTMLButtonElement | null;
-    hamBtn?.addEventListener('click', onHamburgerClick);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      hamBtn?.removeEventListener('click', onHamburgerClick);
-
-      const existingBackdrop = document.getElementById(backdropId);
-      if (existingBackdrop) existingBackdrop.remove();
-
-      document.body.classList.remove('sidebar-open');
-    };
-  }, []);
-
-  // ================================
-  // RENDER
-  // ================================
   return (
-    <header className={`header-nav-wrap ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="container">
-        <div className="row align-items-center">
+    <>
+      <motion.header
+        animate={{ y: hidden ? -120 : 0 }}
+        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+        className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6 md:pt-4"
+      >
+        <nav
+          aria-label="Main"
+          className={`mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-full py-2 pr-2 pl-4 transition-all duration-500 md:pl-6 ${
+            scrolled
+              ? 'border border-line-strong bg-night/85 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl backdrop-saturate-150'
+              : 'border border-transparent'
+          }`}
+        >
+          <Link href="/" className="flex shrink-0 items-center" aria-label={`${site.name} home`}>
+            <Image
+              src={logo}
+              alt={site.name}
+              priority
+              className={`w-auto brightness-0 invert transition-[height] duration-500 ${
+                scrolled ? 'h-10 md:h-11' : 'h-12 md:h-16'
+              }`}
+            />
+          </Link>
 
-          {/* LOGO */}
-          <div className="col-auto">
-            <div className="header-logo-wrap">
-              <Link href="/">
-                <Image src={logo} alt="Logo" className="img-fluid" />
-              </Link>
+          <ul className="hidden items-center gap-1 lg:flex">
+            {mainNav.map((item) => {
+              const active = isActive(pathname, item.href);
+              return (
+                <li key={item.href} className="relative">
+                  <Link
+                    href={item.href}
+                    className={`relative z-10 block rounded-full px-4 py-2 font-medium transition-[color,font-size] duration-300 ${
+                      scrolled ? 'text-sm' : 'text-base xl:text-[17px]'
+                    } ${active ? 'text-white' : 'text-fg/80 hover:text-white'}`}
+                  >
+                    {item.label}
+                  </Link>
+                  {active && (
+                    <motion.span
+                      layoutId="nav-pill"
+                      className="absolute inset-0 rounded-full bg-white/10 ring-1 ring-white/15"
+                      transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                    />
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="flex items-center gap-2">
+            <div className="hidden sm:block">
+              <Button href="/contactus" arrow className="min-h-11! py-2.5!">
+                Contact Us
+              </Button>
             </div>
-          </div>
-
-          {/* NAV LINKS */}
-          <div className="col">
-            <div className="nav-head-links-wrap">
-              <ul className="nav-links-list">
-                <li className="nav-lst">
-                  <Link href="/" className={`nav-list-link ${pathname === '/' ? 'active' : ''}`}>
-                    Home
-                  </Link>
-                </li>
-                <li className="nav-lst">
-                  <Link href="/about" className={`nav-list-link ${pathname === '/about' ? 'active' : ''}`}>
-                    about us
-                  </Link>
-                </li>
-                <li className="nav-lst">
-                  <Link href="/services" className={`nav-list-link ${pathname === '/services' ? 'active' : ''}`}>
-                    services
-                  </Link>
-                </li>
-                <li className="nav-lst">
-                  <Link href="/projects" className={`nav-list-link ${pathname === '/projects' ? 'active' : ''}`}>
-                    projects
-                  </Link>
-                </li>
-                <li className="nav-lst">
-                  <Link href="/blogs" className={`nav-list-link ${pathname === '/blogs' ? 'active' : ''}`}>
-                    Blogs
-                  </Link>
-                </li>
-                <li className="nav-lst">
-                  <Link href="/career" className={`nav-list-link ${pathname === '/career' ? 'active' : ''}`}>
-                    Career
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* BUTTONS */}
-          <div className="col-auto">
-            <Link href="/contactus" className="btn btn-primary">
-              Contact Us <i className="far fa-angle-right ms-2"></i>
-            </Link>
-
-            {/* MOBILE HAMBURGER */}
-            <button className="mobile-hamburger" id={hamBtnId}>
-              <i className="far fa-bars"></i>
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-expanded={open}
+              className="grid size-11 place-items-center rounded-full border border-line-strong text-fg transition-colors hover:bg-white/10 lg:hidden"
+            >
+              {open ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
           </div>
+        </nav>
+      </motion.header>
 
-        </div>
-      </div>
-    </header>
+      <AnimatePresence>
+        {open && (
+          // Opacity + transform only: clip-path/backdrop-filter animations flicker on mobile Chrome.
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 0.3, ease: 'easeOut' } }}
+            exit={{ opacity: 0, transition: { duration: 0.25, ease: 'easeIn', delay: 0.05 } }}
+            className="fixed inset-0 z-40 overflow-y-auto overscroll-contain bg-night [transform:translateZ(0)] lg:hidden"
+          >
+            <div className="pointer-events-none absolute inset-0 bg-grid opacity-40 mask-radial" />
+            <motion.div
+              initial={{ y: -16 }}
+              animate={{ y: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } }}
+              exit={{ y: -12, transition: { duration: 0.25, ease: 'easeIn' } }}
+              className="relative flex min-h-full flex-col px-6 pt-28 pb-10"
+            >
+              <ul className="flex flex-col gap-1">
+                {[...mainNav, { href: '/contactus', label: 'Contact' }].map((item, i) => (
+                  <motion.li
+                    key={item.href}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.08 + i * 0.04, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <Link
+                      href={item.href}
+                      className={`flex items-center justify-between border-b border-line py-4 font-display text-3xl font-semibold ${
+                        isActive(pathname, item.href) ? 'text-cyan' : 'text-fg'
+                      }`}
+                    >
+                      {item.label}
+                      <ArrowUpRight className="size-6 text-muted" aria-hidden />
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.35, duration: 0.3 }}
+                className="mt-10 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-muted"
+              >
+                {resourceNav.map((r) => (
+                  <Link key={r.href} href={r.href} className="py-2 hover:text-fg">
+                    {r.label}
+                  </Link>
+                ))}
+              </motion.div>
+              <div className="mt-auto pt-10 text-sm text-muted">
+                <a href={`mailto:${site.email}`} className="block py-1 hover:text-fg">{site.email}</a>
+                <a href={site.phoneHref} className="block py-1 hover:text-fg">{site.phone}</a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
-export default navbar;
+export default Navbar;

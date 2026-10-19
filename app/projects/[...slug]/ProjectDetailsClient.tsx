@@ -1,19 +1,16 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import FormContentSection from '../../component/FormAndContentSection/FormContentSection';
-import innerHeroBannerImage from "../../../public/assets/images/our-work-banner-image.png";
+import { Mail } from 'lucide-react';
 
-interface Project {
-  _id: string;
-  title: string;
-  slug: string;
-  image: string;
-  content: string;
-  isPublished: boolean;
-}
+import type { Project } from '@/lib/types';
+import { site } from '@/lib/site';
+import PageHero from '../../component/ui/PageHero';
+import { Reveal } from '../../component/ui/Reveal';
+import Button from '../../component/ui/Button';
+import SectionHeading from '../../component/ui/SectionHeading';
+import ProjectCard from '../../component/ProjectCard/ProjectCard';
+import FormContentSection from '../../component/FormAndContentSection/FormContentSection';
 
 interface ProjectDetailsClientProps {
   project: Project | null;
@@ -22,95 +19,63 @@ interface ProjectDetailsClientProps {
 
 const ProjectDetailsClient: React.FC<ProjectDetailsClientProps> = ({ project, relatedProjects }) => {
   if (!project) {
-    return <div className="text-center py-5">Project not found</div>;
+    return (
+      <section className="container-x py-48 text-center">
+        <h1 className="font-display text-4xl font-semibold">Project not found</h1>
+        <div className="mt-8 flex justify-center"><Button href="/projects" arrow>Browse all projects</Button></div>
+      </section>
+    );
   }
 
   return (
-    <div className='smartway-project-details'>
-      <section className="inner-hero-sec-wrap">
-        <div className='inner-hero-banner'>
-          <Image src={innerHeroBannerImage} alt="Project Details Banner" className="w-100" width={1200} height={600} />
-        </div>
-        <div className='inner-hero-sec-top-text'>
-          <div className='container'>
-            <div className='row'>
-              <div className='col-12 inner-hero-sec-txt'>
-                <h2 className='fw-semibold'>{project.title}</h2>
-                <ul className='d-flex justify-content-center'>
-                  <li><Link href="/" className='nav-list-link'>Home</Link> / &nbsp; </li>
-                  <li><Link href="/projects" className='nav-list-link'>Projects</Link> / &nbsp; </li>
-                  <li>{project.title}</li>
-                </ul>
+    <>
+      <PageHero
+        title={project.title}
+        eyebrow="Case Study"
+        crumbs={[{ label: 'Home', href: '/' }, { label: 'Projects', href: '/projects' }, { label: project.title }]}
+        image={project.image}
+        imageAlt={project.title}
+      />
+
+      <section className="relative pb-20 md:pb-28">
+        <div className="container-x grid gap-12 lg:grid-cols-12">
+          <Reveal className="lg:col-span-8">
+            <article className="prose-content" dangerouslySetInnerHTML={{ __html: project.content }} />
+          </Reveal>
+          <aside className="lg:col-span-4">
+            <div className="glass sticky top-28 rounded-3xl p-7">
+              <p className="eyebrow mb-4">Like what you see?</p>
+              <h2 className="font-display text-2xl font-semibold">Let&apos;s build something similar for you.</h2>
+              <p className="mt-3 text-sm text-muted">Tell us about your goals and we&apos;ll map out the right solution, timeline and team.</p>
+              <div className="mt-6 flex flex-col gap-3">
+                <Button href="/contactus" arrow className="w-full">Start a project</Button>
+                <a href={`mailto:${site.email}`} className="inline-flex items-center gap-2 text-sm text-muted hover:text-fg">
+                  <Mail className="size-4 text-cyan" /> {site.email}
+                </a>
               </div>
             </div>
-          </div>
+          </aside>
         </div>
       </section>
 
-      <section className="py-100">
-        <div className='container'>
-          <div className='row'>
-            <div className='col-12'>
-              <div className='row mb-4'>
-                <div className='col-12 col-lg-12'>
-                  <div className='card card-xl __radius-tl-70 __radius-br-70 mb-4'>
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      className="object-cover img-h-400 w-100"
-                      width={800}
-                      height={400}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className='project-content'>
-                <div dangerouslySetInnerHTML={{ __html: project.content }} />
-              </div>
+      {relatedProjects.length > 0 && (
+        <section className="relative py-20 md:py-28">
+          <div className="container-x">
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <SectionHeading align="left" eyebrow="More Work" title="Related Projects" />
+              <Button href="/projects" variant="ghost" arrow>All projects</Button>
             </div>
-          </div>
-
-          {relatedProjects.length > 0 && (
-            <div className='row mt-5'>
-              <div className='col-12'>
-                <h3 className='heading-xxl mb-4'>Related Projects</h3>
-              </div>
-              {relatedProjects.map((relatedProject) => (
-                <div key={relatedProject._id} className='col-md-4 __card-parent-hover-blue mb-4'>
-                  
-                    <div className='card card-xl __radius-tr-50 __radius-bl-50'>
-                      <Image
-                        src={relatedProject.image}
-                        alt={relatedProject.title}
-                        width={400}
-                        height={250}
-                        className="w-100 object-cover img-h-250"
-                      />
-                    </div>
-                    <div className='card card-xl __hover-blue __radius-tr-70 __radius-bl-70 mt-3'>
-                      <div className='card-body card-pad-40'>
-                        <h2 className='heading-xl mb-4'>{relatedProject.title}</h2>
-                        <div className="d-inline-block">
-                          <Link href={`/projects/${relatedProject.slug}`} className='btn btn-primary d-flex align-items-center'>
-                            Learn more <i className="far fa-long-arrow-right font-18 ms-2"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                </div>
+            <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {relatedProjects.map((relatedProject, i) => (
+                <ProjectCard key={relatedProject._id} project={relatedProject} index={i} />
               ))}
             </div>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
-      <section className="contact-sec-wrap home-sec-pattern-left overflow-hidden">
-        {/* <div className="logo-bg-pattern-left">
-          <Image src={logoBgPattern} alt="" className="w-100" />
-        </div> */}
-        <FormContentSection />
-      </section>
-    </div>
+      <FormContentSection />
+    </>
   );
 };
 

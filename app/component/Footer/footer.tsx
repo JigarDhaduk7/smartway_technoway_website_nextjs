@@ -1,21 +1,15 @@
 'use client';
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-import './Footer.scss';
+import { motion, useScroll, useTransform } from "motion/react";
+import { ArrowUp, ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 
 import logo from "@/public/assets/images/smartwaytechnoway-logo.png";
-// import logoBgPattern from "@/assets/images/logo-large-bg-patterns.svg";
-
-// import itStrategyIcon from "@/assets/images/it-strategy-icon.svg";
-// import workforceIcon from "@/assets/images/workforce-icon.svg";
-
-import getInTouchIcon1 from "@/public/assets/images/get-in-touch-icon-1.svg";
-import getInTouchIcon2 from "@/public/assets/images/get-in-touch-icon-2.svg";
-import getInTouchIcon3 from "@/public/assets/images/get-in-touch-icon-3.svg";
 import { getData } from "@/lib/api";
+import { mainNav, resourceNav, site } from "@/lib/site";
+import { scrollToTop } from "../ui/SmoothScroll";
 
 interface FooterService {
   _id: string;
@@ -23,11 +17,16 @@ interface FooterService {
   slug: string;
 }
 
+const linkCls = "group inline-flex items-center gap-1 py-1.5 text-muted transition-colors hover:text-fg";
+
 const Footer: React.FC = () => {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [scrollPercent, setScrollPercent] = useState<number>(0);
   const [services, setServices] = useState<FooterService[]>([]);
   const [servicesLoading, setServicesLoading] = useState<boolean>(true);
+  const [showTop, setShowTop] = useState(false);
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end end"] });
+  const wordY = useTransform(scrollYProgress, [0, 1], ["60%", "0%"]);
+  const { scrollYProgress: pageProgress } = useScroll();
 
   useEffect(() => {
     const fetchServices = async () => {
@@ -45,211 +44,143 @@ const Footer: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-
-      const scrolled = (scrollTop / docHeight) * 100;
-      setScrollPercent(scrolled);
-
-      setIsVisible(scrollTop > 200);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setShowTop(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToTop = (e: React.MouseEvent) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
-    <div>
-      <footer className="footer-sec-wrap">
-        <div className="container">
-          <div className="row justify-content-between pb-4">
-            {/* LOGO */}
-            <div className="col-lg-4">
-              <div className="row">
-                <div className="col-12">
-                  <div className="footer-logo">
-                    <Image src={logo} alt="Logo" className="img-fluid" />
-                  </div>
-                </div>
-                <div className="col-12">
-                  <p>
-                    <span className="fw-bold">Smartway Technoway</span> is a premier IT services and software development partner, empowering global enterprises with custom software engineering, dedicated staff augmentation, cloud solutions, and digital transformation.
-                  </p>
-                  {/* <p>Fore - Smartway Technoway</p> */}
-                </div>
+    <>
+      <footer ref={ref} className="relative z-[1] mt-10 overflow-hidden border-t border-line bg-night">
+        <div className="pointer-events-none absolute inset-0 bg-grid opacity-40 mask-fade-y" />
+        <div className="pointer-events-none absolute -bottom-40 left-1/2 h-80 w-[900px] -translate-x-1/2 rounded-full bg-brand/30 blur-[140px]" />
+
+        <div className="container-x relative pt-20 pb-10">
+          <div className="grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <Image src={logo} alt={site.name} className="h-16 w-auto brightness-0 invert" />
+              <p className="mt-6 max-w-sm text-muted">
+                <span className="font-semibold text-fg">Smartway Technoway</span> is a premier IT services and software development partner, empowering global enterprises with custom software engineering, dedicated staff augmentation, cloud solutions, and digital transformation.
+              </p>
+              <div className="mt-8 space-y-3 text-sm">
+                <a href={`mailto:${site.email}`} className="flex items-center gap-3 text-muted hover:text-fg">
+                  <span className="grid size-9 place-items-center rounded-full border border-line"><Mail className="size-4 text-cyan" /></span>
+                  {site.email}
+                </a>
+                <a href={site.phoneHref} className="flex items-center gap-3 text-muted hover:text-fg">
+                  <span className="grid size-9 place-items-center rounded-full border border-line"><Phone className="size-4 text-cyan" /></span>
+                  {site.phone}
+                </a>
+                <p className="flex items-start gap-3 text-muted">
+                  <span className="grid size-9 shrink-0 place-items-center rounded-full border border-line"><MapPin className="size-4 text-cyan" /></span>
+                  <span className="pt-1.5">{site.address}</span>
+                </p>
               </div>
             </div>
 
-            {/* LINKS */}
-            <div className="col-lg-7">
-              <div className="row justify-content-between">
-                {/* COMPANY */}
-                <div className="col-auto">
-                  <div className="footer-links-col">
-                    <h6 className="fw-bold my-4">Company</h6>
-                    <ul>
-                      <li className="py-1">
-                        <Link href="/" className="footer-list-link">Home</Link>
-                      </li>
-                      <li className="py-1">
-                        <Link href="/about" className="footer-list-link">About Us</Link>
-                      </li>
-                      <li className="py-1">
-                        <Link href="/career" className="footer-list-link">Career</Link>
-                      </li>
-                      <li className="py-1">
-                        <Link href="/services" className="footer-list-link">Services</Link>
-                      </li>
-                      <li className="py-1">
-                        <Link href="/projects" className="footer-list-link">Projects</Link>
-                      </li>
-                      <li className="py-1">
-                        <Link href="/blogs" className="footer-list-link">Blogs</Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-8 lg:pl-10">
+              <div>
+                <h3 className="mb-4 font-mono text-xs tracking-[0.2em] text-subtle uppercase">Company</h3>
+                <ul>
+                  {mainNav.map((l) => (
+                    <li key={l.href}>
+                      <Link href={l.href} className={linkCls}>{l.label === 'About' ? 'About Us' : l.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-                {/* SERVICES */}
-                <div className="col-auto">
-                  <div className="footer-links-col">
-                    <h6 className="fw-bold my-4">Services</h6>
-                    <ul>
-                      {servicesLoading ? (
-                        <li className="py-1 placeholder-glow">
-                          <span className="placeholder col-8"></span>
-                        </li>
-                      ) : services.length > 0 ? (
-                        services.map((service) => (
-                          <li key={service._id} className="py-1">
-                            <Link href={`/services/${service.slug}`} className="footer-list-link">
-                              {service.title}
-                            </Link>
-                          </li>
-                        ))
-                      ) : (
-                        <li className="py-1">
-                          <Link href="/services" className="footer-list-link">View All Services</Link>
-                        </li>
-                      )}
-                    </ul>
-                  </div>
-                </div>
+              <div>
+                <h3 className="mb-4 font-mono text-xs tracking-[0.2em] text-subtle uppercase">Services</h3>
+                <ul>
+                  {servicesLoading ? (
+                    [1, 2, 3].map((i) => (
+                      <li key={i} className="py-2"><span className="block h-3 w-32 animate-pulse rounded bg-white/10" /></li>
+                    ))
+                  ) : services.length > 0 ? (
+                    services.map((service) => (
+                      <li key={service._id}>
+                        <Link href={`/services/${service.slug}`} className={linkCls}>{service.title}</Link>
+                      </li>
+                    ))
+                  ) : (
+                    <li>
+                      <Link href="/services" className={linkCls}>View All Services</Link>
+                    </li>
+                  )}
+                </ul>
+              </div>
 
-                {/* RESOURCES */}
-                <div className="col-auto">
-                  <div className="footer-links-col">
-                    <h6 className="fw-bold my-4">Resources</h6>
-                    <ul>
-                      <li className="py-1">
-                        <Link href="/pricing" className="footer-list-link">Pricing Plans</Link>
-                      </li>
-                      <li className="py-1">
-                        <Link href="/faqs" className="footer-list-link">FAQs</Link>
-                      </li>
-                      <li className="py-1">
-                        <Link href="/support" className="footer-list-link">Help Center</Link>
-                      </li>
-                      <li className="py-1">
-                        <Link href="/documentation" className="footer-list-link">Documentation</Link>
-                      </li>
-                      <li className="py-1">
-                        <Link href="/privacy-policy" className="footer-list-link">Privacy Policy</Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+              <div>
+                <h3 className="mb-4 font-mono text-xs tracking-[0.2em] text-subtle uppercase">Resources</h3>
+                <ul>
+                  {resourceNav.map((l) => (
+                    <li key={l.href}>
+                      <Link href={l.href} className={linkCls}>{l.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
+              <div className="col-span-2 sm:col-span-3">
+                <div className="glass mt-4 flex flex-col gap-4 rounded-3xl p-6 md:flex-row md:items-center md:justify-between">
+                  <div>
+                    <p className="font-display text-xl font-semibold">Have a project in mind?</p>
+                    <p className="text-sm text-muted">Let&apos;s turn your idea into impact.</p>
+                  </div>
+                  <Link
+                    href="/contactus"
+                    className="group inline-flex min-h-12 items-center gap-2 self-start rounded-full bg-white px-6 font-semibold text-ink transition-colors hover:bg-cyan md:self-auto"
+                  >
+                    Start a conversation
+                    <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* SUBSCRIBE + CONTACT */}
-          <div className="row justify-content-between">
-            {/* SUBSCRIBE */}
-            <div className="col-lg-4">
-              <h6 className="fw-bold mb-3">Subscribe Now</h6>
-              <div className="row align-items-center">
-                <div className="col">
-                  <input
-                    type="text"
-                    className="form-control bg-primary py-4"
-                    placeholder="Enter your email"
-                  />
-                </div>
-                <div className="col-auto">
-                  <button type="button" className="btn btn-primary">
-                    Subscribe
-                  </button>
-                </div>
-              </div>
-            </div>
+          <div className="relative mt-12 overflow-hidden pt-4" aria-hidden>
+            <motion.p
+              style={{ y: wordY }}
+              className="text-gradient select-none text-center font-display text-[15vw] leading-[1.2] font-bold tracking-tighter opacity-90 lg:text-[11.5rem]"
+            >
+              Technoway
+            </motion.p>
+          </div>
 
-            {/* GET IN TOUCH */}
-            <div className="col-lg-7">
-              <h6 className="fw-bold mt-4">Get in Touch</h6>
-
-              <div className="row">
-                <div className="col-md-4 col-lg-6 col-xl-4 py-2">
-                  <div className="d-flex align-items-start">
-                    <Image src={getInTouchIcon1} className="mt-1" alt="Address" width={25} />
-                    <p className="mb-0 ps-2">
-                      A-401, Times Square Grand, Nr. Sattva Vikas School, Sindhubhavan Main Road, Thaltej, Ahmedabad, Gujarat (380059)
-                    </p>
-                  </div>
-                </div>
-
-                <div className="col-md-4 col-lg-6 col-xl-4 py-2">
-                  <div className="d-flex">
-                    <Image src={getInTouchIcon2} alt="Phone" width={25} />
-                    <p className="mb-0 ps-2">
-                      <a href="tel:+079-69209901/02" className="footer-list-link">+079-69209901/02</a>
-                    </p>
-                  </div>
-                </div>
-
-                <div className="col-md-4 col-lg-6 col-xl-4 py-2">
-                  <div className="d-flex">
-                    <Image src={getInTouchIcon3} alt="Email" width={25} />
-                    <p className="mb-0 ps-2">
-                      <a href="mailto:info@smartwaytechnoway.com" className="footer-list-link">info@smartwaytechnoway.com</a>
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
+          <div className="mt-8 flex flex-col gap-3 border-t border-line pt-6 text-sm text-subtle md:flex-row md:items-center md:justify-between">
+            <p>© {new Date().getFullYear()} Smartway Technoway Pvt Ltd | A Smartway Group Company</p>
+            <p className="font-mono text-xs tracking-widest uppercase">From Thought to Impact</p>
           </div>
         </div>
       </footer>
-      <div className="footer-copyrigh">
-        © 2026 Smartway Technoway Pvt Ltd | A Smartway Group Company | From Thought to Impact
-      </div>
 
       {/* BACK TO TOP BUTTON */}
-      <a
-        href="#"
-        className={`back-to-top ${isVisible ? "visible" : ""}`}
+      <motion.button
+        type="button"
         onClick={scrollToTop}
-        style={{
-          background: `conic-gradient(#265CAA ${scrollPercent}%, #768EA4 ${scrollPercent}%)`,
-        }}
         aria-label="Back to Top"
+        initial={false}
+        animate={{ opacity: showTop ? 1 : 0, scale: showTop ? 1 : 0.6, pointerEvents: showTop ? 'auto' : 'none' }}
+        className="fixed right-5 bottom-5 z-40 grid size-13 place-items-center rounded-full bg-night/80 backdrop-blur"
       >
-        <svg className="icon" viewBox="0 0 24 24">
-          <path d="M12 4l-8 8h6v8h4v-8h6z" fill="white" />
+        <svg className="absolute inset-0 size-full -rotate-90" viewBox="0 0 52 52" aria-hidden>
+          <circle cx="26" cy="26" r="24" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="2" />
+          <motion.circle
+            cx="26" cy="26" r="24" fill="none" stroke="url(#ttg)" strokeWidth="2" strokeLinecap="round"
+            style={{ pathLength: pageProgress }}
+          />
+          <defs>
+            <linearGradient id="ttg" x1="0" x2="1">
+              <stop offset="0%" stopColor="#3d7bff" />
+              <stop offset="100%" stopColor="#2dd4ff" />
+            </linearGradient>
+          </defs>
         </svg>
-      </a>
-
-    </div>
+        <ArrowUp className="size-5 text-fg" />
+      </motion.button>
+    </>
   );
 };
 

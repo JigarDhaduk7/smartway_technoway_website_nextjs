@@ -1,26 +1,354 @@
-/* @import "tailwindcss"; */
+@import "tailwindcss";
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============================================================
+   Smartway Technoway — Design tokens
+   Midnight tech theme built around brand blue #265CAA
+   ============================================================ */
+@theme {
+  --color-ink: #05070f;
+  --color-night: #0a0f1e;
+  --color-surface: #0e1528;
+  --color-surface-2: #141d36;
+  --color-line: rgb(255 255 255 / 0.08);
+  --color-line-strong: rgb(255 255 255 / 0.16);
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-fg: #eef2fa;
+  --color-muted: #94a0bb;
+  --color-subtle: #64708c;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-brand: #265caa;
+  --color-brand-bright: #3d7bff;
+  --color-cyan: #2dd4ff;
+  --color-violet: #8b6cff;
+
+  --font-display: var(--nf-display), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--nf-body), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--nf-mono), ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-marquee-reverse: marquee-reverse var(--marquee-duration, 40s) linear infinite;
+  --animate-spin-slow: spin 18s linear infinite;
+  --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
+
+  @keyframes marquee {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
+  }
+  @keyframes marquee-reverse {
+    from { transform: translate3d(-50%, 0, 0); }
+    to { transform: translate3d(0, 0, 0); }
+  }
+  @keyframes word-rise {
+    from { transform: translate3d(0, 110%, 0) rotate(4deg); }
+    to { transform: translate3d(0, 0, 0) rotate(0); }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translate3d(0, 22px, 0); filter: blur(8px); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.08); }
   }
 }
 
+/* ---------- Base ---------- */
+html {
+  background: var(--color-ink);
+  color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
+  background: var(--color-ink);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--color-brand-bright);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-ink); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-2);
+  border: 2px solid var(--color-ink);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-brand); }
+
+/* ---------- Utilities ---------- */
+@utility container-x {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (min-width: 640px) { padding-inline: 1.5rem; }
+  @media (min-width: 1024px) { padding-inline: 2rem; }
+}
+
+@utility text-gradient {
+  background: linear-gradient(100deg, #ffffff 0%, #a9c4ff 35%, var(--color-cyan) 70%, var(--color-violet) 100%);
+  background-size: 200% 100%;
+  /* Room below the baseline so descenders (g, y, p) are painted by the clipped gradient */
+  padding-bottom: 0.2em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-brand {
+  background: linear-gradient(100deg, var(--color-brand-bright), var(--color-cyan));
+  padding-bottom: 0.2em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glass {
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.06), rgb(255 255 255 / 0.02));
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@utility mask-fade-y {
+  mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
+}
+@utility mask-fade-x {
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+@utility mask-radial {
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+}
+
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-cyan);
+}
+
+/* Custom cursor (enabled from JS on fine pointers only). Text fields keep the native caret. */
+html.custom-cursor,
+html.custom-cursor * {
+  cursor: none !important;
+}
+html.custom-cursor input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]),
+html.custom-cursor textarea,
+html.custom-cursor [contenteditable="true"] {
+  cursor: text !important;
+}
+
+/* On-load entrance animations (CSS so they run before hydration). Delay via inline animation-delay. */
+.anim-word-rise {
+  animation: word-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.anim-fade-up {
+  animation: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Gradient border that follows the pointer (set --mx/--my from JS) */
+.spotlight-card {
+  position: relative;
+  isolation: isolate;
+}
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 0%),
+    rgb(61 123 255 / 0.9),
+    rgb(45 212 255 / 0.35) 30%,
+    transparent 60%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+.spotlight-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    500px circle at var(--mx, 50%) var(--my, 0%),
+    rgb(61 123 255 / 0.12),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+.spotlight-card:hover::before,
+.spotlight-card:hover::after {
+  opacity: 1;
+}
+
+/* Film grain overlay */
+.noise {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ---------- Rich text coming from the admin panel ---------- */
+.prose-content {
+  color: var(--color-muted);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+.prose-content > * + * { margin-top: 1rem; }
+.prose-content h1,
+.prose-content h2,
+.prose-content h3,
+.prose-content h4,
+.prose-content h5,
+.prose-content h6 {
+  color: var(--color-fg);
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+.prose-content h1 { font-size: 2rem; }
+.prose-content h2 { font-size: 1.75rem; }
+.prose-content h3 { font-size: 1.5rem; }
+.prose-content h4 { font-size: 1.3rem; }
+.prose-content h5, .prose-content h6 { font-size: 1.15rem; }
+.prose-content b,
+.prose-content strong { color: var(--color-fg); font-weight: 600; }
+.prose-content a {
+  color: var(--color-cyan);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-content ul,
+.prose-content ol {
+  padding-left: 0;
+  list-style: none;
+}
+.prose-content ul > li,
+.prose-content ol > li {
+  position: relative;
+  padding-left: 1.6rem;
+  margin: 0.45rem 0;
+}
+.prose-content ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.72em;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, var(--color-brand-bright), var(--color-cyan));
+}
+.prose-content ol { counter-reset: item; }
+.prose-content ol > li::before {
+  counter-increment: item;
+  content: counter(item) ".";
+  position: absolute;
+  left: 0;
+  color: var(--color-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+.prose-content img {
+  border-radius: 1rem;
+  max-width: 100%;
+  height: auto;
+}
+.prose-content blockquote {
+  border-left: 3px solid var(--color-brand-bright);
+  padding-left: 1rem;
+  color: var(--color-fg);
+}
+.prose-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.prose-content td,
+.prose-content th {
+  border: 1px solid var(--color-line);
+  padding: 0.6rem 0.8rem;
+}
+
+/* ---------- Toasts ---------- */
+.toast-dark {
+  background: var(--color-surface-2) !important;
+  color: var(--color-fg) !important;
+  border: 1px solid var(--color-line-strong) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

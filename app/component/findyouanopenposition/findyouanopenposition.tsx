@@ -1,19 +1,24 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { Briefcase, Clock, MapPin, Users, Send } from "lucide-react";
 import { getData } from "../../../lib/api";
+import type { Job } from "@/lib/types";
+import Accordion from "../ui/Accordion";
+import SectionHeading from "../ui/SectionHeading";
+import { Reveal } from "../ui/Reveal";
+import Button from "../ui/Button";
+import { scrollToId } from "../ui/SmoothScroll";
 
-interface Job {
-  _id: string;
-  title: string;
-  location: string;
-  jobType: string;
-  experience: string;
-  openings: number;
-  description: string;
-  requiredSkills: string[];
-  responsibilities: string[];
-}
+const bullet = 'relative pl-6 before:absolute before:left-1 before:top-[0.6em] before:size-2 before:rotate-45 before:rounded-[2px] before:bg-gradient-to-br before:from-brand-bright before:to-cyan';
+
+const Meta = ({ icon: Icon, label, value }: { icon: typeof Clock; label: string; value: React.ReactNode }) => (
+  <span className="inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1 text-xs font-normal text-muted">
+    <Icon className="size-3.5 text-cyan" aria-hidden />
+    <span className="sr-only">{label}: </span>
+    {value}
+  </span>
+);
 
 const FindYouAnOpenPosition: React.FC = () => {
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -34,162 +39,67 @@ const FindYouAnOpenPosition: React.FC = () => {
   }, []);
 
   return (
-    <section id='SeeCurrentOpening' className="company-values-wrap home-sec-pattern-right py-100">
-      <div className="container">
-        <div
-          className="row align-items-center justify-content-between"
-          data-aos="fade-up"
-        >
-          <div className="col-lg-7 col-xl-6">
-            <h2 className="heading-xxxl mb-3">
-              Let's find you an open position.
-            </h2>
-          </div>
-          <div className="col-lg-5 col-xl-4">
-            <p className="peragraph-style-1">
-              Explore a curated list of opportunities tailored to your skills,
-              interests, and career goals—helping you move confidently toward
-              your next big role.
-            </p>
-          </div>
-        </div>
-        <div className="row pt-4">
-          <div className="col-12" data-aos="fade-up">
-            {loading ? (
-              <div className="placeholder-glow">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="card mb-3">
-                    <div className="card-body">
-                      <span className="placeholder col-6 mb-2"></span>
-                      <span className="placeholder col-12 mb-2"></span>
+    <section id="SeeCurrentOpening" className="relative py-20 md:py-28">
+      <div className="container-x">
+        <SectionHeading
+          eyebrow="Open Roles"
+          title="Let's find you an open position."
+          description="Explore a curated list of opportunities tailored to your skills, interests, and career goals—helping you move confidently toward your next big role."
+        />
+        <Reveal className="mt-14">
+          {loading ? (
+            <div className="space-y-3">
+              {[1, 2, 3].map((i) => <div key={i} className="h-20 animate-pulse rounded-2xl bg-white/5" />)}
+            </div>
+          ) : jobs.length === 0 ? (
+            <p className="rounded-2xl border border-line p-8 text-center text-muted">No open positions right now — send us your resume below and we&apos;ll keep you in mind.</p>
+          ) : (
+            <Accordion
+              items={jobs.map((job) => ({
+                key: job._id,
+                title: (
+                  <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                    <div>
+                      <span className="block text-fg">{job.title}</span>
+                      <span className="mt-1 flex items-center gap-1.5 text-sm font-normal text-muted">
+                        <MapPin className="size-3.5" aria-hidden /> {job.location}
+                      </span>
+                    </div>
+                    <div className="flex flex-wrap gap-2 md:justify-end">
+                      <Meta icon={Briefcase} label="Job Type" value={job.jobType} />
+                      <Meta icon={Clock} label="Experience" value={job.experience} />
+                      <Meta icon={Users} label="No. Of Opening" value={`${job.openings} opening${job.openings === 1 ? '' : 's'}`} />
                     </div>
                   </div>
-                ))}
-              </div>
-            ) : (
-              <div
-                className="accordion accordion-card career-accordion"
-                id="DefaultAccordionsWrap"
-              >
-                {jobs.map((job, index) => (
-                  <div key={job._id} className="accordion-item">
-                    <h2 className="accordion-header">
-                      <button
-                        className={`accordion-button font-14 pe-0 flex-wrap ${index !== 0 ? "collapsed" : ""
-                          }`}
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target={`#accordion${index + 1}`}
-                        aria-expanded={index === 0}
-                        aria-controls={`accordion${index + 1}`}
-                      >
-                        <div className="col-12 col-md-auto mb-2 mb-md-0">
-                          <div className="text-secondary fw-semibold mb-1">
-                            {job.title}
-                          </div>
-                          <div className="text-primary-emphasis fw-normal">
-                            {job.location}
-                          </div>
-                        </div>
-                        <div className="col">
-                          <div className="row mx-md-0 justify-content-md-end">
-                            <div className="col-12 col-md-auto mb-2 mb-md-0">
-                              <span className="text-secondary fw-semibold mb-1">
-                                Job Type:{" "}
-                              </span>
-                              <span className="fw-semibold">{job.jobType}</span>
-                            </div>
-                            <div className="col-12 col-md-auto mb-2 mb-md-0">
-                              <span className="text-secondary fw-semibold mb-1">
-                                Experience:{" "}
-                              </span>
-                              <span className="fw-semibold">
-                                {job.experience}
-                              </span>
-                            </div>
-                            <div className="col-12 col-md-auto mb-2 mb-md-0">
-                              <span className="text-secondary fw-semibold mb-1">
-                                No. Of Opening:{" "}
-                              </span>
-                              <span className="fw-semibold">{job.openings}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </button>
-                    </h2>
-                    <div
-                      id={`accordion${index + 1}`}
-                      className={`accordion-collapse collapse ${index === 0 ? "show" : ""
-                        }`}
-                      data-bs-parent="#DefaultAccordionsWrap"
-                    >
-                      <div className="accordion-body">
-                        <div className="bg-white">
-                          <div className="row mx-0 py-3">
-                            <div className="col-12 px-4 border-bottom mb-4">
-                              <p>{job.description}</p>
-                            </div>
-                            <div className="col-12 px-4">
-                              <div className="row justify-content-between">
-                                <div className="col-xl-6 col-xxl-5 mb-3">
-                                  <h5 className="heading-sm fw-bold text-primary mb-3">
-                                    Required Skills
-                                  </h5>
-                                  {job.requiredSkills.map((skill, skillIndex) => (
-                                    <p
-                                      key={skillIndex}
-                                      className="peragraph-style-1 list-sty-arrow"
-                                    >
-                                      <i className="far fa-angle-double-right text-secondary me-2"></i>{" "}
-                                      {skill}
-                                    </p>
-                                  ))}
-                                </div>
-                                <div className="col-xl-6 col-xxl-5 mb-3">
-                                  <h5 className="heading-sm fw-bold text-primary mb-3">
-                                    Roles and Responsibilities
-                                  </h5>
-                                  {job.responsibilities.map(
-                                    (responsibility, respIndex) => (
-                                      <p
-                                        key={respIndex}
-                                        className="peragraph-style-1 list-sty-arrow"
-                                      >
-                                        <i className="far fa-angle-double-right text-secondary me-2"></i>{" "}
-                                        {responsibility}
-                                      </p>
-                                    )
-                                  )}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="text-end mt-4 mb-1">
-                          <div className="d-inline-block">
-                            <button
-                              onClick={() => {
-                                const element = document.getElementById('ApplyForCareer');
-                                const offset = 80;
-                                const elementPosition = element?.getBoundingClientRect().top || 0;
-                                const offsetPosition = elementPosition + window.pageYOffset - offset;
-                                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                              }}
-                              className="btn btn-primary btn-lg d-flex align-items-center"
-                            >
-                              <i className="fas fa-envelope font-18 me-2"></i>{" "}
-                              Apply Now
-                            </button>
-                          </div>
-                        </div>
+                ),
+                content: (
+                  <div className="border-t border-line pt-5">
+                    <p className="mb-6">{job.description}</p>
+                    <div className="grid gap-8 md:grid-cols-2">
+                      <div>
+                        <h4 className="mb-3 font-display text-lg font-semibold text-fg">Required Skills</h4>
+                        <ul className="space-y-2">
+                          {job.requiredSkills.map((skill, i) => <li key={i} className={bullet}>{skill}</li>)}
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="mb-3 font-display text-lg font-semibold text-fg">Roles and Responsibilities</h4>
+                        <ul className="space-y-2">
+                          {job.responsibilities.map((r, i) => <li key={i} className={bullet}>{r}</li>)}
+                        </ul>
                       </div>
                     </div>
+                    <div className="mt-8">
+                      <Button onClick={() => scrollToId('ApplyForCareer')}>
+                        <span className="inline-flex items-center gap-2"><Send className="size-4" /> Apply Now</span>
+                      </Button>
+                    </div>
                   </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
+                ),
+              }))}
+            />
+          )}
+        </Reveal>
       </div>
     </section>
   );
